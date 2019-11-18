@@ -2,12 +2,14 @@
   "engines": {
     "node": "10.*"
   },
-  "name": "react-component-lib",
-  "description": "React starter kit",
-  "version": "3.0.0",
+  "name": "@lvlsgroup/react-component-lib",
+  "author": "lvlsgroup",
+  "description": "A component library for react",
+  "version": "0.0.1",
   "main": "src/server/server.js",
   "license": "MIT",
   "scripts": {
+    "deploy": "npm publish",
     "prod": "NODE_ENV=production concurrently --kill-others \"node _build_prod/bin/server.prod.js\"",
     "dev": "rimraf _build_dev && cross-env NODE_ENV=development concurrently --kill-others \"node bin/server.dev.js\"",
     "buildscript": "cross-env NODE_ENV=production node scripts/build",
@@ -113,5 +115,8 @@
   "repository": {
     "type": "git",
     "url": "git@github.com:lvlsgroup/react-component-lib.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/@lvlsgroup"
   }
 }

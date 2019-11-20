@@ -1,0 +1,10 @@
+.checkMarkFatUtf {
+  display: flex;
+  font-size: 0.8em;
+  flex-direction: column;
+  justify-content: center;
+
+  &:before {
+    content: '✔';
+  }
+}

@@ -1,0 +1,32 @@
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+
+  &.leftLabel {
+    flex-direction: row;
+  }
+}
+
+.formLabel {
+  font-size: $font-size-text-sm;
+  letter-spacing: 0.5px;
+  padding: 0 0 6px 0;
+  color: $color-black;
+
+  &.leftLabel {
+    padding: 0 6px 0 0;
+    font-size: 1em;
+    align-self: center;
+  }
+}
+
+.leftLabelInput {
+  border-radius: 0;
+  padding: 0;
+}
+
+.errorText {
+  composes: formLabel;
+  text-transform: uppercase;
+  color: red;
+}

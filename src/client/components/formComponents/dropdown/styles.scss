@@ -1,0 +1,53 @@
+.dropDown {
+  user-select: none;
+  position: relative;
+
+  .icon {
+    font-size: 9px;
+  }
+
+  .header {
+    height: 34px;
+    display: flex;
+    flex: 1;
+    align-items: center;
+    cursor: pointer;
+
+    .title {
+      font-weight: 700;
+      margin-right: 8px;
+    }
+
+    &:hover {
+      background-color: #f8f9fa;
+    }
+  }
+}
+
+.dropDownMenu {
+  padding: 0;
+  margin: 0;
+  z-index: 10;
+  position: absolute;
+  width: 100%;
+  background-color: #fff;
+  max-height: 215px;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+
+  .dropDownMenuItem {
+    display: flex;
+    padding: 8px 10px;
+    cursor: pointer;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    &:hover {
+      background-color: #f8f9fa;
+    }
+
+    .dropDownMenuItemText {
+      margin-right: 8px;
+    }
+  }
+}

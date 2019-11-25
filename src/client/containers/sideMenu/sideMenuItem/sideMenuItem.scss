@@ -1,0 +1,36 @@
+.sideMenuItem {
+  display: flex;
+  flex-direction: column;
+
+  .itemBox {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px;
+
+    @include bpTablet() {
+      flex-direction: column;
+      margin-bottom: 40px;
+    }
+
+    .title {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
+
+.focused, .itemBox:hover {
+  position: relative;
+
+  &:before {
+    content: "";
+    @include coloredSquare($color-brand-yellow, 6px);
+    left: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: block;
+    position: absolute;
+  }
+}

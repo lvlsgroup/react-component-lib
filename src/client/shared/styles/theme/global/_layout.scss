@@ -48,3 +48,14 @@ $max-content-width: 1128px;
   -moz-box-sizing: $type;
   -webkit-box-sizing: $type;
 }
+
+@mixin coloredSquare($color, $side) {
+  display: block;
+  width: $side;
+  height: $side;
+  background-color: $color;
+}
+
+@mixin box-shadow-primary() {
+  box-shadow: 0 0 4px $color-box-shadow-primary;
+}

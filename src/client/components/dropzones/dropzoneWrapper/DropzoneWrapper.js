@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Dropzone from 'react-dropzone';
+import styles from './dropzoneWrapper.scss';
 
 function DropzoneWrapper({ children, onFileDrop, multiple }) {
   return (
@@ -8,7 +9,7 @@ function DropzoneWrapper({ children, onFileDrop, multiple }) {
       {({ getRootProps, getInputProps }) => {
         return (
           <section>
-            <div {...getRootProps()}>
+            <div className={styles.dropzoneContainer} {...getRootProps()}>
               <input {...getInputProps()} />
               {children}
             </div>

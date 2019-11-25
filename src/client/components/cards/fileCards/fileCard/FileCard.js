@@ -4,15 +4,16 @@ import CrossIcon from '@rc-lib-client/components/icons/crossIcon/CrossIcon';
 import DocumentIcon from '@rc-lib-client/components/icons/documentIcon/DocumentIcon';
 import VideoFileIcon from '@rc-lib-client/components/icons/videoFileIcon/VideoFileIcon';
 import AudioFileIcon from '@rc-lib-client/components/icons/audioFileIcon/AudioFileIcon';
+import ProgressBar from '@rc-lib-client/components/loaders/progressBar/ProgressBar';
 import styles from './fileCard.scss';
 
 function FileCard({
   className,
   onClick,
   file,
-  index,
   onFileRemove,
-  showDetails = true,
+  LeftSlot,
+  uploadProgress,
 }) {
   const getIcon = (type, style) => {
     if (type.includes('audio/')) {
@@ -25,46 +26,46 @@ function FileCard({
   };
 
   const handleFileRemove = () => {
-    onFileRemove(index, file);
+    onFileRemove(file);
   };
 
   const isImage = file.type.includes('image/');
   const icon = getIcon(file.type, { fill: 'black', height: '64px' });
 
   return (
-    <div
-      className={`${styles.imagePreview}${className ? ` ${className}` : ''}`}
-      onClick={onClick}
-    >
-      <div className={styles.imageOptions}>
-        <CrossIcon
-          onClick={handleFileRemove}
-          crossColor="white"
-          style={{
-            borderRadius: '50%',
-            backgroundColor: 'rgba(46,46,46,0.85)',
-          }}
-        />
-      </div>
-      {isImage ? (
-        <img
-          className={styles.imagePreviewImg}
-          key={index}
-          src={URL.createObjectURL(file)}
-          alt="Dropped image"
-        />
-      ) : (
-        <div className={styles.icon}>{icon}</div>
-      )}
-      {showDetails && (
-        <div className={styles.detailsView}>
-          <span>name: {file.name}</span>
-          <span>path: {file.path}</span>
-          <span>lastModified: {file.lastModified}</span>
-          <span>size: {file.size}</span>
-          <span>type: {file.type}</span>
+    <div className={styles.fileCard}>
+      <div
+        className={`${styles.imageContentContainer}${
+          className ? ` ${className}` : ''
+        }`}
+        onClick={onClick}
+      >
+        {LeftSlot && LeftSlot}
+        <div className={styles.imageAndOptionContainer}>
+          <div className={styles.imageOptions}>
+            <CrossIcon
+              onClick={handleFileRemove}
+              crossColor="white"
+              style={{
+                borderRadius: '50%',
+                backgroundColor: 'rgba(46,46,46,0.85)',
+              }}
+            />
+          </div>
+          <div className={styles.imageContainer}>
+            {isImage ? (
+              <img
+                className={styles.image}
+                src={URL.createObjectURL(file)}
+                alt="Dropped image"
+              />
+            ) : (
+              <div className={styles.icon}>{icon}</div>
+            )}
+          </div>
         </div>
-      )}
+      </div>
+      {uploadProgress && <ProgressBar progress={uploadProgress} />}
     </div>
   );
 }
@@ -73,9 +74,14 @@ FileCard.propTypes = {
   className: PropTypes.string,
   onClick: PropTypes.func,
   file: PropTypes.object,
-  index: PropTypes.number,
   onFileRemove: PropTypes.func,
   showDetails: PropTypes.bool,
+  uploadProgress: PropTypes.number,
+  LeftSlot: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.object,
+    PropTypes.func,
+  ]),
 };
 
 export default FileCard;

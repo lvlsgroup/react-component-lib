@@ -8,10 +8,17 @@ export function imArrayMerge(first, second) {
 
 // It basically add an item to a list If item exists it updates it with new value,
 // otherwise it just adds the item to the list, ie. The list shall not have any duplicated items.
-export function imSetToArray(array = [], mapToAdd = {}, objUniqueField = '') {
-  const indexToUpdate = array.findIndex((arrayItem) => {
-    return arrayItem[objUniqueField] === mapToAdd[objUniqueField];
-  });
+export function imSetToArray(
+  array = [],
+  mapToAdd = {},
+  objUniqueField = '',
+  index
+) {
+  const indexToUpdate = index
+    ? index
+    : array.findIndex((arrayItem) => {
+        return arrayItem[objUniqueField] === mapToAdd[objUniqueField];
+      });
 
   if (indexToUpdate === -1) {
     // mapToAdd doesn't exists in list
@@ -31,9 +38,32 @@ export function imDeleteFromArray(array = [], index) {
   return imArrayMerge(firstPart, secondPart);
 }
 
+export function imDeleteFromArrayById(array = [], idFieldName, idValue) {
+  const indexToDelete = array.findIndex((arrayItem) => {
+    return arrayItem[idFieldName] === idValue;
+  });
+
+  return imDeleteFromArray(array, indexToDelete);
+}
+
+export function imDeleteItemFromArray(array = [], item) {
+  const indexToDelete = array.findIndex((arrayItem) => {
+    return arrayItem === item;
+  });
+
+  return imDeleteFromArray(array, indexToDelete);
+}
+
 export function imSetToObj(obj = {}, key, value) {
   return {
     ...obj,
     [key]: value,
+  };
+}
+
+export function imMergeObj(first = {}, second = {}) {
+  return {
+    ...first,
+    ...second,
   };
 }

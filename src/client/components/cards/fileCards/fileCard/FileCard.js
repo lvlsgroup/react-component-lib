@@ -13,8 +13,9 @@ function FileCard({
   onClick,
   file,
   onFileRemove,
-  LeftSlot,
+  SlotLeft,
   uploadProgress,
+  SlotUnderImage,
 }) {
   const getIcon = (type, style) => {
     if (type.includes('audio/')) {
@@ -36,7 +37,7 @@ function FileCard({
   return (
     <div className={classNames(styles.fileCard, className)}>
       <div className={styles.imageContentContainer} onClick={onClick}>
-        {LeftSlot && LeftSlot}
+        {SlotLeft && SlotLeft}
         <div className={styles.imageAndOptionContainer}>
           <div className={styles.imageOptions}>
             <CrossIcon
@@ -58,6 +59,7 @@ function FileCard({
             ) : (
               <div className={styles.icon}>{icon}</div>
             )}
+            {SlotUnderImage && SlotUnderImage}
           </div>
         </div>
       </div>
@@ -73,7 +75,12 @@ FileCard.propTypes = {
   onFileRemove: PropTypes.func,
   showDetails: PropTypes.bool,
   uploadProgress: PropTypes.number,
-  LeftSlot: PropTypes.oneOfType([
+  SlotLeft: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.object,
+    PropTypes.func,
+  ]),
+  SlotUnderImage: PropTypes.oneOfType([
     PropTypes.array,
     PropTypes.object,
     PropTypes.func,

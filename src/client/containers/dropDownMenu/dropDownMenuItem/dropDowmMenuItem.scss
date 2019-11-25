@@ -4,13 +4,13 @@
   align-items: center;
   padding: 15px 10px 15px 25px;
   opacity: 1;
-  color: #FFFFFF;
+  color: $color-white;
+
   .itemText {
     display: flex;
     white-space: nowrap;
     align-items: center;
     margin-right: 20px;
-    color: #FFFFFF;
   }
 
   .colorSquare {

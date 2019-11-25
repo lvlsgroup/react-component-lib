@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import CrossIcon from '@rc-lib-client/components/icons/crossIcon/CrossIcon';
 import DocumentIcon from '@rc-lib-client/components/icons/documentIcon/DocumentIcon';
 import VideoFileIcon from '@rc-lib-client/components/icons/videoFileIcon/VideoFileIcon';
@@ -33,13 +34,8 @@ function FileCard({
   const icon = getIcon(file.type, { fill: 'black', height: '64px' });
 
   return (
-    <div className={styles.fileCard}>
-      <div
-        className={`${styles.imageContentContainer}${
-          className ? ` ${className}` : ''
-        }`}
-        onClick={onClick}
-      >
+    <div className={classNames(styles.fileCard, className)}>
+      <div className={styles.imageContentContainer} onClick={onClick}>
         {LeftSlot && LeftSlot}
         <div className={styles.imageAndOptionContainer}>
           <div className={styles.imageOptions}>

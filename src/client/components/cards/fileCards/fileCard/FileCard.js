@@ -59,8 +59,8 @@ function FileCard({
             ) : (
               <div className={styles.icon}>{icon}</div>
             )}
-            {SlotUnderImage && SlotUnderImage}
           </div>
+          {SlotUnderImage && SlotUnderImage}
         </div>
       </div>
       {uploadProgress && <ProgressBar progress={uploadProgress} />}

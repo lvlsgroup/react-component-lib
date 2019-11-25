@@ -27,10 +27,6 @@ DropDownMenuItem.propTypes = {
   className: PropTypes.string,
   name: PropTypes.string,
   route: PropTypes.string,
-  imgSrc: PropTypes.string,
-  imgWidth: PropTypes.string,
-  imgHeight: PropTypes.string,
-  imgAlt: PropTypes.string,
 };
 
 export default DropDownMenuItem;

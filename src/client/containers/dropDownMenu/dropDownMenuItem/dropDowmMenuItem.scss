@@ -1,0 +1,31 @@
+.dropDownMenuItem {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 15px 10px 15px 25px;
+  opacity: 1;
+  color: #FFFFFF;
+  .itemText {
+    display: flex;
+    white-space: nowrap;
+    align-items: center;
+    margin-right: 20px;
+    color: #FFFFFF;
+  }
+
+  .colorSquare {
+    @include coloredSquare($color-brand-yellow, 6px);
+    position: absolute;
+    left: 10px;
+    margin-right: 30px;
+    display: none;
+  }
+
+  &:hover {
+    background-color: $color-transparent-darker;
+
+    .colorSquare {
+      display: block;
+    }
+  }
+}

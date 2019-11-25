@@ -10,6 +10,7 @@ const options = {
 
 export const ROUTES = {
   home: '/',
+  demo: '/demo',
   undefined: '/go-to-undefined',
 };
 
@@ -19,6 +20,12 @@ export default [
     exact: true,
     componentPath: 'pages/homePage/HomePage',
     Component: universal(import('pages/homePage/HomePage'), options),
+  },
+  {
+    path: ROUTES.demo,
+    exact: true,
+    componentPath: 'pages/demoPage/DemoPage',
+    Component: universal(import('pages/demoPage/DemoPage'), options),
   },
   {
     path: ROUTES.undefined,

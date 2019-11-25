@@ -1,0 +1,30 @@
+.demoRoute {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+
+  .title {
+    color: green;
+  }
+
+  .itemWithDropDown {
+    position: relative;
+    width: 200px;
+    height: 40px;
+    display: block;
+    border: 1px solid green;
+    background-color: gray;
+
+    .dropDownMenu {
+      display: none;
+      color: white;
+    }
+
+    &:hover {
+      .dropDownMenu {
+        display: block;
+        color: white;
+      }
+    }
+  }
+}

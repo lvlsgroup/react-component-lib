@@ -1,0 +1,6 @@
+.formGroupDynamic {
+
+  @include bpTablet() {
+    width: 400px;
+  }
+}

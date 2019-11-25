@@ -18,6 +18,10 @@ const Input = React.memo(
     defaultValue,
     onClick,
   }) => {
+    function handleChange(event) {
+      onChange(event, { name });
+    }
+
     return (
       <input
         className={`${styles.input}${className ? ` ${className}` : ''}`}
@@ -26,7 +30,7 @@ const Input = React.memo(
         autoComplete={autoComplete}
         type={type}
         name={name}
-        onChange={onChange}
+        onChange={handleChange}
         onBlur={onBlur}
         value={value}
         defaultValue={defaultValue}

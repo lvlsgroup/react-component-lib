@@ -53,6 +53,7 @@
     "react-router-config": "5.1.1",
     "react-router-dom": "5.1.2",
     "react-universal-component": "^4.0.0",
+    "react-youtube": "^7.9.0",
     "serve-favicon": "2.5.0",
     "shelljs": "0.8.3",
     "universal-cookie-express": "4.0.1",

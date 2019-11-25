@@ -1,0 +1,22 @@
+
+.videoPlayerContainer {
+  background: $color-black;
+  width: 100%;
+
+  .videoPlayerWrapper {
+    width: 100%;
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    .videoPlayer {
+      width: 100%;
+      position: relative;
+      padding-bottom: 56.2%;
+
+      .youtube {
+        position: absolute;
+      }
+    }
+  }
+}
+

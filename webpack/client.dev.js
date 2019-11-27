@@ -57,6 +57,7 @@ module.exports = {
           {
             loader: 'sass-loader',
             options: {
+              sourceMap: true,
               data:
                 `@import "${res(
                   '../src/client/shared/styles/globals.scss'

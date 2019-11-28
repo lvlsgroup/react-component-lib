@@ -106,7 +106,7 @@ function DropdownItem({ item, selectedItem, onItemClick }) {
     onItemClick(item);
   }
 
-  const isSelected = item.id === selectedItem.id;
+  const isSelected = item.id === selectedItem && selectedItem.id;
 
   return (
     <li className={styles.dropDownMenuItem} onClick={handleItemClick}>

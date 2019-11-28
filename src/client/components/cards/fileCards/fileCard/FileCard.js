@@ -14,8 +14,8 @@ function FileCard({
   file,
   onFileRemove,
   SlotLeft,
-  uploadProgress,
   SlotUnderImage,
+  SlotBottom,
 }) {
   const getIcon = (type, style) => {
     if (type.includes('audio/')) {
@@ -44,7 +44,6 @@ function FileCard({
               onClick={handleFileRemove}
               crossColor="white"
               style={{
-                borderRadius: '50%',
                 backgroundColor: 'rgba(46,46,46,0.85)',
               }}
             />
@@ -63,7 +62,7 @@ function FileCard({
           {SlotUnderImage && SlotUnderImage}
         </div>
       </div>
-      {uploadProgress && <ProgressBar progress={uploadProgress} />}
+      {SlotBottom && SlotBottom}
     </div>
   );
 }
@@ -76,6 +75,11 @@ FileCard.propTypes = {
   showDetails: PropTypes.bool,
   uploadProgress: PropTypes.number,
   SlotLeft: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.object,
+    PropTypes.func,
+  ]),
+  SlotBottom: PropTypes.oneOfType([
     PropTypes.array,
     PropTypes.object,
     PropTypes.func,

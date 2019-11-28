@@ -37,9 +37,10 @@
 
 button.crossIcon {
   outline: none;
+  border: none;
   cursor: pointer;
 
-  &:hover {
-    border: 3px solid #ffffff;
+  &:before, &:after {
+    height: 46%;
   }
 }

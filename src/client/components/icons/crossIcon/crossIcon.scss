@@ -1,4 +1,5 @@
 .crossIcon {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -40,7 +41,9 @@ button.crossIcon {
   border: none;
   cursor: pointer;
 
-  &:before, &:after {
-    height: 46%;
+  &:hover {
+    &:before, &:after {
+      height: 60%;
+    }
   }
 }

@@ -50,10 +50,7 @@ const FileCard = React.memo(
             </div>
             <div className={styles.imageContainer}>
               {isImage ? (
-                <MemoizedImage
-                  className={styles.image}
-                  src={URL.createObjectURL(file)}
-                />
+                <MemoizedImage className={styles.image} file={file} />
               ) : (
                 <div className={styles.icon}>{icon}</div>
               )}
@@ -93,6 +90,12 @@ FileCard.propTypes = {
 
 export default FileCard;
 
-const MemoizedImage = React.memo(({ className, src }) => {
-  return <img className={className} src={src} alt="Dropped image" />;
+const MemoizedImage = React.memo(({ className, file }) => {
+  return (
+    <img
+      className={className}
+      src={URL.createObjectURL(file)}
+      alt="Dropped image"
+    />
+  );
 });

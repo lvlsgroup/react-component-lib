@@ -1,6 +1,7 @@
 import React from 'react';
 import FileEditListing from '@rc-lib-client/components/dropzones/renderDropzoneFiles/demo/FileEditListing';
 import CrossIcon from '@rc-lib-client/components/icons/crossIcon/CrossIcon';
+import InputDatePicker from '@rc-lib-client/components/datePickers/inputDatePicker/InputDatePicker';
 import styles from './homePage.scss';
 
 class HomePage extends React.Component {
@@ -23,6 +24,7 @@ class HomePage extends React.Component {
           }}
         />
         <FileEditListing />
+        <InputDatePicker selected={new Date()} />
       </div>
     );
   }

@@ -9,7 +9,7 @@ const InputDatePicker = React.memo(({ selected, onChange, ...rest }) => {
 });
 
 InputDatePicker.propTypes = {
-  selected: PropTypes.string,
+  selected: PropTypes.object,
   onChange: PropTypes.func,
 };
 

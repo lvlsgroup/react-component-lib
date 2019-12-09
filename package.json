@@ -54,6 +54,7 @@
     "react-helmet-async": "^1.0.4",
     "react-router-config": "5.1.1",
     "react-router-dom": "5.1.2",
+    "react-select": "^3.0.8",
     "react-universal-component": "^4.0.0",
     "serve-favicon": "2.5.0",
     "shelljs": "0.8.3",

@@ -1,0 +1,9 @@
+.dropdownSelector {
+  :global {
+    .dropdown_selector_inner__control, .dropdown_selector_inner__option {
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}

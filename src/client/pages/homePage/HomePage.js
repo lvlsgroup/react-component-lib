@@ -2,12 +2,19 @@ import React from 'react';
 import InputDatePicker from '@rc-lib-client/components/datePickers/inputDatePicker/InputDatePicker';
 import DropdownSelector from '@rc-lib-client/components/selectors/dropdownSelector/DropdownSelector';
 import Toggler from '@rc-lib-client/components/formComponents/toggler/Toggler';
+import AnimatedCarousel from '@rc-lib-client/components/carousels/animatedCarousel/AnimatedCarousel';
 import styles from './homePage.scss';
 
 const options = [
   { value: 'chocolate', label: 'Chocolate' },
   { value: 'strawberry', label: 'Strawberry' },
   { value: 'vanilla', label: 'Vanilla' },
+];
+
+const newsList = [
+  { id: 'chocolate', text: 'Chocolate' },
+  { id: 'strawberry', text: 'Strawberry' },
+  { id: 'vanilla', text: 'Vanilla' },
 ];
 
 class HomePage extends React.Component {
@@ -22,6 +29,14 @@ class HomePage extends React.Component {
     return (
       <div className={styles.homeRoute}>
         <h1 className={styles.title}>Home page</h1>
+        <AnimatedCarousel
+          className={styles.rollingSliderProp}
+          animationDuration={16}
+        >
+          {newsList.map((newsItem) => {
+            return <div key={newsItem.id}>{newsItem.text}</div>;
+          })}
+        </AnimatedCarousel>
         <Toggler name="isBookable" />
         <InputDatePicker selected={new Date()} />
         <DropdownSelector

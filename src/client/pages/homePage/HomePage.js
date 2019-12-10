@@ -3,6 +3,7 @@ import InputDatePicker from '@rc-lib-client/components/datePickers/inputDatePick
 import DropdownSelector from '@rc-lib-client/components/selectors/dropdownSelector/DropdownSelector';
 import Toggler from '@rc-lib-client/components/formComponents/toggler/Toggler';
 import AnimatedCarousel from '@rc-lib-client/components/carousels/animatedCarousel/AnimatedCarousel';
+import SwipeCarousel from '@rc-lib-client/components/carousels/swipeCarousel/SwipeCarousel';
 import styles from './homePage.scss';
 
 const options = [
@@ -47,6 +48,20 @@ class HomePage extends React.Component {
             console.log('hello', e);
           }}
         />
+        <SwipeCarousel autoplay={true}>
+          <div>
+            <h1 className={styles.title}>Home1</h1>
+            <p>Hej</p>
+          </div>
+          <div>
+            <h1 className={styles.title}>Home1</h1>
+            <p>Hej</p>
+          </div>
+          <div>
+            <h1 className={styles.title}>Home1</h1>
+            <p>Hej</p>
+          </div>
+        </SwipeCarousel>
       </div>
     );
   }

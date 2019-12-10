@@ -1,0 +1,13 @@
+.iconButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .startIcon {
+    margin-right: 6px;
+  }
+
+  .endIcon {
+    margin-left: 6px;
+  }
+}

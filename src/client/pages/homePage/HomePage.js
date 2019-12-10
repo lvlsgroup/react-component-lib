@@ -1,7 +1,10 @@
 import React from 'react';
 import InputDatePicker from '@rc-lib-client/components/datePickers/inputDatePicker/InputDatePicker';
 import DropdownSelector from '@rc-lib-client/components/selectors/dropdownSelector/DropdownSelector';
-import Toggler from '@rc-lib-client/components/formComponents/toggler/Toggler';
+import Toggler from '@rc-lib-client/components/inputs/toggler/Toggler';
+import { Button } from '@rc-lib-client/components/inputs/button/Button';
+import ToggleArrowSvg from '@rc-lib-client/components/icons/arrowSvg/ToggleArrowSvg';
+import styleHelper from '@rc-lib-client/shared/styles/styleHelper.scss';
 import styles from './homePage.scss';
 
 const options = [
@@ -32,6 +35,14 @@ class HomePage extends React.Component {
             console.log('hello', e);
           }}
         />
+        <Button
+          className={styles.button}
+          endIcon={<ToggleArrowSvg color={'lightblue'} />}
+          startIcon={styleHelper.iconCoffee}
+          startIconClassName={styles.testIcon}
+        >
+          Button
+        </Button>
       </div>
     );
   }

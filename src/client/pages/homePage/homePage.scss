@@ -2,8 +2,22 @@
   display: flex;
   flex-direction: column;
   flex: 1;
+  padding: 50px;
 
   .title {
     color: green;
   }
+
+  & > * {
+    margin-top: 40px;
+  }
+}
+
+/* buttons */
+.button {
+  border: 1px solid black;
+}
+
+.testIcon {
+  color: gray;
 }

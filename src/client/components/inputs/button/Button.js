@@ -10,21 +10,19 @@ function Button({
   label,
   labelClassName,
   startIcon,
-  startIconClassName,
   endIcon,
-  endIconClassName,
   onClick,
   ...rest
 }) {
-  const iconLeft = startIcon && getIcon(startIcon, startIconClassName);
-  const iconRight = endIcon && getIcon(endIcon, endIconClassName);
+  const iconLeft = startIcon && getIcon(startIcon);
+  const iconRight = endIcon && getIcon(endIcon);
 
   return (
     <button
+      className={classNames(styles.iconButton, className)}
       type="button"
       disabled={disabled}
       onClick={onClick}
-      className={classNames(styles.iconButton, className)}
       {...rest}
     >
       {iconLeft && iconLeft}
@@ -50,8 +48,6 @@ Button.propTypes = {
   labelClassName: PropTypes.string,
   onClick: PropTypes.func,
   disabled: PropTypes.bool,
-  startIconClassName: PropTypes.string,
-  endIconClassName: PropTypes.string,
   startIcon: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.array,
@@ -68,10 +64,10 @@ Button.propTypes = {
 
 export default React.memo(Button);
 
-function getIcon(PassedIcon, className, passedProps) {
+function getIcon(PassedIcon) {
   return typeof PassedIcon === 'string' ? (
-    <Icon className={classNames(className)} iconClassName={PassedIcon} />
+    <Icon iconClassName={PassedIcon} />
   ) : (
-    <PassedIcon className={classNames(className)} {...passedProps} />
+    PassedIcon
   );
 }

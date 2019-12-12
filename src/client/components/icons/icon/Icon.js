@@ -2,21 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-function Icon({ iconClassName, className, onClick }) {
+function Icon({ buttonClassName, onClick, iconClassName }) {
   return onClick ? (
-    <button className={classNames(className)} onClick={onClick}>
+    <button className={classNames(buttonClassName)} onClick={onClick}>
       <i className={classNames(iconClassName)} />
     </button>
   ) : (
-    <i className={classNames(className, iconClassName)} />
+    <i className={classNames(iconClassName)} />
   );
 }
 
 Icon.propTypes = {
-  // use to identify which icon to use. import from styleHelper
   iconClassName: PropTypes.string,
-  // use to style the icon. things like font-size and color
-  className: PropTypes.string,
+  buttonClassName: PropTypes.string,
   onClick: PropTypes.func,
 };
 

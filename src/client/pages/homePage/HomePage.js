@@ -64,11 +64,11 @@ class HomePage extends React.Component {
         <Button
           label={`Button`}
           className={styles.button}
-          startIcon={ToggleArrowSvg}
+          startIcon={
+            <ToggleArrowSvg color={'blue'} onToggle={this.state.isToggled} />
+          }
           onClick={this.handleToggle}
           endIcon={styleHelper.iconCoffee}
-          endIconClassName={styles.testIcon}
-          startIconProps={{ color: 'blue', onToggle: this.state.isToggled }}
         />
         <SwipeCarousel autoplay={true}>
           <div>

@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { withDropzoneFiles } from '@rc-lib-client/components/dropzones/renderDropzoneFiles/RenderDropzoneFiles';
 import { getIdFromFile } from '@rc-lib-client/shared/utils/fileUtils/fileutils';
-import Dropdown from '@rc-lib-client/components/formComponents/dropdown/Dropdown';
-import InputGroup from '@rc-lib-client/components/formComponents/inputGroup/InputGroup';
+import Dropdown from '@rc-lib-client/components/inputs/dropdown/Dropdown';
+import InputGroup from '@rc-lib-client/components/inputs/inputGroup/InputGroup';
 import {
   imSetToArray,
   imSetToObj,

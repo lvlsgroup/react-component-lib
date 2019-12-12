@@ -1,7 +1,10 @@
 import React from 'react';
 import InputDatePicker from '@rc-lib-client/components/datePickers/inputDatePicker/InputDatePicker';
 import DropdownSelector from '@rc-lib-client/components/selectors/dropdownSelector/DropdownSelector';
-import Toggler from '@rc-lib-client/components/formComponents/toggler/Toggler';
+import Toggler from '@rc-lib-client/components/inputs/toggler/Toggler';
+import Button from '@rc-lib-client/components/inputs/button/Button';
+import ToggleArrowSvg from '@rc-lib-client/components/icons/arrowSvg/ToggleArrowSvg';
+import styleHelper from '@rc-lib-client/shared/styles/styleHelper.scss';
 import AnimatedCarousel from '@rc-lib-client/components/carousels/animatedCarousel/AnimatedCarousel';
 import SwipeCarousel from '@rc-lib-client/components/carousels/swipeCarousel/SwipeCarousel';
 import styles from './homePage.scss';
@@ -23,7 +26,17 @@ class HomePage extends React.Component {
     super(props);
     this.state = {
       selectedItem: { id: 1, title: 'FIRST' },
+      isToggled: false,
     };
+
+    this.handleToggle = this.handleToggle.bind(this);
+  }
+
+  handleToggle() {
+    this.setState((state) => {
+      return { ...state, isToggled: !state.isToggled };
+    });
+    console.log(this.state.isToggled);
   }
 
   render() {
@@ -47,6 +60,15 @@ class HomePage extends React.Component {
           onChange={(e) => {
             console.log('hello', e);
           }}
+        />
+        <Button
+          label={`Button`}
+          className={styles.button}
+          startIcon={
+            <ToggleArrowSvg color={'blue'} onToggle={this.state.isToggled} />
+          }
+          onClick={this.handleToggle}
+          endIcon={styleHelper.iconCoffee}
         />
         <SwipeCarousel autoplay={true}>
           <div>

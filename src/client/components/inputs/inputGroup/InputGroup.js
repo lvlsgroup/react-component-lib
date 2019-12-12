@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import Input from '@rc-lib-client/components/formComponents/input/Input';
+import Input from '@rc-lib-client/components/inputs/input/Input';
 import styles from './styles.scss';
 
 const InputGroup = React.memo(

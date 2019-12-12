@@ -4,35 +4,54 @@ import PropTypes from 'prop-types';
 import Icon from '@rc-lib-client/components/icons/icon/Icon';
 import styles from './button.scss';
 
-export const Button = ({
+function Button({
   className,
   disabled,
-  children,
+  label,
+  labelClassName,
   startIcon,
   startIconClassName,
+  startIconProps,
   endIcon,
   endIconClassName,
+  endIconProps,
+  onClick,
   ...props
-}) => {
-  const iconLeft = startIcon && getIcon(startIcon, startIconClassName);
-  const iconRight = endIcon && getIcon(endIcon, endIconClassName);
+}) {
+  const iconLeft =
+    startIcon && getIconType(startIcon, startIconClassName, startIconProps);
+  const iconRight =
+    endIcon && getIconType(endIcon, endIconClassName, endIconProps);
 
   return (
     <button
       type="button"
       disabled={disabled}
+      onClick={onClick}
       className={classNames(styles.iconButton, className)}
       {...props}
     >
-      {iconLeft && <span className={styles.startIcon}>{iconLeft}</span>}
-      {children && children}
-      {iconRight && <span className={styles.endIcon}>{iconRight}</span>}
+      {iconLeft && iconLeft}
+      {label && (
+        <span
+          className={classNames(
+            iconLeft && styles.marginLeft,
+            iconRight && styles.marginRight,
+            labelClassName && labelClassName
+          )}
+        >
+          {label}
+        </span>
+      )}
+      {iconRight && iconRight}
     </button>
   );
-};
+}
 
 Button.propTypes = {
   className: PropTypes.string,
+  label: PropTypes.string,
+  labelClassName: PropTypes.string,
   onClick: PropTypes.func,
   disabled: PropTypes.bool,
   startIconClassName: PropTypes.string,
@@ -49,13 +68,16 @@ Button.propTypes = {
     PropTypes.object,
     PropTypes.func,
   ]),
-  children: PropTypes.string,
+  startIconProps: PropTypes.object,
+  endIconProps: PropTypes.object,
 };
 
-function getIcon(icon, className) {
-  return typeof icon === 'string' ? (
-    <Icon className={classNames(className)} iconClassName={icon} />
+export default React.memo(Button);
+
+function getIconType(PassedIcon, className, passedProps) {
+  return typeof PassedIcon === 'string' ? (
+    <Icon className={classNames(className)} iconClassName={PassedIcon} />
   ) : (
-    icon
+    <PassedIcon className={classNames(className)} {...passedProps} />
   );
 }

@@ -2,12 +2,11 @@ import React from 'react';
 import InputDatePicker from '@rc-lib-client/components/datePickers/inputDatePicker/InputDatePicker';
 import DropdownSelector from '@rc-lib-client/components/selectors/dropdownSelector/DropdownSelector';
 import Toggler from '@rc-lib-client/components/inputs/toggler/Toggler';
-import { Button } from '@rc-lib-client/components/inputs/button/Button';
+import Button from '@rc-lib-client/components/inputs/button/Button';
 import ToggleArrowSvg from '@rc-lib-client/components/icons/arrowSvg/ToggleArrowSvg';
 import styleHelper from '@rc-lib-client/shared/styles/styleHelper.scss';
 import AnimatedCarousel from '@rc-lib-client/components/carousels/animatedCarousel/AnimatedCarousel';
 import SwipeCarousel from '@rc-lib-client/components/carousels/swipeCarousel/SwipeCarousel';
-import { IconButton } from '@rc-lib-client/components/inputs/iconButton/IconButton';
 import styles from './homePage.scss';
 
 const options = [
@@ -27,7 +26,17 @@ class HomePage extends React.Component {
     super(props);
     this.state = {
       selectedItem: { id: 1, title: 'FIRST' },
+      isToggled: false,
     };
+
+    this.handleToggle = this.handleToggle.bind(this);
+  }
+
+  handleToggle() {
+    this.setState((state) => {
+      return { ...state, isToggled: !state.isToggled };
+    });
+    console.log(this.state.isToggled);
   }
 
   render() {
@@ -53,18 +62,14 @@ class HomePage extends React.Component {
           }}
         />
         <Button
+          label={`Button`}
           className={styles.button}
-          endIcon={<ToggleArrowSvg color={'lightblue'} />}
-          startIcon={styleHelper.iconCoffee}
-          startIconClassName={styles.testIcon}
-        >
-          Button
-        </Button>
-        <IconButton
-          icon={styleHelper.iconCoffee}
-          className={styles.iconButton}
+          startIcon={ToggleArrowSvg}
+          onClick={this.handleToggle}
+          endIcon={styleHelper.iconCoffee}
+          endIconClassName={styles.testIcon}
+          startIconProps={{ color: 'blue', onToggle: this.state.isToggled }}
         />
-        IconButton
         <SwipeCarousel autoplay={true}>
           <div>
             <h1 className={styles.title}>Home1</h1>

@@ -27,6 +27,7 @@ const ToggleArrowSvg = ({ className, color, onToggle }) => {
 ToggleArrowSvg.propTypes = {
   className: PropTypes.string,
   color: PropTypes.string,
+  onToggle: PropTypes.bool,
 };
 
 export default ToggleArrowSvg;

@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-export default function Icon({ iconClassName, className, onClick }) {
+function Icon({ iconClassName, className, onClick }) {
   return onClick ? (
-    <button className={classNames(className)}>
-      <i className={classNames(iconClassName)} onClick={onClick} />
+    <button className={classNames(className)} onClick={onClick}>
+      <i className={classNames(iconClassName)} />
     </button>
   ) : (
     <i className={classNames(className, iconClassName)} />
@@ -19,3 +19,5 @@ Icon.propTypes = {
   className: PropTypes.string,
   onClick: PropTypes.func,
 };
+
+export default React.memo(Icon);

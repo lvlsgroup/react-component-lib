@@ -1,0 +1,135 @@
+$leftSpacing: 22px;
+$topSpacing: 40px;
+
+@mixin _responsiveAndFluidItem($topSpacing, $leftSpacing, $mob, $mobLand, $tab, $des, $wide) {
+  flex-basis: calc(#{$mob} - #{$leftSpacing});
+  margin: $topSpacing 0 0 $leftSpacing;
+
+  @include bpMobileLandscape() {
+    flex-basis: calc(#{$mobLand} - #{$leftSpacing});
+  }
+
+  @include bpTablet() {
+    flex-basis: calc(#{$tab} - #{$leftSpacing});
+  }
+
+  @include bpDesktop() {
+    flex-basis: calc(#{$des} - #{$leftSpacing});
+  }
+
+  @include bpWidescreen300() {
+    flex-basis: calc(#{$wide} - #{$leftSpacing});
+  }
+}
+
+@mixin _fluidItem($topSpacing, $leftSpacing, $noColumns) {
+  flex-basis: calc(100% / #{$noColumns} - #{$leftSpacing});
+  margin: $topSpacing 0 0 $leftSpacing;
+}
+
+@mixin _column($topSpacing) {
+  flex-wrap: wrap;
+  margin-top: calc(0px - #{$topSpacing});
+}
+
+@mixin _grid($topSpacing, $leftSpacing) {
+  flex-wrap: wrap;
+  margin: calc(0px - #{$topSpacing}) 0 0 calc(0px - #{$leftSpacing});
+}
+
+._sharedGrid {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+  word-break: break-word;
+}
+
+.grid11234 {
+  composes: _sharedGrid;
+  @include _grid($topSpacing, $leftSpacing);
+
+  > * {
+    @include _responsiveAndFluidItem($topSpacing, $leftSpacing, 100%, 100%, 50%, 33.3333333%, 25%);
+  }
+}
+.grid12345 {
+  composes: _sharedGrid;
+  @include _grid($topSpacing, $leftSpacing);
+
+  > * {
+    @include _responsiveAndFluidItem($topSpacing, $leftSpacing, 100%, 50%, 33.3%, 25%, 20%);
+  }
+}
+
+.grid14 {
+  composes: _sharedGrid;
+  @include _grid($topSpacing, $leftSpacing);
+
+  > * {
+    @include _responsiveAndFluidItem($topSpacing, $leftSpacing, 100%, 25%, 25%, 25%, 25%);
+  }
+}
+
+.grid13 {
+  composes: _sharedGrid;
+  @include _grid($topSpacing, $leftSpacing);
+
+  > * {
+    @include _responsiveAndFluidItem($topSpacing, $leftSpacing, 100%, 33.3%, 33.3%, 33.3%, 33.3%);
+  }
+}
+
+.grid12 {
+  composes: _sharedGrid;
+  @include _grid($topSpacing, $leftSpacing);
+
+  > * {
+    @include _responsiveAndFluidItem($topSpacing, $leftSpacing, 100%, 50%, 50%, 50%, 50%);
+  }
+}
+
+.grid1112 {
+  composes: _sharedGrid;
+  @include _grid($topSpacing, $leftSpacing);
+
+  > * {
+    @include _responsiveAndFluidItem($topSpacing, $leftSpacing, 100%, 100%, 100%, 50%, 50%);
+  }
+}
+
+.grid1 {
+  composes: _sharedGrid;
+  @include _column($topSpacing);
+  flex-direction: column;
+
+  > * {
+    @include _fluidItem($topSpacing, $leftSpacing, 1);
+  }
+}
+
+.grid2 {
+  composes: _sharedGrid;
+  @include _column($topSpacing);
+
+  > * {
+    @include _fluidItem($topSpacing, $leftSpacing, 2);
+  }
+}
+
+.grid3 {
+  composes: _sharedGrid;
+  @include _column($topSpacing);
+
+  > * {
+    @include _fluidItem($topSpacing, $leftSpacing, 3);
+  }
+}
+
+.grid4 {
+  composes: _sharedGrid;
+  @include _column($topSpacing);
+
+  > * {
+    @include _fluidItem($topSpacing, $leftSpacing, 4);
+  }
+}

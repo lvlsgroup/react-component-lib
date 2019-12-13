@@ -2,10 +2,10 @@
   "engines": {
     "node": "10.*"
   },
-  "name": "@lvlsgroup/react-component-lib",
+  "name": "react-component-lib",
   "author": "lvlsgroup",
   "description": "A component library for react",
-  "version": "0.3.2",
+  "version": "0.3.0",
   "main": "src/server/server.js",
   "license": "MIT",
   "scripts": {

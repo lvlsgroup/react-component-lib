@@ -5,6 +5,7 @@ const WriteFilePlugin = require('write-file-webpack-plugin'); // here so you can
 const ExtractCssChunks = require('extract-css-chunks-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 const postcssPresetEnv = require('postcss-preset-env');
+const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 
 const res = (p) => path.resolve(__dirname, p);
 const entryFile = res('../src/client/client.js');
@@ -125,6 +126,7 @@ module.exports = {
     },
   },
   plugins: [
+    new CaseSensitivePathsPlugin(),
     new WriteFilePlugin(),
     new ExtractCssChunks({ hot: true, reloadAll: true, cssModules: true }),
     new webpack.HotModuleReplacementPlugin(),

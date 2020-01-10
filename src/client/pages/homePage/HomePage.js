@@ -51,6 +51,20 @@ class HomePage extends React.Component {
             return <div key={newsItem.id}>{newsItem.text}</div>;
           })}
         </AnimatedCarousel>
+        <SwipeCarousel>
+          <div>
+            <h1 className={styles.title}>Home1</h1>
+            <p>Hej</p>
+          </div>
+          <div>
+            <h1 className={styles.title}>Home1</h1>
+            <p>Hej</p>
+          </div>
+          <div>
+            <h1 className={styles.title}>Home1</h1>
+            <p>Hej</p>
+          </div>
+        </SwipeCarousel>
         <Toggler name="isBookable" />
         <InputDatePicker selected={new Date()} />
         <DropdownSelector
@@ -70,20 +84,6 @@ class HomePage extends React.Component {
           onClick={this.handleToggle}
           endIcon={styleHelper.iconCoffee}
         />
-        <SwipeCarousel autoplay={true}>
-          <div>
-            <h1 className={styles.title}>Home1</h1>
-            <p>Hej</p>
-          </div>
-          <div>
-            <h1 className={styles.title}>Home1</h1>
-            <p>Hej</p>
-          </div>
-          <div>
-            <h1 className={styles.title}>Home1</h1>
-            <p>Hej</p>
-          </div>
-        </SwipeCarousel>
       </div>
     );
   }

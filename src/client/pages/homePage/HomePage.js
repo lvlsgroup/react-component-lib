@@ -1,12 +1,13 @@
 import React from 'react';
 import InputDatePicker from '@rc-lib-client/components/datePickers/inputDatePicker/InputDatePicker';
 import DropdownSelector from '@rc-lib-client/components/selectors/dropdownSelector/DropdownSelector';
-import Toggler from '@rc-lib-client/components/inputs/toggler/Toggler';
-import Button from '@rc-lib-client/components/inputs/button/Button';
-import ToggleArrowSvg from '@rc-lib-client/components/icons/arrowSvg/ToggleArrowSvg';
-import styleHelper from '@rc-lib-client/shared/styles/styleHelper.scss';
 import AnimatedCarousel from '@rc-lib-client/components/carousels/animatedCarousel/AnimatedCarousel';
 import SwipeCarousel from '@rc-lib-client/components/carousels/swipeCarousel/SwipeCarousel';
+import DropzoneBox from '@rc-lib-client/components/dropzones/dropzoneBox/DropzoneBox';
+import Button from '@rc-lib-client/components/inputs/button/Button';
+import Toggler from '@rc-lib-client/components/inputs/toggler/Toggler';
+import ToggleArrowSvg from '@rc-lib-client/components/icons/arrowSvg/ToggleArrowSvg';
+import styleHelper from '@rc-lib-client/shared/styles/styleHelper.scss';
 import styles from './homePage.scss';
 
 const options = [
@@ -26,23 +27,26 @@ class HomePage extends React.Component {
     super(props);
     this.state = {
       selectedItem: { id: 1, title: 'FIRST' },
-      isToggled: false,
+      droppedFile: '',
     };
-
-    this.handleToggle = this.handleToggle.bind(this);
   }
 
-  handleToggle() {
-    this.setState((state) => {
-      return { ...state, isToggled: !state.isToggled };
+  onFileDrop = (file) => {
+    this.setState(() => {
+      return {
+        file: file,
+      };
     });
-    console.log(this.state.isToggled);
-  }
+  };
 
   render() {
     return (
       <div className={styles.homeRoute}>
         <h1 className={styles.title}>Home page</h1>
+        <DropzoneBox
+          file={this.state.file}
+          onCroppedImgCanvas={this.onFileDrop}
+        />
         <AnimatedCarousel
           className={styles.rollingSliderProp}
           animationDuration={16}
@@ -51,20 +55,6 @@ class HomePage extends React.Component {
             return <div key={newsItem.id}>{newsItem.text}</div>;
           })}
         </AnimatedCarousel>
-        <SwipeCarousel>
-          <div>
-            <h1 className={styles.title}>Home1</h1>
-            <p>Hej</p>
-          </div>
-          <div>
-            <h1 className={styles.title}>Home1</h1>
-            <p>Hej</p>
-          </div>
-          <div>
-            <h1 className={styles.title}>Home1</h1>
-            <p>Hej</p>
-          </div>
-        </SwipeCarousel>
         <Toggler name="isBookable" />
         <InputDatePicker selected={new Date()} />
         <DropdownSelector
@@ -84,6 +74,20 @@ class HomePage extends React.Component {
           onClick={this.handleToggle}
           endIcon={styleHelper.iconCoffee}
         />
+        <SwipeCarousel autoplay={true}>
+          <div>
+            <h1 className={styles.title}>Home1</h1>
+            <p>Hej</p>
+          </div>
+          <div>
+            <h1 className={styles.title}>Home1</h1>
+            <p>Hej</p>
+          </div>
+          <div>
+            <h1 className={styles.title}>Home1</h1>
+            <p>Hej</p>
+          </div>
+        </SwipeCarousel>
       </div>
     );
   }

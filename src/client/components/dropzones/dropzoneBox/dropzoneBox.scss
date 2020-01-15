@@ -1,0 +1,42 @@
+.dropzoneBox {
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  border: 1px dashed #818181;
+  background-color: #fbfbfb;
+  cursor: pointer;
+
+  .dropzoneImg {
+    max-height: 100%;
+    max-width: 100%;
+  }
+}
+
+.cropperContainer {
+  height: 400px;
+  width: calc(100vw - 80px);
+  max-width: 880px;
+
+  @include bpTablet() {
+    width: calc(100vw - 124px);
+  }
+}
+
+.btnCrop {
+  height: 40px;
+  background-color: #5AB290;
+  width: 100%;
+
+  user-select: none;
+  outline: none;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: white;
+
+  &:hover {
+    background-color: #85C5AD;
+  }
+}

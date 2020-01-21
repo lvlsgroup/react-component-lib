@@ -7,7 +7,11 @@
   display: flex;
 }
 
-.center {
+.justifyCenter {
+  justify-content: center;
+}
+
+.alignCenter {
   align-items: center;
 }
 

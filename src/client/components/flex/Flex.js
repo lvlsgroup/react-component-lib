@@ -6,7 +6,8 @@ import styles from './flex.scss';
 function Flex({
   className,
   column,
-  center,
+  justifyCenter,
+  alignCenter,
   dontExpandChildren,
   flexNr,
   children,
@@ -15,7 +16,8 @@ function Flex({
     <div
       className={classNames(
         column ? styles.flexCol : styles.flexRow,
-        center && styles.center,
+        justifyCenter && styles.justifyCenter,
+        alignCenter && styles.alignCenter,
         dontExpandChildren && styles.dontExpandChildren,
         className && className
       )}
@@ -29,7 +31,8 @@ function Flex({
 Flex.propTypes = {
   className: PropTypes.string,
   column: PropTypes.bool,
-  center: PropTypes.bool,
+  justifyCenter: PropTypes.bool,
+  alignCenter: PropTypes.string,
   flexNr: PropTypes.number,
   style: PropTypes.object,
   dontExpandChildren: PropTypes.bool,

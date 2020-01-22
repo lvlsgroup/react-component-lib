@@ -1,0 +1,28 @@
+.rollingSliderContainer {
+  width: 100%;
+  overflow: hidden;
+  align-self: center;
+}
+
+.rollingSlider {
+  display: flex;
+  min-width: 100%;
+  transform: translateX(100%);
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-name: slideinBig1;
+
+  > * {
+    white-space: nowrap;
+    margin-left: 100%;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+}
+
+@keyframes slideinBig1 {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(var(--rollingSliderTransX, -100%)); }
+}

@@ -11,6 +11,8 @@ class ImageCropper extends React.PureComponent {
       imageUrl,
       aspectRatio,
       guides,
+      checkImageOrigin,
+      viewMode,
     } = this.props;
 
     return (
@@ -21,6 +23,8 @@ class ImageCropper extends React.PureComponent {
         aspectRatio={aspectRatio}
         guides={guides}
         crop={onSelectingArea}
+        viewMode={viewMode}
+        checkImageOrigin={checkImageOrigin}
       />
     );
   }
@@ -32,6 +36,8 @@ ImageCropper.propTypes = {
   imageUrl: PropTypes.string,
   aspectRatio: PropTypes.number,
   guides: PropTypes.bool,
+  checkImageOrigin: PropTypes.bool,
+  viewMode: PropTypes.number,
 };
 
 export default ImageCropper;

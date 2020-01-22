@@ -10,7 +10,7 @@
     .imageAndOptionContainer {
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: space-between;
       flex: 1;
       position: relative;
 
@@ -28,7 +28,9 @@
 
       .imageContainer {
         display: flex;
+        flex: 1;
         align-self: center;
+        align-items: center;
 
         .image {
           width: 100%;

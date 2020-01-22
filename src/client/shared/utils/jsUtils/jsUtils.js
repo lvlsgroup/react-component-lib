@@ -141,3 +141,35 @@ export function toggleArrayValue(array, value) {
 export function immutablePush(arr, newEntry) {
   return [...arr, newEntry];
 }
+
+/*
+const someObj = {person: {firstName: 'Test', lastName: 'TestLast'}};
+var property = 'person.lastName';
+deletePropertyPath(someObj, property); === {person: {firstName: 'Test'}};
+ */
+export const deletePropertyByPath = (object, path) => {
+  let currentObject = object;
+  let parts = path.split('.');
+  const last = parts.pop();
+  for (const part of parts) {
+    currentObject = currentObject[part];
+    if (!currentObject) {
+      return;
+    }
+  }
+  delete currentObject[last];
+};
+
+/* Sort an array by a given key and optionally reveresed sort order */
+export const sortArrayByKey = (array, key, reversed) => {
+  if (key === '' || !key) return array;
+  return reversed
+    ? array.sort((a, b) => (a[key] < b[key] ? 1 : a[key] > b[key] ? -1 : 0))
+    : array.sort((a, b) => (a[key] > b[key] ? 1 : a[key] < b[key] ? -1 : 0));
+};
+
+export const filterArrayByKeyValue = (array, key, value) => {
+  return array.filter((item) => {
+    return item[key].toLowerCase().indexOf(value.toLowerCase()) !== -1;
+  });
+};

@@ -1,0 +1,20 @@
+.flexCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.flexRow {
+  display: flex;
+}
+
+.justifyCenter {
+  justify-content: center;
+}
+
+.alignCenter {
+  align-items: center;
+}
+
+.dontExpandChildren {
+  align-items: flex-start; // Dont force flex items (node children) to expand full width of parent
+}

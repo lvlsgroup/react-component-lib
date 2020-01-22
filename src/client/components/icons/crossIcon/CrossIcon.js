@@ -3,15 +3,15 @@ import PropTypes from 'prop-types';
 import { DivOrButton } from '@rc-lib-client/shared/utils/dom/dom';
 import styles from './crossIcon.scss';
 
-function CrossIcon({ onClick, crossColor, style }) {
+const CrossIcon = React.memo(({ onClick, crossColor, style }) => {
   return (
     <DivOrButton
+      className={`${styles.crossIcon} ${styles[crossColor]}`}
       onClick={onClick}
       style={style}
-      className={`${styles.crossIcon} ${styles[crossColor]}`}
     />
   );
-}
+});
 
 CrossIcon.propTypes = {
   onClick: PropTypes.func,

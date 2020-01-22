@@ -61,7 +61,9 @@ class Dropdown extends React.PureComponent {
     return (
       <div className={`${styles.dropDown}${className ? ` ${className}` : ''}`}>
         <div className={styles.header} onClick={this.toggleList}>
-          <div className={styles.title}>{selectedItem.title}</div>
+          <div className={styles.title}>
+            {selectedItem && selectedItem.title}
+          </div>
           {listOpen ? <TriangleNarrow degree={-90} /> : <TriangleNarrow />}
         </div>
         {listOpen && (
@@ -73,7 +75,6 @@ class Dropdown extends React.PureComponent {
           >
             {list &&
               list.map((item) => {
-                console.log('item: ', item);
                 return (
                   <DropdownItem
                     key={item.id}
@@ -105,7 +106,7 @@ function DropdownItem({ item, selectedItem, onItemClick }) {
     onItemClick(item);
   }
 
-  const isSelected = item.id === selectedItem.id;
+  const isSelected = item.id === (selectedItem && selectedItem.id);
 
   return (
     <li className={styles.dropDownMenuItem} onClick={handleItemClick}>

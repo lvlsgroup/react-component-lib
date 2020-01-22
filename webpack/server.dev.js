@@ -4,6 +4,7 @@ const webpack = require('webpack');
 const WriteFilePlugin = require('write-file-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 const postcssPresetEnv = require('postcss-preset-env');
+const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 
 const res = (p) => path.resolve(__dirname, p);
 
@@ -128,6 +129,7 @@ module.exports = {
     },
   },
   plugins: [
+    new CaseSensitivePathsPlugin(),
     new WriteFilePlugin(),
     new webpack.optimize.LimitChunkCountPlugin({
       maxChunks: 1,

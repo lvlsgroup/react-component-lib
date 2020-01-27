@@ -1,5 +1,9 @@
 .dropdownSelector {
   :global {
+    .dropdown_selector_inner__control {
+      height: 100%;
+    }
+
     .dropdown_selector_inner__control, .dropdown_selector_inner__option {
       &:hover {
         cursor: pointer;

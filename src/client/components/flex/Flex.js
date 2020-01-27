@@ -8,6 +8,7 @@ function Flex({
   column,
   justifyCenter,
   alignCenter,
+  spaceBetween,
   dontExpandChildren,
   flexNr,
   children,
@@ -19,6 +20,7 @@ function Flex({
         justifyCenter && styles.justifyCenter,
         alignCenter && styles.alignCenter,
         dontExpandChildren && styles.dontExpandChildren,
+        spaceBetween && styles.spaceBetween,
         className && className
       )}
       style={flexNr && { flex: flexNr }}
@@ -32,7 +34,8 @@ Flex.propTypes = {
   className: PropTypes.string,
   column: PropTypes.bool,
   justifyCenter: PropTypes.bool,
-  alignCenter: PropTypes.string,
+  alignCenter: PropTypes.bool,
+  spaceBetween: PropTypes.bool,
   flexNr: PropTypes.number,
   style: PropTypes.object,
   dontExpandChildren: PropTypes.bool,

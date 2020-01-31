@@ -1,0 +1,17 @@
+.inputWithCounter {
+  width: 280px;
+
+  .input {
+    display: flex;
+    height: 100%;
+    flex-basis: 60%;
+    border: none;
+    text-align: center;
+  }
+
+  .counterBtn {
+    display: flex;
+    height: 100%;
+    flex-basis: 20%;
+  }
+}

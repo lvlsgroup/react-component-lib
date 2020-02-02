@@ -6,12 +6,18 @@ function Line({ className, height, backgroundColor }) {
     <hr
       className={className}
       style={{
+        border: 'none',
         backgroundColor: backgroundColor,
         height: height,
       }}
     />
   );
 }
+
+Line.defaultProps = {
+  height: '1px',
+  backgroundColor: '#000000',
+};
 
 Line.propTypes = {
   className: PropTypes.string,

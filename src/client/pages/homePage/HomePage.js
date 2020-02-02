@@ -10,6 +10,7 @@ import ToggleArrowSvg from '@rc-lib-client/components/icons/arrowSvg/ToggleArrow
 import styleHelper from '@rc-lib-client/shared/styles/styleHelper.scss';
 import Flex from '@rc-lib-client/components/flex/Flex';
 import Grid from '@rc-lib-client/components/grid/Grid';
+import Line from '@rc-lib-client/components/helpers/line/Line';
 import styles from './homePage.scss';
 
 const options = [
@@ -96,6 +97,7 @@ class HomePage extends React.Component {
           <input type="text" />
         </Flex>
         <Toggler name="isBookable" />
+        <Line />
         <Grid resColSystem="res1234" colGap="10px" rowGap="10px">
           <input type="text" />
           <input type="text" />

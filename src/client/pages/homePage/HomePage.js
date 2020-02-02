@@ -90,13 +90,13 @@ class HomePage extends React.Component {
             <p>Hej</p>
           </div>
         </SwipeCarousel>
-        <Flex resColumnSystem="col12s3030">
+        <Flex resColSystem="col12s3030">
           <input type="text" />
           <input type="text" />
           <input type="text" />
         </Flex>
         <Toggler name="isBookable" />
-        <Grid resColumnSystem="res1234" colGap="10px" rowGap="10px">
+        <Grid resColSystem="res1234" colGap="10px" rowGap="10px">
           <input type="text" />
           <input type="text" />
           <input type="text" />

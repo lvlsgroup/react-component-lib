@@ -11,7 +11,7 @@ function Flex({
   spaceBetween,
   dontExpandChildren,
   flexNr,
-  resColumnSystem,
+  resColSystem,
   children,
 }) {
   return (
@@ -22,7 +22,7 @@ function Flex({
         alignCenter && styles.alignCenter,
         dontExpandChildren && styles.dontExpandChildren,
         spaceBetween && styles.spaceBetween,
-        resColumnSystem && styles[resColumnSystem],
+        resColSystem && styles[resColSystem],
         className && className
       )}
       style={flexNr && { flex: flexNr }}
@@ -38,7 +38,7 @@ Flex.propTypes = {
   justifyCenter: PropTypes.bool,
   alignCenter: PropTypes.bool,
   spaceBetween: PropTypes.bool,
-  resColumnSystem: PropTypes.string,
+  resColSystem: PropTypes.string,
   flexNr: PropTypes.number,
   style: PropTypes.object,
   dontExpandChildren: PropTypes.bool,

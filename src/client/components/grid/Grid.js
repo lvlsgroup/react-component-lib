@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import styles from './grid.scss';
 
-function Grid({ className, resColumnSystem, rowGap, colGap, children }) {
+function Grid({ className, resColSystem, rowGap, colGap, children }) {
   let newRow = 0;
 
   const ie11Safe = children.map((slide, index) => {
@@ -19,7 +19,7 @@ function Grid({ className, resColumnSystem, rowGap, colGap, children }) {
     <div
       className={classNames(
         styles.grid,
-        resColumnSystem && styles[resColumnSystem],
+        resColSystem && styles[resColSystem],
         className && className
       )}
       style={{ rowGap: rowGap, columnGap: colGap }}
@@ -30,14 +30,14 @@ function Grid({ className, resColumnSystem, rowGap, colGap, children }) {
 }
 
 Grid.defaultProps = {
-  resColumnSystem: 'res1234',
+  resColSystem: 'res1234',
   rowGap: '0px',
   colGap: '0px',
 };
 
 Grid.propTypes = {
   className: PropTypes.string,
-  resColumnSystem: PropTypes.string,
+  resColSystem: PropTypes.string,
   colGap: PropTypes.string,
   rowGap: PropTypes.string,
   children: PropTypes.oneOfType([

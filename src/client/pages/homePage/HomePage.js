@@ -95,6 +95,14 @@ class HomePage extends React.Component {
           <input type="text" />
           <input type="text" />
           <input type="text" />
+          <DropdownSelector
+            selected={[{ value: 'vanilla', label: 'Vanilla' }]}
+            instanceId={'someIds'}
+            options={options}
+            onChange={(e) => {
+              console.log('hello', e);
+            }}
+          />
         </Flex>
         <Toggler name="isBookable" />
         <Line />

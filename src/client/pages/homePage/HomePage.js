@@ -8,6 +8,8 @@ import Button from '@rc-lib-client/components/inputs/button/Button';
 import Toggler from '@rc-lib-client/components/inputs/toggler/Toggler';
 import ToggleArrowSvg from '@rc-lib-client/components/icons/arrowSvg/ToggleArrowSvg';
 import styleHelper from '@rc-lib-client/shared/styles/styleHelper.scss';
+import Flex from '@rc-lib-client/components/flex/Flex';
+import Grid from '@rc-lib-client/components/grid/Grid';
 import styles from './homePage.scss';
 
 const options = [
@@ -88,6 +90,27 @@ class HomePage extends React.Component {
             <p>Hej</p>
           </div>
         </SwipeCarousel>
+        <Flex resColumnSystem="col12s3030">
+          <input type="text" />
+          <input type="text" />
+          <input type="text" />
+        </Flex>
+        <Toggler name="isBookable" />
+        <Grid resColumnSystem="res1234" colGap="10px" rowGap="10px">
+          <input type="text" />
+          <input type="text" />
+          <input type="text" />
+          <input type="text" />
+          <input type="text" />
+          <input type="text" />
+          <input type="text" />
+          <input type="text" />
+          <input type="text" />
+          <input type="text" />
+          <input type="text" />
+          <input type="text" />
+          <input type="text" />
+        </Grid>
       </div>
     );
   }

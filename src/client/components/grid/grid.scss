@@ -1,0 +1,27 @@
+.grid {
+  display: grid;
+}
+
+.res1234 {
+  grid-template-columns: 1fr;
+
+  @include bpMobileLandscape() {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include bpTablet() {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  @include bpDesktop() {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+.res12 {
+  grid-template-columns: 1fr;
+
+  @include bpTablet() {
+    grid-template-columns: 1fr 1fr;
+  }
+}

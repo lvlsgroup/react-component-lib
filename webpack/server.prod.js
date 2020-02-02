@@ -1,7 +1,5 @@
 const path = require('path');
 const webpack = require('webpack');
-const postcssPresetEnv = require('postcss-preset-env');
-
 const res = (p) => path.resolve(__dirname, p);
 
 const entry = res('../src/server/render.js');
@@ -38,10 +36,6 @@ module.exports = {
           },
           {
             loader: 'postcss-loader',
-            options: {
-              ident: 'postcss',
-              plugins: () => [postcssPresetEnv()],
-            },
           },
           {
             loader: 'sass-loader',

@@ -5,6 +5,8 @@
 
 .flexRow {
   display: flex;
+  overflow: scroll;
+  word-break: break-word;
 }
 
 .justifyCenter {
@@ -21,4 +23,46 @@
 
 .spaceBetween {
   justify-content: space-between;
+}
+
+@mixin _col12($wrap-leftSpacing, $wrap-topSpacing) {
+  flex-wrap: wrap;
+  margin: calc(0px - #{$wrap-topSpacing}) 0 0 calc(0px - #{$wrap-leftSpacing});
+
+  @include bpDesktop() {
+    flex-wrap: nowrap;
+  }
+
+  > * {
+    flex-basis: 100%;
+    margin: $wrap-topSpacing 0 0 $wrap-leftSpacing;
+
+    @include bpTablet() {
+      flex-basis: calc(50% -  #{$wrap-leftSpacing});
+    }
+
+    @include bpDesktop() {
+      flex-basis: 100%;
+    }
+  }
+}
+
+.col12s3030 {
+  @include _col12(28px, 28px);
+}
+
+.col12s2020 {
+  @include _col12(20px, 20px);
+}
+
+.col12s1010 {
+  @include _col12(10px, 10px);
+}
+
+.col12s1424 {
+  @include _col12(14px, 24px);
+}
+
+.col12s1414 {
+  @include _col12(14px, 14px);
 }

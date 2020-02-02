@@ -1,9 +1,9 @@
 import React from 'react';
 import classNames from 'classnames';
-import Button from '@lvlsgroup/react-component-lib/src/client/components/inputs/button/Button';
-import Input from '@lvlsgroup/react-component-lib/src/client/components/inputs/input/Input';
 import PropTypes from 'prop-types';
-import Flex from 'lvlsgroup-components/flex/Flex';
+import Flex from '@rc-lib-client/components/flex/Flex';
+import Input from '@rc-lib-client/components/inputs/input/Input';
+import Button from '@rc-lib-client/components/inputs/button/Button';
 import styles from './inputWithCounter.scss';
 
 function InputWithCounter({

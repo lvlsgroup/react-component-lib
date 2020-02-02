@@ -3,7 +3,6 @@ const path = require('path');
 const webpack = require('webpack');
 const WriteFilePlugin = require('write-file-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
-const postcssPresetEnv = require('postcss-preset-env');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 
 const res = (p) => path.resolve(__dirname, p);
@@ -63,10 +62,6 @@ module.exports = {
           },
           {
             loader: 'postcss-loader',
-            options: {
-              ident: 'postcss',
-              plugins: () => [postcssPresetEnv()],
-            },
           },
           {
             loader: 'sass-loader',

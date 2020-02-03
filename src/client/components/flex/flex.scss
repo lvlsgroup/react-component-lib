@@ -24,7 +24,7 @@
   justify-content: space-between;
 }
 
-@mixin _col12($wrap-leftSpacing, $wrap-topSpacing) {
+@mixin _col12($wrap-topSpacing, $wrap-leftSpacing) {
   flex-wrap: wrap;
   margin: calc(0px - #{$wrap-topSpacing}) 0 0 calc(0px - #{$wrap-leftSpacing});
 
@@ -37,10 +37,14 @@
     margin: $wrap-topSpacing 0 0 $wrap-leftSpacing;
 
     @include bpTablet() {
+      margin: $wrap-topSpacing 0 0 $wrap-leftSpacing;
+
       flex-basis: calc(50% -  #{$wrap-leftSpacing});
     }
 
     @include bpDesktop() {
+      margin: 0 0 0 $wrap-leftSpacing;
+
       flex-basis: 100%;
     }
   }
@@ -56,6 +60,10 @@
 
 .col12s1010 {
   @include _col12(10px, 10px);
+}
+
+.col12s1640 {
+  @include _col12(16px, 40px);
 }
 
 .col12s1424 {

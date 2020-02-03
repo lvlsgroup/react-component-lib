@@ -46,6 +46,27 @@ class HomePage extends React.Component {
     return (
       <div className={styles.homeRoute}>
         <h1 className={styles.title}>Home page</h1>
+        <Flex resColSystem="col12s1640">
+          <input type="text" />
+          <input type="text" />
+        </Flex>
+        <Toggler name="isBookable" />
+        <Line />
+        <Grid resColSystem="res1234" colGap="10px" rowGap="10px">
+          <input type="text" />
+          <input type="text" />
+          <input type="text" />
+          <input type="text" />
+          <input type="text" />
+          <input type="text" />
+          <input type="text" />
+          <input type="text" />
+          <input type="text" />
+          <input type="text" />
+          <input type="text" />
+          <input type="text" />
+          <input type="text" />
+        </Grid>
         <DropzoneBox
           file={this.state.file}
           onCroppedImgCanvas={this.onFileDrop}
@@ -91,36 +112,6 @@ class HomePage extends React.Component {
             <p>Hej</p>
           </div>
         </SwipeCarousel>
-        <Flex resColSystem="col12s3030">
-          <input type="text" />
-          <input type="text" />
-          <input type="text" />
-          <DropdownSelector
-            selected={[{ value: 'vanilla', label: 'Vanilla' }]}
-            instanceId={'someIds'}
-            options={options}
-            onChange={(e) => {
-              console.log('hello', e);
-            }}
-          />
-        </Flex>
-        <Toggler name="isBookable" />
-        <Line />
-        <Grid resColSystem="res1234" colGap="10px" rowGap="10px">
-          <input type="text" />
-          <input type="text" />
-          <input type="text" />
-          <input type="text" />
-          <input type="text" />
-          <input type="text" />
-          <input type="text" />
-          <input type="text" />
-          <input type="text" />
-          <input type="text" />
-          <input type="text" />
-          <input type="text" />
-          <input type="text" />
-        </Grid>
       </div>
     );
   }

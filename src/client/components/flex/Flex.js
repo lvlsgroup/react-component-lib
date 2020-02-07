@@ -3,6 +3,15 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import styles from './flex.scss';
 
+const RES_COL_SYSTEM = [
+  'col12s3030',
+  'col12s2020',
+  'col12s1010',
+  'col12s1640',
+  'col12s1424',
+  'col12s1414',
+];
+
 function Flex({
   className,
   column,
@@ -38,7 +47,7 @@ Flex.propTypes = {
   justifyCenter: PropTypes.bool,
   alignCenter: PropTypes.bool,
   spaceBetween: PropTypes.bool,
-  resColSystem: PropTypes.string,
+  resColSystem: PropTypes.oneOf(RES_COL_SYSTEM),
   flexNr: PropTypes.number,
   style: PropTypes.object,
   dontExpandChildren: PropTypes.bool,

@@ -48,8 +48,23 @@ class DropzoneBox extends React.PureComponent {
     });
   };
 
+  getImageSrc = () => {
+    const { imgSrc } = this.props;
+    if (!imgSrc) {
+      return '';
+    } else if (imgSrc.toDataURL) {
+      // src is HTMLCanvasElement
+      return imgSrc.toDataURL();
+    } else if (typeof imgSrc === 'string') {
+      return imgSrc;
+    } else {
+      // A File, Blob or MediaSource
+      return URL.createObjectURL(imgSrc);
+    }
+  };
+
   render() {
-    const { className, imgClassName, file, imgCropperOptions } = this.props;
+    const { className, imgClassName, imgCropperOptions, imgSrc } = this.props;
     const { droppedFile } = this.state;
 
     return (
@@ -71,13 +86,8 @@ class DropzoneBox extends React.PureComponent {
           onFileDrop={this.onFileDrop}
           multiple={false}
         >
-          {file && (
-            <MemoizedImage
-              className={imgClassName}
-              src={
-                file.toDataURL ? file.toDataURL() : URL.createObjectURL(file)
-              }
-            />
+          {imgSrc && (
+            <MemoizedImage className={imgClassName} src={this.getImageSrc()} />
           )}
         </DropzoneWrapper>
       </div>
@@ -90,7 +100,7 @@ DropzoneBox.propTypes = {
   imgClassName: PropTypes.string,
   onFileDrop: PropTypes.func,
   onCroppedImgCanvas: PropTypes.func,
-  file: PropTypes.object,
+  imgSrc: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   imgCropperOptions: PropTypes.shape({
     classNameModal: PropTypes.string,
     classNameCropContainer: PropTypes.string,

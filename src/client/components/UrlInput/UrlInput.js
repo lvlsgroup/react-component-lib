@@ -17,11 +17,11 @@ function URLInput({ className, placeholder, searchParam }) {
   function onInputChange(event) {
     let searchParams;
     if (event.target.value) {
-      searchParams = getSearchParams(location.search, {
+      searchParams = getSearchParams(location, {
         addParamsObj: { query: event.target.value },
       });
     } else {
-      searchParams = getSearchParams(location.search, {
+      searchParams = getSearchParams(location, {
         removeParamsArray: [searchParam],
       });
     }

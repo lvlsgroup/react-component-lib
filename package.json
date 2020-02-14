@@ -61,6 +61,7 @@
     "shelljs": "0.8.3",
     "swiper": "5.2.1",
     "universal-cookie-express": "4.0.1",
+    "url-parse": "^1.4.7",
     "uuid": "3.3.3",
     "webpack-flush-chunks": "2.0.3",
     "zlib": "1.0.5"

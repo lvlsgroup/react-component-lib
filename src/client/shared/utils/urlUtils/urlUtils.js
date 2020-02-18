@@ -2,7 +2,7 @@ import urlParse from 'url-parse';
 import {
   getSortedObject,
   toggleArrayValue,
-} from '@lvlsgroup/react-component-lib/src/client/shared/utils/jsUtils/jsUtils';
+} from '@rc-lib-client/shared/utils/jsUtils/jsUtils';
 
 export function getSearchParams(
   location,

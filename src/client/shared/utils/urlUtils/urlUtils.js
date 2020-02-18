@@ -47,12 +47,16 @@ export function getSearchQueryValue(search, queryName) {
 export function getToggledSearchQuery(toggleValue, search, queryName) {
   const queryString = getSearchQueryValue(search, queryName);
 
-  const toggledQueryArray = toggleArrayValue(
-    queryString.split(','),
-    toggleValue
-  );
+  if (!queryString) {
+    return toggleValue;
+  } else {
+    const toggledQueryArray = toggleArrayValue(
+      queryString.split(','),
+      toggleValue
+    );
 
-  return toggledQueryArray && toggledQueryArray.join(',');
+    return toggledQueryArray && toggledQueryArray.join(',');
+  }
 }
 
 export function toggleSearchQuery(history, toggleValue, search, queryName) {

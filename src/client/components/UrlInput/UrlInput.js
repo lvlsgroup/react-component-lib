@@ -14,6 +14,7 @@ function URLInput({ className, placeholder, searchParam }) {
   const history = useHistory();
   const currentQuery = getSearchQueryValue(location.search, searchParam) || '';
 
+  //This can most likely be simplified since we updated getToggledSearchQuery() in urlUtils.js
   function onInputChange(event) {
     let searchParams;
     if (event.target.value) {

@@ -22,6 +22,7 @@ function Flex({
   flexNr,
   resColSystem,
   children,
+  ...rest
 }) {
   return (
     <div
@@ -35,6 +36,7 @@ function Flex({
         className && className
       )}
       style={flexNr && { flex: flexNr }}
+      {...rest}
     >
       {children}
     </div>

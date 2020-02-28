@@ -40,7 +40,7 @@ function UrlSelect({
       });
     }
 
-    history.push({ search: searchValue, state: { dontScrollToTop: true } });
+    history.replace({ search: searchValue });
   }
 
   return (

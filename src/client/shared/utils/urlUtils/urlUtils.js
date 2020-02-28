@@ -59,13 +59,7 @@ export function getToggledSearchQuery(toggleValue, search, queryName) {
   }
 }
 
-export function toggleSearchQuery(
-  history,
-  toggleValue,
-  search,
-  queryName,
-  historyState
-) {
+export function toggleSearchQuery(history, toggleValue, search, queryName) {
   const searchQueryValue = getToggledSearchQuery(
     toggleValue,
     search,
@@ -83,8 +77,7 @@ export function toggleSearchQuery(
     });
   }
 
-  history.push({
+  history.replace({
     search: searchTest,
-    state: historyState,
   });
 }

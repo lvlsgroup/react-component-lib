@@ -19,7 +19,9 @@ function UrlCheckbox({ className, searchParam, value }) {
   }
 
   function onChange() {
-    toggleSearchQuery(history, value, location.search, searchParam);
+    toggleSearchQuery(history, value, location.search, searchParam, {
+      dontScrollToTop: true,
+    });
   }
 
   return (

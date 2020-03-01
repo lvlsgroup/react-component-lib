@@ -26,14 +26,14 @@ function UrlInput({ className, placeholder, searchParam }) {
       });
     }
 
-    history.replace({ search: searchParams });
+    history.push({ search: searchParams, state: { dontScrollToTop: true } });
   }
 
   function onClear() {
     const searchParams = getSearchParams(location, {
       removeParamsArray: [searchParam],
     });
-    history.replace({ search: searchParams });
+    history.push({ search: searchParams, state: { dontScrollToTop: true } });
   }
 
   return (

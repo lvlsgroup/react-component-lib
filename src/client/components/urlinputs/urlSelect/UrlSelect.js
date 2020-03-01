@@ -11,6 +11,7 @@ import DropdownSelector from '@rc-lib-client/components/selectors/dropdownSelect
   Does not support multiple values for now
   Options is an array of objects with 'value' and 'label' as keys... [ { value: 'xyz', label: 'X Y Z' } ]
  */
+
 function UrlSelect({
   className,
   searchParam,
@@ -40,7 +41,7 @@ function UrlSelect({
       });
     }
 
-    history.replace({ search: searchValue });
+    history.push({ search: searchValue, state: { dontScrollToTop: true } });
   }
 
   return (

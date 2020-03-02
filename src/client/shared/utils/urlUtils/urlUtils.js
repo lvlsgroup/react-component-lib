@@ -60,15 +60,15 @@ export function getToggledSearchQuery(toggleValue, search, queryName) {
 }
 
 export function toggleSearchQuery(
-  historyAction,
-  toggleValue,
-  search,
   queryName,
+  toggleValue,
+  locationSearch,
+  historyAction,
   historyState
 ) {
   const searchQueryValue = getToggledSearchQuery(
     toggleValue,
-    search,
+    locationSearch,
     queryName
   );
 

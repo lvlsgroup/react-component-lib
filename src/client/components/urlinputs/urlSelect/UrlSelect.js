@@ -17,6 +17,8 @@ function UrlSelect({
   searchParam,
   options,
   indexOfDefaultValue = 0,
+  historyAction = 'push',
+  historyState = { dontScrollToTop: true },
 }) {
   const history = useHistory();
   const location = useLocation();
@@ -41,7 +43,10 @@ function UrlSelect({
       });
     }
 
-    history.push({ search: searchValue, state: { dontScrollToTop: true } });
+    history[historyAction]({
+      search: searchValue,
+      state: historyState,
+    });
   }
 
   return (
@@ -60,7 +65,8 @@ UrlSelect.propTypes = {
   searchParam: PropTypes.string.isRequired,
   options: PropTypes.arrayOf(PropTypes.object).isRequired,
   indexOfDefaultValue: PropTypes.number,
-  isMulti: PropTypes.bool,
+  historyAction: PropTypes.string,
+  historyState: PropTypes.object,
 };
 
 export default React.memo(UrlSelect);

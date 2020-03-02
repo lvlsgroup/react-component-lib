@@ -8,7 +8,13 @@ import {
 
 /* Supports multiple values, so this can be used with multiple checkboxes. */
 
-function UrlCheckbox({ className, searchParam, value }) {
+function UrlCheckbox({
+  className,
+  searchParam,
+  value,
+  historyAction = 'push',
+  historyState = { dontScrollToTop: true },
+}) {
   const location = useLocation();
   const history = useHistory();
 
@@ -19,9 +25,13 @@ function UrlCheckbox({ className, searchParam, value }) {
   }
 
   function onChange() {
-    toggleSearchQuery(history.push, value, location.search, searchParam, {
-      dontScrollToTop: true,
-    });
+    toggleSearchQuery(
+      searchParam,
+      value,
+      location.search,
+      history[historyAction],
+      historyState
+    );
   }
 
   return (
@@ -38,6 +48,8 @@ UrlCheckbox.propTypes = {
   className: PropTypes.string,
   searchParam: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
+  historyAction: PropTypes.string,
+  historyState: PropTypes.object,
 };
 
 export default React.memo(UrlCheckbox);

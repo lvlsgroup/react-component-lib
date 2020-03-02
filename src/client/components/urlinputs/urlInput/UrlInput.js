@@ -9,7 +9,13 @@ import {
 import Flex from '@rc-lib-client/components/flex/Flex';
 import styles from './urlInput.scss';
 
-function UrlInput({ className, placeholder, searchParam }) {
+function UrlInput({
+  className,
+  placeholder,
+  searchParam,
+  historyAction = 'push',
+  historyState = { dontScrollToTop: true },
+}) {
   const location = useLocation();
   const history = useHistory();
   const currentQuery = getSearchQueryValue(location.search, searchParam) || '';
@@ -26,14 +32,17 @@ function UrlInput({ className, placeholder, searchParam }) {
       });
     }
 
-    history.push({ search: searchParams, state: { dontScrollToTop: true } });
+    history[historyAction]({
+      search: searchParams,
+      state: historyState,
+    });
   }
 
   function onClear() {
     const searchParams = getSearchParams(location, {
       removeParamsArray: [searchParam],
     });
-    history.push({ search: searchParams, state: { dontScrollToTop: true } });
+    history[historyAction]({ search: searchParams, state: historyState });
   }
 
   return (
@@ -69,10 +78,12 @@ function UrlInput({ className, placeholder, searchParam }) {
   );
 }
 
-URLInput.propTypes = {
+UrlInput.propTypes = {
   className: PropTypes.string,
   placeholder: PropTypes.string,
   searchParam: PropTypes.string,
+  historyAction: PropTypes.string,
+  historyState: PropTypes.object,
 };
 
 export default React.memo(UrlInput);

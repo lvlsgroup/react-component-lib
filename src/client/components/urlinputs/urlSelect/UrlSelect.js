@@ -7,9 +7,10 @@ import {
 } from '@rc-lib-client/shared/utils/urlUtils/urlUtils';
 import DropdownSelector from '@rc-lib-client/components/selectors/dropdownSelector/DropdownSelector';
 
-/* Does not support multiple values for now */
-
-/* Options is an array of objects with 'value' and 'label' as keys... [ { value: 'xyz', label: 'X Y Z' } ] */
+/*
+  Does not support multiple values for now
+  Options is an array of objects with 'value' and 'label' as keys... [ { value: 'xyz', label: 'X Y Z' } ]
+ */
 
 function UrlSelect({
   className,
@@ -40,7 +41,7 @@ function UrlSelect({
       });
     }
 
-    history.push({ search: searchValue });
+    history.push({ search: searchValue, state: { dontScrollToTop: true } });
   }
 
   return (

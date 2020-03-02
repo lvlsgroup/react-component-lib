@@ -9,7 +9,7 @@ import {
 import Flex from '@rc-lib-client/components/flex/Flex';
 import styles from './urlInput.scss';
 
-function URLInput({ className, placeholder, searchParam }) {
+function UrlInput({ className, placeholder, searchParam }) {
   const location = useLocation();
   const history = useHistory();
   const currentQuery = getSearchQueryValue(location.search, searchParam) || '';
@@ -26,14 +26,14 @@ function URLInput({ className, placeholder, searchParam }) {
       });
     }
 
-    history.push({ search: searchParams });
+    history.push({ search: searchParams, state: { dontScrollToTop: true } });
   }
 
   function onClear() {
     const searchParams = getSearchParams(location, {
       removeParamsArray: [searchParam],
     });
-    history.push({ search: searchParams });
+    history.push({ search: searchParams, state: { dontScrollToTop: true } });
   }
 
   return (
@@ -75,4 +75,4 @@ URLInput.propTypes = {
   searchParam: PropTypes.string,
 };
 
-export default React.memo(URLInput);
+export default React.memo(UrlInput);

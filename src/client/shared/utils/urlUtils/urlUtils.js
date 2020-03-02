@@ -60,7 +60,7 @@ export function getToggledSearchQuery(toggleValue, search, queryName) {
 }
 
 export function toggleSearchQuery(
-  history,
+  historyAction,
   toggleValue,
   search,
   queryName,
@@ -83,7 +83,7 @@ export function toggleSearchQuery(
     });
   }
 
-  history.push({
+  historyAction({
     search: searchTest,
     state: historyState,
   });

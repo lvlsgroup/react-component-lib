@@ -48,7 +48,7 @@ UrlCheckbox.propTypes = {
   className: PropTypes.string,
   searchParam: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
-  historyAction: PropTypes.string,
+  historyAction: PropTypes.oneOf(['push', 'replace']),
   historyState: PropTypes.object,
 };
 

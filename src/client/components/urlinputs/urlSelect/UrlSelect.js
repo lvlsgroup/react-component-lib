@@ -65,7 +65,7 @@ UrlSelect.propTypes = {
   searchParam: PropTypes.string.isRequired,
   options: PropTypes.arrayOf(PropTypes.object).isRequired,
   indexOfDefaultValue: PropTypes.number,
-  historyAction: PropTypes.string,
+  historyAction: PropTypes.oneOf(['push', 'replace']),
   historyState: PropTypes.object,
 };
 

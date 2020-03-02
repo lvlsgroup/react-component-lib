@@ -82,7 +82,7 @@ UrlInput.propTypes = {
   className: PropTypes.string,
   placeholder: PropTypes.string,
   searchParam: PropTypes.string,
-  historyAction: PropTypes.string,
+  historyAction: PropTypes.oneOf(['push', 'replace']),
   historyState: PropTypes.object,
 };
 

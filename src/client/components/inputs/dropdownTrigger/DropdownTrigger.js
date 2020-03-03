@@ -11,7 +11,9 @@ function DropdownTrigger({
   shouldTriggerReceiveState,
   DropdownContent,
   dropdownClassName,
-  dropdownWrapperClassName,
+  centeredBelow,
+  rightBelow,
+  centeredAbove,
 }) {
   const [isDropdownOpen, setIsOpen] = useState(false);
   const buttonWithDropdownRef = useRef();
@@ -44,7 +46,9 @@ function DropdownTrigger({
           dropdownClassName={dropdownClassName}
           toggleDropdown={toggleDropdown}
           isDropdownOpen={isDropdownOpen}
-          dropdownWrapperClassName={dropdownWrapperClassName}
+          centeredBelow={centeredBelow}
+          rightBelow={rightBelow}
+          centeredAbove={centeredAbove}
         />
       )}
     </div>
@@ -62,7 +66,6 @@ DropdownTrigger.propTypes = {
   shouldTriggerReceiveState: PropTypes.bool, // If you need to style Trigger depending on state.
   DropdownContent: PropTypes.any,
   dropdownClassName: PropTypes.string,
-  dropdownWrapperClassName: PropTypes.string,
 };
 
 export default React.memo(DropdownTrigger);
@@ -90,21 +93,32 @@ const Trigger = React.memo(
 
 const Dropdown = React.memo(
   ({
-    dropdownClassName,
-    dropdownWrapperClassName,
     DropdownContent,
+    dropdownClassName,
     toggleDropdown,
     isDropdownOpen,
+    rightBelow,
+    centeredBelow,
+    centeredAbove,
   }) => {
     return (
       <div
         className={classNames(
-          styles.clickOutsideWrapper,
-          styles.dropdownWrapper,
-          dropdownWrapperClassName
+          styles.dropdown,
+          rightBelow && styles.rightBelow,
+          centeredAbove && styles.centeredAbove,
+          centeredBelow && styles.centeredBelow
         )}
       >
-        <div className={classNames(styles.dropdown, dropdownClassName)}>
+        <div
+          className={classNames(
+            styles.dropdownContent,
+            dropdownClassName,
+            centeredBelow && styles.centeredBelowClip,
+            rightBelow && styles.rightBelowClip,
+            centeredAbove && styles.centeredAboveClip
+          )}
+        >
           {React.cloneElement(DropdownContent, {
             toggleDropdown,
             isDropdownOpen,

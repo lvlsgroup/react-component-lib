@@ -3,21 +3,42 @@
   overflow: visible;
 }
 
-.dropdownWrapper {
-  position: absolute;
-  top: 100%;
-  z-index: 990;
-  filter: drop-shadow(0 8px 12px rgba(0,0,0,0.12));
+.centeredBelow {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.rightBelow {
+  right: 0;
+}
+
+.centeredAbove {
+  top: 0;
+  left: 50%;
+  transform: translate(calc(-50%), -100%);
 }
 
 .dropdown {
-  background: white;
-  padding: 20px;
-  clip-path: polygon(0% 10px, calc(50% - 10px) 10px, 50% 0px, calc(50% + 10px) 10px, 100% 10px, 100% 100%, 0% 100%);
-}
-
-.clickOutsideWrapper {
   position: absolute;
   top: 100%;
-  right: 0;
+  filter: drop-shadow(0 8px 12px rgba(0,0,0,0.17));
+  z-index: 990;
+
+  .dropdownContent {
+    background: white;
+    padding: 20px;
+    clip-path: polygon(0% 10px, calc(50% - 10px) 10px, 50% 0px, calc(50% + 10px) 10px, 100% 10px, 100% 100%, 0% 100%);
+  }
+
+  .centeredBelowClip {
+    clip-path: polygon(0% 10px, calc(50% - 10px) 10px, 50% 0px, calc(50% + 10px) 10px, 100% 10px, 100% 100%, 0% 100%);
+  }
+
+  .rightBelowClip {
+    clip-path: polygon(0% 10px, calc(100% - 30px) 10px, calc(100% - 20px) 0px, calc(100% - 10px) 10px, 100% 10px, 100% 100%, 0% 100%);
+  }
+
+  .centeredAboveClip {
+    clip-path: polygon(0% 0, 100% 0, 100% calc(100% - 10px), calc(50% + 10px) calc(100% - 10px), 50% 100%, calc(50% - 10px) calc(100% - 10px), 0 calc(100% - 10px));
+  }
 }

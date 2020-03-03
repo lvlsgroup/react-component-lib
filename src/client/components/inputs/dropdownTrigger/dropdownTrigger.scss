@@ -11,12 +11,9 @@
 }
 
 .dropdown {
-  min-height: 50px;
-  min-width: 160px;
   background: white;
   padding: 20px;
   clip-path: polygon(0% 10px, calc(50% - 10px) 10px, 50% 0px, calc(50% + 10px) 10px, 100% 10px, 100% 100%, 0% 100%);
-
 }
 
 .clickOutsideWrapper {

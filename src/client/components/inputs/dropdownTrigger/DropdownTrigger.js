@@ -11,9 +11,7 @@ function DropdownTrigger({
   shouldTriggerReceiveState,
   DropdownContent,
   dropdownClassName,
-  centeredBelow,
-  rightBelow,
-  centeredAbove,
+  dropdownWrapperClassName,
 }) {
   const [isDropdownOpen, setIsOpen] = useState(false);
   const buttonWithDropdownRef = useRef();
@@ -46,9 +44,7 @@ function DropdownTrigger({
           dropdownClassName={dropdownClassName}
           toggleDropdown={toggleDropdown}
           isDropdownOpen={isDropdownOpen}
-          centeredBelow={centeredBelow}
-          rightBelow={rightBelow}
-          centeredAbove={centeredAbove}
+          dropdownWrapperClassName={dropdownWrapperClassName}
         />
       )}
     </div>
@@ -66,6 +62,7 @@ DropdownTrigger.propTypes = {
   shouldTriggerReceiveState: PropTypes.bool, // If you need to style Trigger depending on state.
   DropdownContent: PropTypes.any,
   dropdownClassName: PropTypes.string,
+  dropdownWrapperClassName: PropTypes.string,
 };
 
 export default React.memo(DropdownTrigger);
@@ -93,32 +90,17 @@ const Trigger = React.memo(
 
 const Dropdown = React.memo(
   ({
-    DropdownContent,
     dropdownClassName,
+    dropdownWrapperClassName,
+    DropdownContent,
     toggleDropdown,
     isDropdownOpen,
-    rightBelow,
-    centeredBelow,
-    centeredAbove,
   }) => {
     return (
       <div
-        className={classNames(
-          styles.dropdown,
-          rightBelow && styles.rightBelow,
-          centeredAbove && styles.centeredAbove,
-          centeredBelow && styles.centeredBelow
-        )}
+        className={classNames(styles.dropdownWrapper, dropdownWrapperClassName)}
       >
-        <div
-          className={classNames(
-            styles.dropdownContent,
-            dropdownClassName,
-            centeredBelow && styles.centeredBelowClip,
-            rightBelow && styles.rightBelowClip,
-            centeredAbove && styles.centeredAboveClip
-          )}
-        >
+        <div className={classNames(styles.dropdown, dropdownClassName)}>
           {React.cloneElement(DropdownContent, {
             toggleDropdown,
             isDropdownOpen,

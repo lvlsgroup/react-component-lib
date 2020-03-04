@@ -11,7 +11,6 @@ function DropdownTrigger({
   shouldTriggerReceiveState,
   DropdownContent,
   dropdownClassName,
-  dropdownWrapperClassName,
 }) {
   const [isDropdownOpen, setIsOpen] = useState(false);
   const buttonWithDropdownRef = useRef();
@@ -44,7 +43,6 @@ function DropdownTrigger({
           dropdownClassName={dropdownClassName}
           toggleDropdown={toggleDropdown}
           isDropdownOpen={isDropdownOpen}
-          dropdownWrapperClassName={dropdownWrapperClassName}
         />
       )}
     </div>
@@ -62,7 +60,6 @@ DropdownTrigger.propTypes = {
   shouldTriggerReceiveState: PropTypes.bool, // If you need to style Trigger depending on state.
   DropdownContent: PropTypes.any,
   dropdownClassName: PropTypes.string,
-  dropdownWrapperClassName: PropTypes.string,
 };
 
 export default React.memo(DropdownTrigger);
@@ -89,27 +86,13 @@ const Trigger = React.memo(
 );
 
 const Dropdown = React.memo(
-  ({
-    dropdownClassName,
-    dropdownWrapperClassName,
-    DropdownContent,
-    toggleDropdown,
-    isDropdownOpen,
-  }) => {
+  ({ DropdownContent, dropdownClassName, toggleDropdown, isDropdownOpen }) => {
     return (
-      <div
-        className={classNames(
-          styles.clickOutsideWrapper,
-          styles.dropdownWrapper,
-          dropdownWrapperClassName
-        )}
-      >
-        <div className={classNames(styles.dropdown, dropdownClassName)}>
-          {React.cloneElement(DropdownContent, {
-            toggleDropdown,
-            isDropdownOpen,
-          })}
-        </div>
+      <div className={classNames(styles.dropdown, dropdownClassName)}>
+        {React.cloneElement(DropdownContent, {
+          toggleDropdown,
+          isDropdownOpen,
+        })}
       </div>
     );
   }

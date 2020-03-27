@@ -11,6 +11,11 @@ import styleHelper from '@rc-lib-client/shared/styles/styleHelper.scss';
 import Flex from '@rc-lib-client/components/flex/Flex';
 import Grid from '@rc-lib-client/components/grid/Grid';
 import Line from '@rc-lib-client/components/helpers/line/Line';
+import {
+  InputTagCreatorDemoClassNames,
+  InputTagCreatorDemoJsStyles,
+} from '@rc-lib-client/components/inputs/inputTagCreator/inputTagCreatorDemo/InputTagCreatorDemo';
+import InputTagCreator from '@rc-lib-client/components/inputs/inputTagCreator/InputTagCreator';
 import styles from './homePage.scss';
 
 const options = [
@@ -46,6 +51,9 @@ class HomePage extends React.Component {
     return (
       <div className={styles.homeRoute}>
         <h1 className={styles.title}>Home page</h1>
+        <InputTagCreator instanceId={'1'} />
+        <InputTagCreatorDemoJsStyles instanceId={'2'} />
+        <InputTagCreatorDemoClassNames instanceId={'3'} />
         <Flex resColSystem="col12s1640">
           <input type="text" />
           <input type="text" />

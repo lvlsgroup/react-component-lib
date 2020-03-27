@@ -1,5 +1,6 @@
 export function imPush(arr, newEntry) {
-  return [...arr, newEntry];
+  const safeSpread = arr || [];
+  return [...safeSpread, newEntry];
 }
 
 export function imArrayMerge(first, second) {

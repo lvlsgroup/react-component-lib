@@ -1,0 +1,51 @@
+.checkboxCheckedLaneButton {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.inputCheckBox {
+  display: none;
+}
+
+.leftLabel {
+  margin-right: 8px;
+}
+
+.rightLabel {
+  margin-left: 8px;
+}
+
+.customCheckbox {
+  width: 24px;
+  height: 24px;
+  position: relative;
+  background: #FFFFFF;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.inputCheckBox + span {
+  &:after {
+    content: "";
+    transform: rotate(45deg);
+  }
+}
+
+.inputCheckBox:checked + span {
+  // styling the checker
+  &:after {
+    border: solid #000000;
+    border-width: 0 3px 3px 0;
+    position: absolute;
+    bottom: 22%;
+    top: 8%;
+    left: 32%;
+    right: 32%;
+  }
+}
+
+.inputCheckBox:disabled + span {
+  background-color: #d1d1d1;
+  cursor: initial;
+}

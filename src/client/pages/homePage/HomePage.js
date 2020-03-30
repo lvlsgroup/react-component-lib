@@ -16,6 +16,9 @@ import {
   InputTagCreatorDemoJsStyles,
 } from '@rc-lib-client/components/inputs/inputTagCreator/inputTagCreatorDemo/InputTagCreatorDemo';
 import InputTagCreator from '@rc-lib-client/components/inputs/inputTagCreator/InputTagCreator';
+import { CheckmarkFatUtf } from '@rc-lib-client/components/icons/checkMarks/checkMarks';
+import Checkbox from '@rc-lib-client/components/inputs/checkbox/Checkbox';
+import UrlCheckbox from '@rc-lib-client/components/urlinputs/urlCheckbox/UrlCheckbox';
 import styles from './homePage.scss';
 
 const options = [
@@ -120,6 +123,19 @@ class HomePage extends React.Component {
             <p>Hej</p>
           </div>
         </SwipeCarousel>
+        <CheckmarkFatUtf />
+        <Checkbox style={{ borderRadius: '50%' }} />
+        <Checkbox isDisabled />
+        <Checkbox
+          className={styles.checkboxProp}
+          checkerClassName={styles.inputCheckBoxProp}
+          rightLabel={'CHECK ME'}
+        />
+        <UrlCheckbox
+          checkerClassName={styles.inputCheckBoxProp}
+          searchParam={'selected'}
+          value={'some-id'}
+        />
       </div>
     );
   }

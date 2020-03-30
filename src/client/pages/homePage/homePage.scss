@@ -29,3 +29,19 @@
   border-radius: 50%;
   border: 2px solid black;
 }
+
+.checkboxProp {
+  border: none;
+  background: blue;
+}
+
+.inputCheckBoxProp {
+  &:checked + span {
+    background: green;
+    border: none;
+
+    &:after {
+      border-color: #d123da;
+    }
+  }
+}

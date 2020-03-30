@@ -16,11 +16,12 @@ export default function FormWrapper({
       initialValues={initialValues}
       validationSchema={validationSchema}
       onSubmit={onSubmit}
-      render={component}
       validateOnBlur={validateOnBlur}
       validateOnChange={validateOnChange}
       {...additionalProps}
-    />
+    >
+      {(props) => component(props)}
+    </Formik>
   );
 }
 

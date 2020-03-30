@@ -16,16 +16,14 @@
   margin-left: 8px;
 }
 
-.customCheckbox {
+.inputCheckBox + span {
   width: 24px;
   height: 24px;
   position: relative;
   background: #FFFFFF;
   border: 1px solid black;
   cursor: pointer;
-}
 
-.inputCheckBox + span {
   &:after {
     content: "";
     transform: rotate(45deg);

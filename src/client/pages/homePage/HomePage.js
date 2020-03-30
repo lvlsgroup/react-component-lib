@@ -126,13 +126,9 @@ class HomePage extends React.Component {
         <CheckmarkFatUtf />
         <Checkbox style={{ borderRadius: '50%' }} />
         <Checkbox isDisabled />
-        <Checkbox
-          className={styles.checkboxProp}
-          checkerClassName={styles.inputCheckBoxProp}
-          rightLabel={'CHECK ME'}
-        />
+        <Checkbox className={styles.checkboxProp} rightLabel={'CHECK ME'} />
         <UrlCheckbox
-          checkerClassName={styles.inputCheckBoxProp}
+          className={styles.checkboxProp}
           searchParam={'selected'}
           value={'some-id'}
         />

@@ -31,11 +31,10 @@
 }
 
 .checkboxProp {
-  border: none;
-  background: blue;
-}
+  & + span {
+    background: #ffb151;
+  }
 
-.inputCheckBoxProp {
   &:checked + span {
     background: green;
     border: none;

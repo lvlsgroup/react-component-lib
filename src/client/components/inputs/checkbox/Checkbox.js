@@ -25,7 +25,6 @@ const Checkbox = React.memo((props) => {
   const {
     containerClassName,
     className,
-    checkerClassName,
     name,
     onChange,
     onBlur,
@@ -49,8 +48,6 @@ const Checkbox = React.memo((props) => {
     onChange && onChange(event, props);
   }
 
-  console.log('isChecked: ', isChecked);
-
   return (
     <label className={getCheckboxLaneButtonClassNames()}>
       {leftLabel && (
@@ -63,7 +60,7 @@ const Checkbox = React.memo((props) => {
         </span>
       )}
       <input
-        className={classNames(styles.inputCheckBox, checkerClassName)}
+        className={classNames(styles.inputCheckBox, className)}
         type="checkbox"
         name={name}
         disabled={isDisabled}
@@ -71,10 +68,7 @@ const Checkbox = React.memo((props) => {
         onChange={handleChange}
         onBlur={onBlur}
       />
-      <span
-        className={classNames(styles.customCheckbox, className)}
-        style={style}
-      />
+      <span style={style} />
       {rightLabel && (
         <RightLabel rightLabel={rightLabel} labelClassName={labelClassName} />
       )}
@@ -85,10 +79,9 @@ const Checkbox = React.memo((props) => {
 Checkbox.propTypes = {
   containerClassName: PropTypes.string,
   className: PropTypes.string,
-  checkerClassName: PropTypes.string,
+  labelClassName: PropTypes.string,
   style: PropTypes.object,
   name: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  labelClassName: PropTypes.string,
   leftLabel: PropTypes.string,
   rightLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   isChecked: PropTypes.bool,

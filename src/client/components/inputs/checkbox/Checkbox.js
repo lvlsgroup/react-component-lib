@@ -60,7 +60,7 @@ const Checkbox = React.memo((props) => {
         </span>
       )}
       <input
-        className={classNames(styles.inputCheckBox, className)}
+        className={classNames(styles.inputCheckbox, className)}
         type="checkbox"
         name={name}
         disabled={isDisabled}
@@ -68,7 +68,7 @@ const Checkbox = React.memo((props) => {
         onChange={handleChange}
         onBlur={onBlur}
       />
-      <span style={style} />
+      <div style={style} />
       {rightLabel && (
         <RightLabel rightLabel={rightLabel} labelClassName={labelClassName} />
       )}

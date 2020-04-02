@@ -4,7 +4,7 @@
   cursor: pointer;
 }
 
-.inputCheckBox {
+.inputCheckbox {
   display: none;
 }
 
@@ -16,7 +16,7 @@
   margin-left: 8px;
 }
 
-.inputCheckBox + span {
+.inputCheckbox + div {
   width: 24px;
   height: 24px;
   position: relative;
@@ -30,7 +30,7 @@
   }
 }
 
-.inputCheckBox:checked + span {
+.inputCheckbox:checked + div {
   // styling the checker
   &:after {
     border: solid #000000;
@@ -43,7 +43,7 @@
   }
 }
 
-.inputCheckBox:disabled + span {
+.inputCheckbox:disabled + div {
   background-color: #d1d1d1;
   cursor: initial;
 }

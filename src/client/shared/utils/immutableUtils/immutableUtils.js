@@ -9,16 +9,25 @@ export function imArrayMerge(first, second) {
 
 // It basically add an item to a list If item exists it updates it with new value,
 // otherwise it just adds the item to the list, ie. The list shall not have any duplicated items.
-export function imSetToArray(
-  array = [],
-  mapToAdd = {},
-  objUniqueField = '',
-  index
-) {
+export function imSetToArray(array = [], mapToAdd = {}, objUniqueField, index) {
+  function findIndexNested(obj, addMap, fields) {
+    if (typeof fields === 'string') {
+      return obj[fields] === addMap[fields];
+    } else if (fields.length === 1) {
+      return obj[fields[0]] === addMap[fields[0]];
+    } else {
+      return findIndexNested(
+        obj[fields[0]],
+        addMap[fields[0]],
+        fields.slice(1)
+      );
+    }
+  }
+
   const indexToUpdate = index
     ? index
     : array.findIndex((arrayItem) => {
-        return arrayItem[objUniqueField] === mapToAdd[objUniqueField];
+        return findIndexNested(arrayItem, mapToAdd, objUniqueField);
       });
 
   if (indexToUpdate === -1) {

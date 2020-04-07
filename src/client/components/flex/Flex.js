@@ -48,7 +48,7 @@ Flex.propTypes = {
   alignCenter: PropTypes.bool,
   spaceBetween: PropTypes.bool,
   resColSystem: PropTypes.oneOf(RES_COL_SYSTEM),
-  flexNr: PropTypes.number,
+  flexNr: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   style: PropTypes.object,
   dontExpandChildren: PropTypes.bool,
   children: PropTypes.oneOfType([

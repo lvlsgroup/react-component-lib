@@ -140,7 +140,7 @@ const ModalCropContainer = React.memo(
             checkImageOrigin={imgCropperOptions.checkImageOrigin || false}
             aspectRatio={imgCropperOptions.aspectRatio || 2 / 1}
             guides={imgCropperOptions.guides || false}
-            viewMode={1}
+            viewMode={imgCropperOptions.viewMode || 1}
           />
         </div>
         <button

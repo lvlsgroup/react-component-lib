@@ -6,6 +6,7 @@ import styles from './button.scss';
 
 function Button({
   className,
+  type = 'button',
   disabled,
   label,
   labelClassName,
@@ -20,7 +21,7 @@ function Button({
   return (
     <button
       className={classNames(styles.iconButton, className)}
-      type="button"
+      type={type}
       disabled={disabled}
       onClick={onClick}
       {...rest}
@@ -44,6 +45,7 @@ function Button({
 
 Button.propTypes = {
   className: PropTypes.string,
+  type: PropTypes.string,
   label: PropTypes.string,
   labelClassName: PropTypes.string,
   onClick: PropTypes.func,

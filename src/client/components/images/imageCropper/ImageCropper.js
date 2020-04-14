@@ -13,6 +13,7 @@ class ImageCropper extends React.PureComponent {
       guides,
       checkImageOrigin,
       viewMode,
+      zoomable = true,
     } = this.props;
 
     return (
@@ -25,6 +26,7 @@ class ImageCropper extends React.PureComponent {
         crop={onSelectingArea}
         viewMode={viewMode}
         checkImageOrigin={checkImageOrigin}
+        zoomable={zoomable}
       />
     );
   }
@@ -38,6 +40,7 @@ ImageCropper.propTypes = {
   guides: PropTypes.bool,
   checkImageOrigin: PropTypes.bool,
   viewMode: PropTypes.number,
+  zoomable: PropTypes.bool,
 };
 
 export default ImageCropper;

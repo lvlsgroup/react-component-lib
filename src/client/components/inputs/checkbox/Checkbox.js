@@ -79,10 +79,7 @@ const Checkbox = React.memo((props) => {
 });
 
 Checkbox.propTypes = {
-  inputRef: PropTypes.oneOfType([
-    PropTypes.func,
-    PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
-  ]),
+  inputRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
   containerClassName: PropTypes.string,
   className: PropTypes.string,
   labelClassName: PropTypes.string,

@@ -62,7 +62,7 @@ const Checkbox = React.memo((props) => {
       )}
       <input
         ref={inputRef}
-        className={classNames(styles.inputCheckBox, className)}
+        className={classNames(styles.inputCheckbox, className)}
         type="checkbox"
         name={name}
         disabled={isDisabled}

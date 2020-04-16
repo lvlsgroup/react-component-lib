@@ -23,6 +23,7 @@ function RightLabel({ rightLabel, labelClassName }) {
 
 const Checkbox = React.memo((props) => {
   const {
+    inputRef,
     containerClassName,
     className,
     name,
@@ -60,7 +61,8 @@ const Checkbox = React.memo((props) => {
         </span>
       )}
       <input
-        className={classNames(styles.inputCheckbox, className)}
+        ref={inputRef}
+        className={classNames(styles.inputCheckBox, className)}
         type="checkbox"
         name={name}
         disabled={isDisabled}
@@ -77,6 +79,10 @@ const Checkbox = React.memo((props) => {
 });
 
 Checkbox.propTypes = {
+  inputRef: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
+  ]),
   containerClassName: PropTypes.string,
   className: PropTypes.string,
   labelClassName: PropTypes.string,

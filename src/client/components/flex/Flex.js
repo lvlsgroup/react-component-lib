@@ -34,7 +34,7 @@ function Flex({
         resColSystem && styles[resColSystem],
         className && className
       )}
-      style={flexNr && { flex: flexNr }}
+      style={flexNr && { flex: `${flexNr} 1 auto` }}
     >
       {children}
     </div>

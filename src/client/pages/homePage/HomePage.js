@@ -57,6 +57,10 @@ class HomePage extends React.Component {
         <InputTagCreator instanceId={'1'} />
         <InputTagCreatorDemoJsStyles instanceId={'2'} />
         <InputTagCreatorDemoClassNames instanceId={'3'} />
+        <Flex>
+          <Flex flexNr={1}>HELLO</Flex>
+          <Flex flexNr={1}>HELLO</Flex>
+        </Flex>
         <Flex resColSystem="col12s1640">
           <input type="text" />
           <input type="text" />

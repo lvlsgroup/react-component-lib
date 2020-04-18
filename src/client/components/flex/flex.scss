@@ -16,6 +16,10 @@
   align-items: center;
 }
 
+.alignItemsBaseline {
+  align-items: baseline;
+}
+
 .dontExpandChildren {
   align-items: flex-start; // Dont force flex items (node children) to expand full width of parent
 }

@@ -8,13 +8,17 @@ import ImageCropper from '@rc-lib-client/components/images/imageCropper/ImageCro
 import ModalWrapper from '@rc-lib-client/components/modals/modalWrapper/ModalWrapper';
 import styles from './dropzoneBox.scss';
 
-class DropzoneBox extends React.PureComponent {
+class DropzoneBox extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
       droppedFile: undefined,
     };
+  }
+
+  shouldComponentUpdate(nextProps, nextState, nextContext) {
+    return this.state.droppedFile !== nextState.droppedFile;
   }
 
   onFileDrop = (file) => {

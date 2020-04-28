@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from './modalTrigger.scss';
@@ -12,6 +12,22 @@ function ModalQuick({
   ModalContent,
 }) {
   const [isModalOpen, setIsOpen] = useState(false);
+
+  const onMountAndUnMount = () => {
+    const closeOnEscapeKey = (e) => {
+      if (e.keyCode === 27) {
+        toggleModal();
+      }
+    };
+
+    window.addEventListener('keyup', closeOnEscapeKey, false);
+
+    return () => {
+      window.removeEventListener('keyup', closeOnEscapeKey, false);
+    };
+  };
+
+  useEffect(onMountAndUnMount, []);
 
   function toggleModal() {
     setIsOpen(!isModalOpen);

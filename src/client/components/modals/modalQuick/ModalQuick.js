@@ -16,7 +16,7 @@ function ModalQuick({
   const onMountAndUnMount = () => {
     const closeOnEscapeKey = (e) => {
       if (e.keyCode === 27) {
-        toggleModal();
+        setIsOpen(false);
       }
     };
 

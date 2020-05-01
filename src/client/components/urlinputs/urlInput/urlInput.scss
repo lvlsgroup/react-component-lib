@@ -12,6 +12,15 @@
     &:focus {
       outline: none;
     }
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      display: none;
+    }
+
+    &[type=number] {
+      -moz-appearance:textfield; /* Firefox */
+    }
   }
 
   .btnClear {

@@ -21,6 +21,7 @@ function UrlInput({
   alwaysShowClearIcon,
   inputType,
   inputSize = 'inputSizeMd',
+  regexAllowOnly,
   CustomClearIcon,
 }) {
   const location = useLocation();
@@ -61,6 +62,7 @@ function UrlInput({
         value={currentQuery}
         onChange={onInputChange}
         type={inputType}
+        regexAllowOnly={regexAllowOnly}
       />
       {(alwaysShowClearIcon || currentQuery) && CustomClearIcon ? (
         <button className={styles.btnClear} type={'button'} onClick={onClear}>
@@ -99,6 +101,7 @@ UrlInput.propTypes = {
   inputClassName: PropTypes.string,
   inputType: PropTypes.string,
   inputSize: PropTypes.string,
+  regexAllowOnly: PropTypes.instanceOf(RegExp),
   placeholder: PropTypes.string,
   searchParam: PropTypes.string,
   historyAction: PropTypes.oneOf(['push', 'replace']),

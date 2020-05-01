@@ -19,9 +19,19 @@ const Input = React.memo(
     defaultValue,
     onClick,
     inputSize,
+    regexAllowOnly,
   }) => {
     function handleChange(event) {
-      onChange(event, { name });
+      if (regexAllowOnly) {
+        const value = event.target.value;
+        if (value === '') {
+          onChange(event, { name });
+        } else if (value.match(regexAllowOnly)) {
+          onChange(event, { name });
+        }
+      } else {
+        onChange(event, { name });
+      }
     }
 
     return (
@@ -61,6 +71,11 @@ Input.propTypes = {
   onChange: PropTypes.func,
   onBlur: PropTypes.func,
   onClick: PropTypes.func,
+  regexAllowOnly: PropTypes.instanceOf(RegExp),
 };
 
 export default Input;
+
+export const ONLY = {
+  DIGITS: /^\d+$/,
+};

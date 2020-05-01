@@ -24,7 +24,7 @@ function UrlInput({
     let searchParams;
     if (event.target.value) {
       searchParams = getSearchParams(location, {
-        addParamsObj: { query: event.target.value },
+        addParamsObj: { [searchParam]: event.target.value },
       });
     } else {
       searchParams = getSearchParams(location, {

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import styles from './styles.scss';
 
 const Input = React.memo(
@@ -17,6 +18,7 @@ const Input = React.memo(
     placeholder,
     defaultValue,
     onClick,
+    inputSize,
   }) => {
     function handleChange(event) {
       onChange(event, { name });
@@ -24,7 +26,7 @@ const Input = React.memo(
 
     return (
       <input
-        className={`${styles.input}${className ? ` ${className}` : ''}`}
+        className={classNames(styles.input, styles[inputSize], className)}
         disabled={isDisabled}
         readOnly={readOnly}
         autoComplete={autoComplete}
@@ -42,8 +44,11 @@ const Input = React.memo(
   }
 );
 
+const INPUT_SIZE = ['inputSizeMd', 'inputSizeMdL', 'inputSizeLg'];
+
 Input.propTypes = {
   className: PropTypes.string,
+  inputSize: PropTypes.oneOf(INPUT_SIZE),
   name: PropTypes.string,
   isDisabled: PropTypes.bool,
   readOnly: PropTypes.bool,

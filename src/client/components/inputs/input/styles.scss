@@ -1,9 +1,28 @@
 .input {
-  height: 26px;
+  height: 32px;
   font-size: 14px;
   width: 100%;
   border-radius: 2px;
   border: solid 1px #979797;
   padding: 0 6px;
   outline-width: 3px;
+
+  &::placeholder{
+    color: #c2d1d9;
+  }
+}
+
+.inputSizeMd {
+  height: 40px;
+  font-size: 16px;
+}
+
+.inputSizeMdL {
+  height: 44px;
+  font-size: 18px;
+}
+
+.inputSizeLg {
+  height: 48px;
+  font-size: 20px;
 }

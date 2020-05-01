@@ -19,6 +19,8 @@ import InputTagCreator from '@rc-lib-client/components/inputs/inputTagCreator/In
 import { CheckmarkFatUtf } from '@rc-lib-client/components/icons/checkMarks/checkMarks';
 import Checkbox from '@rc-lib-client/components/inputs/checkbox/Checkbox';
 import UrlCheckbox from '@rc-lib-client/components/urlinputs/urlCheckbox/UrlCheckbox';
+import UrlInputDemo from '@rc-lib-client/components/urlinputs/urlInput/urlInputDemo/UrlInputDemo';
+import Input from '@rc-lib-client/components/inputs/input/Input';
 import styles from './homePage.scss';
 
 const options = [
@@ -57,6 +59,14 @@ class HomePage extends React.Component {
         <InputTagCreator instanceId={'1'} />
         <InputTagCreatorDemoJsStyles instanceId={'2'} />
         <InputTagCreatorDemoClassNames instanceId={'3'} />
+        <Flex dontExpandChildren>
+          <div>input</div>
+          <input type="text" />
+          <div>Input</div>
+          <Input />
+          <div>Input inputSizeLg</div>
+          <Input inputSize="inputSizeMd" />
+        </Flex>
         <Flex>
           <Flex flexNr={1}>HELLO</Flex>
           <Flex flexNr={1}>HELLO</Flex>
@@ -136,6 +146,7 @@ class HomePage extends React.Component {
           searchParam={'selected'}
           value={'some-id'}
         />
+        <UrlInputDemo />
       </div>
     );
   }

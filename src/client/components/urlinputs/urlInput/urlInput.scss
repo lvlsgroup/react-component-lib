@@ -1,18 +1,13 @@
-.urlInput{
+.urlInput {
+  background-color: white;
   border: 1px solid #333;
   width: 100%;
 
   .input {
+    align-self: center;
     width: 100%;
-    height: 100%;
     border: none;
     font-family: value-regular, sans-serif;
-    font-size: 18px;
-    padding: 10px;
-
-    &::placeholder{
-      color: #c2d1d9;
-    }
 
     &:focus {
       outline: none;
@@ -20,7 +15,6 @@
   }
 
   .btnClear {
-    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;

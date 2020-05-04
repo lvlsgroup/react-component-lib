@@ -12,6 +12,8 @@ const DropdownSelector = React.memo(
     onChange,
     options,
     isMulti,
+    remapValueKey,
+    remapLabelKey,
     ...rest
   }) => {
     return (
@@ -19,6 +21,8 @@ const DropdownSelector = React.memo(
         instanceId={instanceId}
         className={classNames(className, styles.dropdownSelector)}
         classNamePrefix={'dropdown_selector_inner'}
+        getOptionValue={remapValueKey && ((option) => option[remapValueKey])}
+        getOptionLabel={remapLabelKey && ((option) => option[remapLabelKey])}
         value={selected}
         options={options}
         isMulti={isMulti}
@@ -32,6 +36,8 @@ const DropdownSelector = React.memo(
 DropdownSelector.propTypes = {
   className: PropTypes.string,
   instanceId: PropTypes.string,
+  remapValueKey: PropTypes.string,
+  remapLabelKey: PropTypes.string,
   selected: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
   options: PropTypes.array,
   isMulti: PropTypes.bool,

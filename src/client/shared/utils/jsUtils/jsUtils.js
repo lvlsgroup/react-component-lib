@@ -173,3 +173,23 @@ export const filterArrayByKeyValue = (array, key, value) => {
     return item[key].toLowerCase().indexOf(value.toLowerCase()) !== -1;
   });
 };
+
+export function getChunkedArray(array, chunkSize) {
+  return (
+    array &&
+    array.reduce &&
+    array.reduce((accum, item, index) => {
+      const isNewChunk = index % chunkSize === 0;
+      if (isNewChunk) {
+        accum.push([item]);
+
+        return accum;
+      } else {
+        const currentChunkIndex = accum.length - 1;
+        accum[currentChunkIndex].push(item);
+
+        return accum;
+      }
+    }, [])
+  );
+}

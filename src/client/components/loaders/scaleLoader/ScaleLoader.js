@@ -5,7 +5,7 @@ import styles from './scaleLoader.scss';
 
 function ScaleLoader({ className, color = '#000000' }) {
   return (
-    <div className={classNames(styles.spinner, className)}>
+    <div className={classNames(styles.scaleLoader, className)}>
       <div
         style={{ backgroundColor: color }}
         className={classNames(styles.rectangle, styles.rect1)}

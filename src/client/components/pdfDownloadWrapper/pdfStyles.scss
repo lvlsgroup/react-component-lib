@@ -1,0 +1,24 @@
+$a4Width: 29.7cm;
+$a4Height: 21cm;
+
+@function pxToCmW($px) {
+  @return $px / (1920 / 29.7) + cm;
+}
+@function pxToCmH($px) {
+  @return $px / (1080 / 21) + cm;
+}
+
+.pdfPage {
+  display: flex;
+  flex-direction: column;
+  width: $a4Width;
+  height: $a4Height;
+  padding: pxToCmH(40) pxToCmW(78);
+  overflow: hidden;
+  border-bottom: 1px solid black;
+}
+
+.a4Landscape {
+  width: 29.7cm;
+  height: 21cm;
+}

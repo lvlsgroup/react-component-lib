@@ -51,12 +51,14 @@ Button.propTypes = {
   onClick: PropTypes.func,
   disabled: PropTypes.bool,
   startIcon: PropTypes.oneOfType([
+    PropTypes.bool,
     PropTypes.string,
     PropTypes.array,
     PropTypes.object,
     PropTypes.func,
   ]),
   endIcon: PropTypes.oneOfType([
+    PropTypes.bool,
     PropTypes.string,
     PropTypes.array,
     PropTypes.object,

@@ -13,6 +13,8 @@ function InputWithCounter({
   classNameCounterBtnLabel,
   currentValue,
   onChange,
+  disableMinusBtn,
+  disablePlusBtn,
 }) {
   function toggleMinus() {
     if (currentValue > 0) {
@@ -39,6 +41,7 @@ function InputWithCounter({
         label={'-'}
         labelClassName={classNameCounterBtnLabel}
         onClick={toggleMinus}
+        disabled={disableMinusBtn}
       />
       <Input
         className={classNames(classNameInput, styles.input)}
@@ -51,6 +54,7 @@ function InputWithCounter({
         label={'+'}
         labelClassName={classNameCounterBtnLabel}
         onClick={togglePlus}
+        disabled={disablePlusBtn}
       />
     </Flex>
   );
@@ -63,6 +67,8 @@ InputWithCounter.propTypes = {
   classNameCounterBtnLabel: PropTypes.string,
   onChange: PropTypes.func,
   currentValue: PropTypes.number,
+  disableMinusBtn: PropTypes.bool,
+  disablePlusBtn: PropTypes.bool,
 };
 
 export default React.memo(InputWithCounter);

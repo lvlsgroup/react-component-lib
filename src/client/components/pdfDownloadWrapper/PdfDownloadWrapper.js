@@ -15,6 +15,7 @@ function PdfDownloadWrapper({
   filename = 'page.pdf',
   imageType = 'jpeg',
   imageQuality = 0.98,
+  enableLinks = true,
   html2canvas = {
     scale: 2,
     useCORS: true,
@@ -31,6 +32,7 @@ function PdfDownloadWrapper({
 
     const opt = {
       margin: 0,
+      enableLinks: enableLinks,
       filename: filename,
       image: { type: imageType, quality: imageQuality },
       html2canvas: html2canvas,
@@ -116,6 +118,7 @@ PdfDownloadWrapper.propTypes = {
   imageQuality: PropTypes.number,
   html2canvas: PropTypes.object,
   jsPDF: PropTypes.object,
+  enableLinks: PropTypes.bool,
   LoaderComponent: PropTypes.oneOfType([
     PropTypes.array,
     PropTypes.object,

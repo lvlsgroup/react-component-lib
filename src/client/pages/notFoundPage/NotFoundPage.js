@@ -4,6 +4,7 @@ import {
   useAppFrame,
 } from '@rc-lib-client/context/AppFrameProvider';
 import ReactLink from '@rc-lib-client/components/links/reactLink/ReactLink';
+import styles from './notFoundPage.scss';
 
 class Tester extends PureComponent {
   static contextType = AppFrameContext;
@@ -63,7 +64,7 @@ class NotFoundPage extends PureComponent {
     console.log('NotFoundPage this.context: ', this.context);
 
     return (
-      <div>
+      <div className={styles.notFoundPage}>
         <h1>Not found page</h1>
         <div>
           {this.context &&

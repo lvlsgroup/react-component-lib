@@ -1,0 +1,21 @@
+@import './pdfStyles.scss';
+
+.pdfDownloadWrapper {
+  position: relative;
+  width: $a4Width;
+  height: $a4Height;
+
+  background-color: white;
+  overflow: scroll;
+
+  .saveBtn {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 9999;
+  }
+
+  .hideOnLoading {
+    opacity: 0;
+  }
+}

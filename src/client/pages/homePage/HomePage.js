@@ -21,6 +21,9 @@ import Checkbox from '@rc-lib-client/components/inputs/checkbox/Checkbox';
 import UrlCheckbox from '@rc-lib-client/components/urlinputs/urlCheckbox/UrlCheckbox';
 import UrlInputDemo from '@rc-lib-client/components/urlinputs/urlInput/urlInputDemo/UrlInputDemo';
 import Input from '@rc-lib-client/components/inputs/input/Input';
+import { ButtonLoaderDemo } from '@rc-lib-client/components/inputs/button/buttonDemo/ButtonDemo';
+import PdfDownloadWrapper from '@rc-lib-client/components/pdfDownloadWrapper/PdfDownloadWrapper';
+import ModalQuick from '@rc-lib-client/components/modals/modalQuick/ModalQuick';
 import styles from './homePage.scss';
 
 const options = [
@@ -77,6 +80,20 @@ class HomePage extends React.Component {
         </Flex>
         <Toggler name="isBookable" />
         <Line />
+        <h3>
+          Hmm, placement of PdfDownloadWrapper seems to matter, if placed last
+          on this page it doesnt work
+        </h3>
+        <div>
+          <ModalQuick
+            TriggerElement={<Button label={'CREATE PDF'} />}
+            ModalContent={
+              <PdfDownloadWrapper imageQuality={0.8}>
+                <PdfPages />
+              </PdfDownloadWrapper>
+            }
+          />
+        </div>
         <Grid resColSystem="res1234" colGap="10px" rowGap="10px">
           <input type="text" />
           <input type="text" />
@@ -147,9 +164,27 @@ class HomePage extends React.Component {
           value={'some-id'}
         />
         <UrlInputDemo />
+        <ButtonLoaderDemo />
       </div>
     );
   }
 }
 
 export default HomePage;
+
+function PdfPages({ className }) {
+  return (
+    <>
+      <div className={styles.pdfPage}>
+        <h3>EACH DIV IS A PAGE</h3>
+        <p>hello</p>
+      </div>
+      <div className={styles.pdfPage}>
+        <h3>SECOND PAGE</h3>
+      </div>
+      <div className={styles.pdfPage}>
+        <h3>THIRD PAGE</h3>
+      </div>
+    </>
+  );
+}

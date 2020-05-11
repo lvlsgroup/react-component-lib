@@ -5,7 +5,6 @@ import AnimatedCarousel from '@rc-lib-client/components/carousels/animatedCarous
 import SwipeCarousel from '@rc-lib-client/components/carousels/swipeCarousel/SwipeCarousel';
 import DropzoneBox from '@rc-lib-client/components/dropzones/dropzoneBox/DropzoneBox';
 import Button from '@rc-lib-client/components/inputs/button/Button';
-import Toggler from '@rc-lib-client/components/inputs/toggler/Toggler';
 import ToggleArrowSvg from '@rc-lib-client/components/icons/arrowSvg/ToggleArrowSvg';
 import styleHelper from '@rc-lib-client/shared/styles/styleHelper.scss';
 import Flex from '@rc-lib-client/components/flex/Flex';
@@ -21,6 +20,10 @@ import Checkbox from '@rc-lib-client/components/inputs/checkbox/Checkbox';
 import UrlCheckbox from '@rc-lib-client/components/urlinputs/urlCheckbox/UrlCheckbox';
 import UrlInputDemo from '@rc-lib-client/components/urlinputs/urlInput/urlInputDemo/UrlInputDemo';
 import Input from '@rc-lib-client/components/inputs/input/Input';
+import {
+  TogglerWithTextDemo,
+  TogglerDemo,
+} from '@rc-lib-client/components/inputs/toggler/togglerDemo/TogglerDemo';
 import styles from './homePage.scss';
 
 const options = [
@@ -56,6 +59,8 @@ class HomePage extends React.Component {
     return (
       <div className={styles.homeRoute}>
         <h1 className={styles.title}>Home page</h1>
+        <TogglerWithTextDemo />
+        <TogglerDemo name="isBookable" />
         <InputTagCreator instanceId={'1'} />
         <InputTagCreatorDemoJsStyles instanceId={'2'} />
         <InputTagCreatorDemoClassNames instanceId={'3'} />
@@ -75,7 +80,6 @@ class HomePage extends React.Component {
           <input type="text" />
           <input type="text" />
         </Flex>
-        <Toggler name="isBookable" />
         <Line />
         <Grid resColSystem="res1234" colGap="10px" rowGap="10px">
           <input type="text" />
@@ -104,7 +108,6 @@ class HomePage extends React.Component {
             return <div key={newsItem.id}>{newsItem.text}</div>;
           })}
         </AnimatedCarousel>
-        <Toggler name="isBookable" />
         <InputDatePicker selected={new Date()} />
         <DropdownSelector
           selected={[{ value: 'vanilla', label: 'Vanilla' }]}

@@ -8,12 +8,11 @@ class Toggler extends React.PureComponent {
     const {
       className,
       inputClassName,
+      sliderClassName,
       onChange,
       onBlur,
       isChecked,
       name,
-      checkedText,
-      uncheckedText,
     } = this.props;
     return (
       <label className={classNames(styles.toggler, className)}>
@@ -26,11 +25,7 @@ class Toggler extends React.PureComponent {
           onBlur={onBlur}
           checked={isChecked}
         />
-        <div className={styles.slider}>
-          {isChecked && (checkedText || uncheckedText)
-            ? checkedText
-            : uncheckedText}
-        </div>
+        <div className={classNames(styles.slider, sliderClassName)} />
       </label>
     );
   }
@@ -38,6 +33,7 @@ class Toggler extends React.PureComponent {
 
 Toggler.propTypes = {
   inputClassName: PropTypes.string,
+  sliderClassName: PropTypes.string,
   className: PropTypes.string,
   onChange: PropTypes.func,
   onBlur: PropTypes.func,

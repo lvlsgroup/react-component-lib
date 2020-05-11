@@ -8,16 +8,19 @@ class Toggler extends React.PureComponent {
     const {
       className,
       inputClassName,
+      backgroundClassName,
       sliderClassName,
       onChange,
       onBlur,
       isChecked,
+      checkedLabel,
+      unCheckedLabel,
       name,
     } = this.props;
     return (
       <label className={classNames(styles.toggler, className)}>
         <input
-          className={classNames(inputClassName)}
+          className={classNames(styles.inputToggler, inputClassName)}
           type="checkbox"
           name={name}
           value={isChecked}
@@ -25,7 +28,22 @@ class Toggler extends React.PureComponent {
           onBlur={onBlur}
           checked={isChecked}
         />
-        <div className={classNames(styles.slider, sliderClassName)} />
+        <div
+          className={classNames(styles.togglerBackground, backgroundClassName)}
+        />
+        <div className={classNames(styles.slider, sliderClassName)}>
+          {checkedLabel && (
+            <span className={classNames(styles.checkedLabel)}>
+              {checkedLabel}
+            </span>
+          )}
+          <div className={classNames(styles.sliderBall)} />
+          {unCheckedLabel && (
+            <span className={classNames(styles.unCheckedLabel)}>
+              {unCheckedLabel}
+            </span>
+          )}
+        </div>
       </label>
     );
   }
@@ -33,7 +51,10 @@ class Toggler extends React.PureComponent {
 
 Toggler.propTypes = {
   inputClassName: PropTypes.string,
+  backgroundClassName: PropTypes.string,
   sliderClassName: PropTypes.string,
+  unCheckedLabel: PropTypes.string,
+  checkedLabel: PropTypes.string,
   className: PropTypes.string,
   onChange: PropTypes.func,
   onBlur: PropTypes.func,

@@ -23,6 +23,7 @@ import Input from '@rc-lib-client/components/inputs/input/Input';
 import {
   TogglerWithTextDemo,
   TogglerDemo,
+  TogglerCheckedDemo,
 } from '@rc-lib-client/components/inputs/toggler/togglerDemo/TogglerDemo';
 import styles from './homePage.scss';
 
@@ -60,6 +61,7 @@ class HomePage extends React.Component {
       <div className={styles.homeRoute}>
         <h1 className={styles.title}>Home page</h1>
         <TogglerWithTextDemo />
+        <TogglerCheckedDemo />
         <TogglerDemo name="isBookable" />
         <InputTagCreator instanceId={'1'} />
         <InputTagCreatorDemoJsStyles instanceId={'2'} />

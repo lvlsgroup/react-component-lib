@@ -6,14 +6,19 @@ function TogglerDemo({ name = 'defaultToggler' }) {
   return <Toggler name={name} />;
 }
 
+function TogglerCheckedDemo({ name = 'togglerCheckedDemo' }) {
+  return <Toggler isChecked={true} name={name} />;
+}
+
 function TogglerWithTextDemo({ name = 'togglerWithText' }) {
   return (
     <Toggler
-      sliderClassName={styles.sliderClassNameProp}
-      inputClassName={styles.inputClassNameProp}
+      className={styles.togglerWithTextDemoProp}
+      unCheckedLabel="No"
+      checkedLabel="Yes"
       name={name}
     />
   );
 }
 
-export { TogglerDemo, TogglerWithTextDemo };
+export { TogglerDemo, TogglerCheckedDemo, TogglerWithTextDemo };

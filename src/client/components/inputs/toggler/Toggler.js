@@ -12,11 +12,13 @@ class Toggler extends React.PureComponent {
       onBlur,
       isChecked,
       name,
+      checkedText,
+      uncheckedText,
     } = this.props;
     return (
       <label className={classNames(styles.toggler, className)}>
         <input
-          className={classNames(styles.togglerInput, inputClassName)}
+          className={classNames(inputClassName)}
           type="checkbox"
           name={name}
           value={isChecked}
@@ -24,7 +26,11 @@ class Toggler extends React.PureComponent {
           onBlur={onBlur}
           checked={isChecked}
         />
-        <div className={styles.slider} />
+        <div className={styles.slider}>
+          {isChecked && (checkedText || uncheckedText)
+            ? checkedText
+            : uncheckedText}
+        </div>
       </label>
     );
   }

@@ -37,6 +37,7 @@ $slider-ball-siz: 16px;
 
 .slider {
   position: relative;
+  word-break: normal;
   width: calc(100% - #{$slider-ball-siz});
   display: flex;
   align-items: center;
@@ -84,4 +85,12 @@ $slider-ball-siz: 16px;
 
 .inputToggler:checked ~ .slider .unCheckedLabel {
   opacity: 0;
+}
+
+.link {
+  color: #3bafda;
+
+  &:hover {
+    color: white;
+  }
 }

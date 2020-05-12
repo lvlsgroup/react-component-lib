@@ -10,6 +10,7 @@ const options = {
 
 export const ROUTES = {
   home: '/',
+  inputsPage: '/inputs-page',
   undefined: '/go-to-undefined',
 };
 
@@ -19,6 +20,12 @@ export default [
     exact: true,
     componentPath: 'pages/homePage/HomePage',
     Component: universal(import('pages/homePage/HomePage'), options),
+  },
+  {
+    path: ROUTES.inputsPage,
+    exact: true,
+    componentPath: 'pages/inputsPage/InputsPage',
+    Component: universal(import('pages/inputsPage/InputsPage'), options),
   },
   {
     path: ROUTES.undefined,

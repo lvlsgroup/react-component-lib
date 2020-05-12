@@ -1,0 +1,11 @@
+.inputsPage {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  margin: 80px 30px 0 30px;
+  max-width: 1080px;
+
+  h5 {
+    padding-bottom: 4px;
+  }
+}

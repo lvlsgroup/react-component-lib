@@ -5,9 +5,10 @@ import styles from './styles.scss';
 
 class Toggler extends React.PureComponent {
   getBallSize = (ballSize) => {
+    const unit = ballSize && ballSize.replace(/\d+/g, '');
     const ballSizeMatches = ballSize && ballSize.match(/\d+/g);
     const size = ballSizeMatches && ballSizeMatches[0] / 2;
-    return size && `${size}px`;
+    return size && unit && `${size}${unit}`;
   };
 
   render() {
@@ -46,7 +47,7 @@ class Toggler extends React.PureComponent {
           className={classNames(styles.togglerBackground, backgroundClassName)}
         />
         <div
-          style={{ width: `calc(100% - ${ballSize});` }}
+          style={{ width: `calc(100% - ${ballSize})` }}
           className={classNames(styles.slider, sliderClassName)}
         >
           {checkedLabel && (
@@ -85,6 +86,9 @@ Toggler.propTypes = {
   onBlur: PropTypes.func,
   isChecked: PropTypes.bool,
   name: PropTypes.string,
+  width: PropTypes.string,
+  height: PropTypes.string,
+  ballSize: PropTypes.string,
 };
 
 export default Toggler;

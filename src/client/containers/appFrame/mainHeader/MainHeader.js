@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import { withRouter } from 'react-router-dom';
-import themeStyles from '@rc-lib-client/shared/styles/theme/theme-styles.scss';
+import ReactLink from '@rc-lib-client/components/links/reactLink/ReactLink';
+import Flex from '@rc-lib-client/components/flex/Flex';
 import styles from './mainHeader.scss';
 
 class MainHeader extends PureComponent {
@@ -8,9 +9,14 @@ class MainHeader extends PureComponent {
     return (
       <header className={styles.mainHeader}>
         <div className={styles.stickyHeader}>
-          <i
-            className={`${themeStyles.iconHamburger} ${styles.navBarButtonIcon}`}
-          />
+          <Flex className={styles.menuLinkListing}>
+            <ReactLink className={styles.menuLink} to={`/`}>
+              Home
+            </ReactLink>
+            <ReactLink className={styles.menuLink} to={`/inputs-page`}>
+              Inputs Page
+            </ReactLink>
+          </Flex>
         </div>
       </header>
     );

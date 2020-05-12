@@ -1,0 +1,96 @@
+.toggler {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  display: flex;
+  width: 40px; // WHY NOT 100%
+  height: 20px;
+  outline: none;
+  border-radius: 34px;
+  padding: 0 4px;
+  color: white;
+  font-size: 14px;
+}
+
+.inputToggler {
+  display: none;
+}
+
+.togglerBackground {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: black;
+}
+
+.inputToggler:checked ~ .togglerBackground {
+  background-color: green;
+}
+
+.inputToggler:focus ~ .togglerBackground {
+  box-shadow: 0 0 1px green;
+}
+
+$slider-ball-siz: 16px;
+
+.slider {
+  position: relative;
+  word-break: normal;
+  width: calc(100% - #{$slider-ball-siz});
+  display: flex;
+  align-items: center;
+  -webkit-transition: transform 0.4s;
+  transition: transform 0.4s;
+  align-self: center;
+}
+
+.sliderBall {
+  content: "";
+  height: $slider-ball-siz;
+  width: $slider-ball-siz;
+  padding: $slider-ball-siz / 2;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.inputToggler:checked ~ .slider {
+  -webkit-transform: translateX(100%);
+  -ms-transform: translateX(100%);
+  transform: translateX(100%);
+}
+
+.checkedLabel {
+  opacity: 0;
+  position: absolute;
+  right: 100%;
+  bottom: 0;
+  top: 0;
+  margin-right: 4px;
+  display: flex;
+  align-items: center;
+}
+
+.inputToggler:checked ~ .slider .checkedLabel {
+  opacity: 1;
+}
+
+.unCheckedLabel {
+  opacity: 1;
+  margin-left: 4px;
+  display: flex;
+  align-items: center;
+}
+
+.inputToggler:checked ~ .slider .unCheckedLabel {
+  opacity: 0;
+}
+
+.link {
+  color: #3bafda;
+
+  &:hover {
+    color: white;
+  }
+}

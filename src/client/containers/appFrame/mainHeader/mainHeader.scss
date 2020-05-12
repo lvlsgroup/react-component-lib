@@ -5,7 +5,7 @@ $fixed-header-height: 60px;
 }
 
 .stickyHeader {
-  background: $color-bg-primary-gradient-dark;
+  background: $color-white;
   position: fixed;
   z-index: 100;
   top: 0;
@@ -17,6 +17,27 @@ $fixed-header-height: 60px;
   display: flex;
   align-items: stretch;
   box-shadow: 0 0 5px $color-box-shadow-primary;
+}
+
+.menuLinkListing {
+  padding: 0 50px;
+
+  .menuLink {
+    font-size: 18px;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 12px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:hover {
+      color: blue;
+    }
+  }
 }
 
 .navBarButtonIcon {

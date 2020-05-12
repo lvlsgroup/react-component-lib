@@ -1,0 +1,30 @@
+.togglerAcampDemoProp {
+  width: 80px;
+  height: 35px;
+  font-size: 18px;
+
+  $slider-ball-siz: 25px;
+
+  .sliderProp {
+    width: calc(100% - #{$slider-ball-siz});
+    color: black;
+  }
+
+  .sliderBallProp {
+    height: $slider-ball-siz;
+    width: $slider-ball-siz;
+    padding: $slider-ball-siz / 2;
+  }
+
+  .backgroundProp {
+    background-color: #e1e1e1;
+  }
+
+  input:checked ~ .backgroundProp {
+    background-color: #14cc85;
+  }
+
+  input:checked ~ .sliderProp {
+    color: white;
+  }
+}

@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
-import styles from './styles.scss';
+import styles from './deprecatedToggler.scss';
 
-class Toggler extends React.PureComponent {
+class DeprecatedToggler extends React.PureComponent {
   render() {
     const {
       className,
@@ -30,7 +30,7 @@ class Toggler extends React.PureComponent {
   }
 }
 
-Toggler.propTypes = {
+DeprecatedToggler.propTypes = {
   inputClassName: PropTypes.string,
   className: PropTypes.string,
   onChange: PropTypes.func,
@@ -39,4 +39,4 @@ Toggler.propTypes = {
   name: PropTypes.string,
 };
 
-export default Toggler;
+export default DeprecatedToggler;

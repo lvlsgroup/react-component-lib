@@ -35,11 +35,29 @@ function InputTagCreatorDemoClassNames({ instanceId }) {
 
 // Style with js object
 function InputTagCreatorDemoJsStyles({ instanceId }) {
+  const [values, setValues] = useState();
+
+  function onTabOrEnter(inputValue) {
+    setValues(imPush(values, { label: inputValue, value: inputValue }));
+  }
+
+  function onDelete(values) {
+    setValues(values);
+  }
+
+  function onDeleteAll() {
+    setValues([]);
+  }
+
   return (
     <InputTagCreator
       instanceId={instanceId}
       jsStyles={jsStyles}
       placeholder="Type and press enter"
+      values={values}
+      onTabOrEnter={onTabOrEnter}
+      onDelete={onDelete}
+      onDeleteAll={onDeleteAll}
     />
   );
 }

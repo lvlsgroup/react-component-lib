@@ -70,10 +70,6 @@ class HomePage extends React.Component {
           <TogglerWithText />
         </div>
         <div>
-          <h5>TogglerCheckedDemo</h5>
-          <TogglerCheckedDemo />
-        </div>
-        <div>
           <h5>TogglerAcampDemo</h5>
           <TogglerAcampDemo />
         </div>

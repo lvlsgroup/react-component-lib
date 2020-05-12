@@ -4,8 +4,15 @@ import classNames from 'classnames/bind';
 import styles from './styles.scss';
 
 class Toggler extends React.PureComponent {
+  getBallSize = (ballSize) => {
+    const ballSizeMatches = ballSize && ballSize.match(/\d+/g);
+    const size = ballSizeMatches && ballSizeMatches[0] / 2;
+    return size && `${size}px`;
+  };
+
   render() {
     const {
+      name,
       className,
       inputClassName,
       backgroundClassName,
@@ -16,10 +23,16 @@ class Toggler extends React.PureComponent {
       isChecked,
       checkedLabel,
       unCheckedLabel,
-      name,
+      width,
+      height,
+      ballSize,
     } = this.props;
+
     return (
-      <label className={classNames(styles.toggler, className)}>
+      <label
+        style={{ width: width, height: height }}
+        className={classNames(styles.toggler, className)}
+      >
         <input
           className={classNames(styles.inputToggler, inputClassName)}
           type="checkbox"
@@ -32,13 +45,23 @@ class Toggler extends React.PureComponent {
         <div
           className={classNames(styles.togglerBackground, backgroundClassName)}
         />
-        <div className={classNames(styles.slider, sliderClassName)}>
+        <div
+          style={{ width: `calc(100% - ${ballSize});` }}
+          className={classNames(styles.slider, sliderClassName)}
+        >
           {checkedLabel && (
             <span className={classNames(styles.checkedLabel)}>
               {checkedLabel}
             </span>
           )}
-          <div className={classNames(styles.sliderBall, sliderBallClassName)} />
+          <div
+            style={{
+              width: ballSize,
+              height: ballSize,
+              padding: this.getBallSize(ballSize),
+            }}
+            className={classNames(styles.sliderBall, sliderBallClassName)}
+          />
           {unCheckedLabel && (
             <span className={classNames(styles.unCheckedLabel)}>
               {unCheckedLabel}

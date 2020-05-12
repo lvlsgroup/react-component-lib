@@ -2,15 +2,19 @@ import React from 'react';
 import Toggler from '../Toggler';
 import styles from './togglerDemo.scss';
 
-function TogglerDemo({ name = 'defaultToggler' }) {
+function TogglerDemo({ name = 'TogglerDemo' }) {
   return <Toggler name={name} />;
 }
 
-function TogglerWithText({ name = 'togglerWithText' }) {
+function TogglerWithText({ name = 'TogglerWithText' }) {
   return <Toggler unCheckedLabel="No" checkedLabel="Yes" name={name} />;
 }
 
-function TogglerAcampDemo({ name = 'togglerWithText' }) {
+function TogglerWithJsSize({ name = 'TogglerWithJsSize' }) {
+  return <Toggler name={name} width="100px" height="50px" ballSize="30px" />;
+}
+
+function TogglerAcampDemo({ name = 'TogglerAcampDemo' }) {
   return (
     <Toggler
       className={styles.togglerAcampDemoProp}
@@ -24,4 +28,4 @@ function TogglerAcampDemo({ name = 'togglerWithText' }) {
   );
 }
 
-export { TogglerDemo, TogglerWithText, TogglerAcampDemo };
+export { TogglerDemo, TogglerWithText, TogglerWithJsSize, TogglerAcampDemo };

@@ -24,6 +24,7 @@ import {
   TogglerAcampDemo,
   TogglerCheckedDemo,
   TogglerDemo,
+  TogglerWithJsSize,
   TogglerWithText,
 } from '@rc-lib-client/components/inputs/toggler/togglerDemo/TogglerDemo';
 import styles from './homePage.scss';
@@ -68,6 +69,10 @@ class HomePage extends React.Component {
         <div>
           <h5>TogglerWithText</h5>
           <TogglerWithText />
+        </div>
+        <div>
+          <h5>TogglerWithJsSize</h5>
+          <TogglerWithJsSize />
         </div>
         <div>
           <h5>TogglerAcampDemo</h5>

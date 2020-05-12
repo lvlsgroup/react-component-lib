@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
-import styles from './styles.scss';
+import styles from './toggler2.scss';
 
-class Toggler extends React.PureComponent {
+class Toggler2 extends React.PureComponent {
   getBallSize = (ballSize) => {
     const unit = ballSize && ballSize.replace(/\d+/g, '');
     const ballSizeMatches = ballSize && ballSize.match(/\d+/g);
@@ -74,7 +74,7 @@ class Toggler extends React.PureComponent {
   }
 }
 
-Toggler.propTypes = {
+Toggler2.propTypes = {
   inputClassName: PropTypes.string,
   backgroundClassName: PropTypes.string,
   sliderClassName: PropTypes.string,
@@ -91,4 +91,4 @@ Toggler.propTypes = {
   ballSize: PropTypes.string,
 };
 
-export default Toggler;
+export default Toggler2;

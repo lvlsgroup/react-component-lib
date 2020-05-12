@@ -10,10 +10,16 @@ function TogglerCheckedDemo({ name = 'togglerCheckedDemo' }) {
   return <Toggler isChecked={true} name={name} />;
 }
 
-function TogglerWithTextDemo({ name = 'togglerWithText' }) {
+function TogglerWithText({ name = 'togglerWithText' }) {
+  return <Toggler unCheckedLabel="No" checkedLabel="Yes" name={name} />;
+}
+
+function TogglerAcampDemo({ name = 'togglerWithText' }) {
   return (
     <Toggler
-      className={styles.togglerWithTextDemoProp}
+      className={styles.togglerAcampDemoProp}
+      sliderClassName={styles.sliderProp}
+      sliderBallClassName={styles.sliderBallProp}
       unCheckedLabel="No"
       checkedLabel="Yes"
       name={name}
@@ -21,4 +27,4 @@ function TogglerWithTextDemo({ name = 'togglerWithText' }) {
   );
 }
 
-export { TogglerDemo, TogglerCheckedDemo, TogglerWithTextDemo };
+export { TogglerDemo, TogglerCheckedDemo, TogglerWithText, TogglerAcampDemo };

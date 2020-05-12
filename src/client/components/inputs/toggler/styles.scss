@@ -33,11 +33,11 @@
   box-shadow: 0 0 1px green;
 }
 
-$slider-ball-width: 16px;
+$slider-ball-siz: 16px;
 
 .slider {
   position: relative;
-  width: calc(100% - #{$slider-ball-width});
+  width: calc(100% - #{$slider-ball-siz});
   display: flex;
   align-items: center;
   -webkit-transition: transform 0.4s;
@@ -47,9 +47,9 @@ $slider-ball-width: 16px;
 
 .sliderBall {
   content: "";
-  height: 16px;
-  width: $slider-ball-width;
-  padding: $slider-ball-width / 2;
+  height: $slider-ball-siz;
+  width: $slider-ball-siz;
+  padding: $slider-ball-siz / 2;
   background-color: white;
   border-radius: 50%;
 }
@@ -63,9 +63,10 @@ $slider-ball-width: 16px;
 .checkedLabel {
   opacity: 0;
   position: absolute;
-  right: 42px;
+  right: 100%;
   bottom: 0;
   top: 0;
+  margin-right: 4px;
   display: flex;
   align-items: center;
 }

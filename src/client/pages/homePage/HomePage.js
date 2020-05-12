@@ -21,9 +21,10 @@ import UrlCheckbox from '@rc-lib-client/components/urlinputs/urlCheckbox/UrlChec
 import UrlInputDemo from '@rc-lib-client/components/urlinputs/urlInput/urlInputDemo/UrlInputDemo';
 import Input from '@rc-lib-client/components/inputs/input/Input';
 import {
-  TogglerWithTextDemo,
-  TogglerDemo,
+  TogglerAcampDemo,
   TogglerCheckedDemo,
+  TogglerDemo,
+  TogglerWithText,
 } from '@rc-lib-client/components/inputs/toggler/togglerDemo/TogglerDemo';
 import styles from './homePage.scss';
 
@@ -60,9 +61,22 @@ class HomePage extends React.Component {
     return (
       <div className={styles.homeRoute}>
         <h1 className={styles.title}>Home page</h1>
-        <TogglerWithTextDemo />
-        <TogglerCheckedDemo />
-        <TogglerDemo name="isBookable" />
+        <div>
+          <h5>TogglerDemo</h5>
+          <TogglerDemo name="isBookable" />
+        </div>
+        <div>
+          <h5>TogglerWithText</h5>
+          <TogglerWithText />
+        </div>
+        <div>
+          <h5>TogglerCheckedDemo</h5>
+          <TogglerCheckedDemo />
+        </div>
+        <div>
+          <h5>TogglerAcampDemo</h5>
+          <TogglerAcampDemo />
+        </div>
         <InputTagCreator instanceId={'1'} />
         <InputTagCreatorDemoJsStyles instanceId={'2'} />
         <InputTagCreatorDemoClassNames instanceId={'3'} />

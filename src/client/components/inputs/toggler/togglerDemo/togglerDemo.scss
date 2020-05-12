@@ -1,3 +1,17 @@
-.togglerWithTextDemoProp {
-  width: 60px;
+.togglerAcampDemoProp {
+  width: 80px;
+  height: 35px;
+  font-size: 18px;
+
+  $slider-ball-siz: 25px;
+
+  .sliderProp {
+    width: calc(100% - #{$slider-ball-siz});
+  }
+
+  .sliderBallProp {
+    height: $slider-ball-siz;
+    width: $slider-ball-siz;
+    padding: $slider-ball-siz / 2;
+  }
 }

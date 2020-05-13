@@ -40,12 +40,12 @@ function InputWithCounterAllerDemo() {
   return (
     <div>
       <h5>Aller Design</h5>
-      <p>allowed Range: -1 - 10</p>
+      <p>allowed Range: 1 - 10</p>
       <InputWithCounter
         className={classNames(styles.inputWithCounterAllerDemo)}
         classNameInput={styles.countValue}
         classNameCounterBtnLabel={styles.counterBtnLabels}
-        minRange={-1}
+        minRange={0}
         maxRange={10}
         onChange={setCurrentValue}
         currentValue={currentValue}

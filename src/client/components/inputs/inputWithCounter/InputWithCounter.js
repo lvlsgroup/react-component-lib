@@ -24,7 +24,7 @@ function InputWithCounter({
   function toggleMinus() {
     const value = typeof currentValue === 'undefined' ? 0 : currentValue;
 
-    if (minRange) {
+    if (isNumber(minRange)) {
       if (value > minRange) {
         onChange(value - 1);
       }
@@ -36,7 +36,7 @@ function InputWithCounter({
   function togglePlus() {
     const value = typeof currentValue === 'undefined' ? 0 : currentValue;
 
-    if (maxRange) {
+    if (isNumber(maxRange)) {
       if (value < maxRange) {
         onChange(value + 1);
       }
@@ -51,15 +51,15 @@ function InputWithCounter({
     if (isNaN(inputValue)) {
       onChange(undefined);
     } else {
-      if (maxRange && minRange) {
+      if (isNumber(maxRange) && isNumber(minRange)) {
         if (inputValue <= maxRange && inputValue >= minRange) {
           onChange(inputValue);
         }
-      } else if (maxRange) {
+      } else if (isNumber(maxRange)) {
         if (inputValue <= maxRange) {
           onChange(inputValue);
         }
-      } else if (minRange) {
+      } else if (isNumber(minRange)) {
         if (inputValue >= minRange) {
           onChange(inputValue);
         }
@@ -117,3 +117,7 @@ InputWithCounter.propTypes = {
 };
 
 export default React.memo(InputWithCounter);
+
+function isNumber(value) {
+  return typeof value === 'number';
+}

@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 import InputDatePicker from '@rc-lib-client/components/datePickers/inputDatePicker/InputDatePicker';
 import DropdownSelector from '@rc-lib-client/components/selectors/dropdownSelector/DropdownSelector';
 import AnimatedCarousel from '@rc-lib-client/components/carousels/animatedCarousel/AnimatedCarousel';
@@ -27,6 +28,7 @@ import {
   TogglerWithJsSize,
   TogglerWithText,
 } from '@rc-lib-client/components/inputs/toggler/togglerDemo/TogglerDemo';
+import UrlPagination from '@rc-lib-client/components/pagination/urlPagination/UrlPagination';
 import styles from './homePage.scss';
 
 const options = [
@@ -167,9 +169,31 @@ class HomePage extends React.Component {
           value={'some-id'}
         />
         <UrlInputDemo />
+        <UrlPagination
+          pageCount={20}
+          numberOfPagesToShow={11}
+          iconNextPageButton={<PaginationArrowIcon />}
+          iconLastPageButton={
+            <>
+              <PaginationArrowIcon />
+              <PaginationArrowIcon />
+            </>
+          }
+        />
       </div>
     );
   }
 }
 
 export default HomePage;
+
+const PaginationArrowIcon = ({ className }) => (
+  <svg className={classNames(className)} height="18" width="10">
+    <path
+      d={'M 2 2 L 8 9 L 2 16'}
+      stroke={'black'}
+      strokeWidth="3"
+      fill={'none'}
+    />
+  </svg>
+);

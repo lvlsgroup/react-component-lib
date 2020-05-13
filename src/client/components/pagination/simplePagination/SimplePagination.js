@@ -81,7 +81,7 @@ export default class SimplePagination extends React.PureComponent {
               <PaginationButton
                 key={`paginationBtn:${index}`}
                 index={signedIndex}
-                className={className(
+                className={classNames(
                   styles.paginationButton,
                   classNamePaginationButton
                 )}

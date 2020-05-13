@@ -6,6 +6,10 @@ import {
   TogglerWithJsSize,
   TogglerWithText,
 } from '@rc-lib-client/components/inputs/toggler/togglerDemo/TogglerDemo';
+import {
+  InputWithCounterAllerDemo,
+  InputWithCounterDemo,
+} from '@rc-lib-client/components/inputs/inputWithCounter/inputWithCounterDemo/inputWithCounterDemos';
 import styles from './inputsPage.scss';
 
 class InputsPage extends React.Component {
@@ -13,8 +17,8 @@ class InputsPage extends React.Component {
     return (
       <div className={styles.inputsPage}>
         <h1>Inputs Page</h1>
-        <div>
-          <h3>Togglers</h3>
+        <section>
+          <h3 className={styles.sectionTitle}>Togglers</h3>
           <Flex spaceBetween>
             <div>
               <h5>TogglerDemo</h5>
@@ -33,7 +37,14 @@ class InputsPage extends React.Component {
               <TogglerAcampDemo />
             </div>
           </Flex>
-        </div>
+        </section>
+        <section>
+          <h3 className={styles.sectionTitle}>Input Counters</h3>
+          <Flex spaceBetween>
+            <InputWithCounterDemo />
+            <InputWithCounterAllerDemo />
+          </Flex>
+        </section>
       </div>
     );
   }

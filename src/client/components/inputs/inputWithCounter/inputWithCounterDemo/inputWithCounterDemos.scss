@@ -1,0 +1,15 @@
+.inputWithCounterAllerDemo {
+  width: 200px;
+  height: 50px;
+  background-color: white;
+  border: none;
+
+  .countValue {
+    font-size: fontSize(20);
+  }
+
+  .counterBtnLabels {
+    color: #8e8e8e;
+    font-size: fontSize(30);
+  }
+}

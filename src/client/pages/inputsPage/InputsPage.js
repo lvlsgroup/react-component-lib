@@ -9,6 +9,7 @@ import {
 import {
   InputWithCounterAllerDemo,
   InputWithCounterDemo,
+  InputWithCounterMaxRange3Demo,
 } from '@rc-lib-client/components/inputs/inputWithCounter/inputWithCounterDemo/inputWithCounterDemos';
 import styles from './inputsPage.scss';
 
@@ -42,6 +43,7 @@ class InputsPage extends React.Component {
           <h3 className={styles.sectionTitle}>Input Counters</h3>
           <Flex spaceBetween>
             <InputWithCounterDemo />
+            <InputWithCounterMaxRange3Demo />
             <InputWithCounterAllerDemo />
           </Flex>
         </section>

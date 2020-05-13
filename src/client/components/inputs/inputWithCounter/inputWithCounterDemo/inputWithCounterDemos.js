@@ -18,6 +18,22 @@ function InputWithCounterDemo() {
   );
 }
 
+function InputWithCounterMaxRange3Demo() {
+  const [currentValue, setCurrentValue] = useState();
+
+  return (
+    <div>
+      <h5>Plain</h5>
+      <p>Max range 3 no min range</p>
+      <InputWithCounter
+        onChange={setCurrentValue}
+        currentValue={currentValue}
+        maxRange={3}
+      />
+    </div>
+  );
+}
+
 function InputWithCounterAllerDemo() {
   const [currentValue, setCurrentValue] = useState();
 
@@ -38,4 +54,8 @@ function InputWithCounterAllerDemo() {
   );
 }
 
-export { InputWithCounterDemo, InputWithCounterAllerDemo };
+export {
+  InputWithCounterDemo,
+  InputWithCounterMaxRange3Demo,
+  InputWithCounterAllerDemo,
+};

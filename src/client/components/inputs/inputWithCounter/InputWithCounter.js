@@ -51,8 +51,16 @@ function InputWithCounter({
     if (isNaN(inputValue)) {
       onChange(undefined);
     } else {
-      if (maxRange || minRange) {
+      if (maxRange && minRange) {
         if (inputValue <= maxRange && inputValue >= minRange) {
+          onChange(inputValue);
+        }
+      } else if (maxRange) {
+        if (inputValue <= maxRange) {
+          onChange(inputValue);
+        }
+      } else if (minRange) {
+        if (inputValue >= minRange) {
           onChange(inputValue);
         }
       } else {
@@ -75,7 +83,7 @@ function InputWithCounter({
       />
       <Input
         className={classNames(classNameInput, styles.input)}
-        value={currentValue === 0 ? currentValue : currentValue || ''}
+        value={currentValue ?? ''}
         type={'number'}
         onChange={handleInputChange}
         isDisabled={disableInput || isDisabled}

@@ -3,7 +3,6 @@ import classNames from 'classnames';
 import InputWithCounter from '@rc-lib-client/components/inputs/inputWithCounter/InputWithCounter';
 import styles from './inputWithCounterDemos.scss';
 
-// Style with classNames
 function InputWithCounterDemo() {
   const [currentValue, setCurrentValue] = useState();
 
@@ -19,7 +18,6 @@ function InputWithCounterDemo() {
   );
 }
 
-// Style with js object
 function InputWithCounterAllerDemo() {
   const [currentValue, setCurrentValue] = useState();
 

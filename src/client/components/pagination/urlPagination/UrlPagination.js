@@ -13,6 +13,9 @@ import Flex from '@rc-lib-client/components/flex/Flex';
 function UrlPagination({
   className,
   classNamePaginationButton,
+  classNameSelected,
+  classNameFirstLastButtons,
+  classNamePreviousNextButtons,
   pageCount,
   numberOfPagesToShow = 5,
   showEndOfRangeButtons = true,
@@ -61,7 +64,10 @@ function UrlPagination({
     <Flex justifyCenter className={classNames(className)}>
       {showEndOfRangeButtons && (
         <PaginationButton
-          className={classNamePaginationButton}
+          className={classNames(
+            classNamePaginationButton,
+            classNameFirstLastButtons
+          )}
           isDisabled={isFirstPage}
           onClick={onPaginationBtnClick}
           value={1}
@@ -70,7 +76,10 @@ function UrlPagination({
         </PaginationButton>
       )}
       <PaginationButton
-        className={classNamePaginationButton}
+        className={classNames(
+          classNamePaginationButton,
+          classNamePreviousNextButtons
+        )}
         isDisabled={isFirstPage}
         onClick={onPaginationBtnClick}
         value={currentPage - 1}
@@ -88,13 +97,17 @@ function UrlPagination({
               value={signedIndex}
               onClick={onPaginationBtnClick}
               isSelected={currentPage === signedIndex}
+              classNameSelected={classNameSelected}
             >
               {signedIndex}
             </PaginationButton>
           );
         })}
       <PaginationButton
-        className={classNamePaginationButton}
+        className={classNames(
+          classNamePaginationButton,
+          classNamePreviousNextButtons
+        )}
         isDisabled={isLastPage}
         onClick={onPaginationBtnClick}
         value={currentPage + 1}
@@ -103,7 +116,10 @@ function UrlPagination({
       </PaginationButton>
       {showEndOfRangeButtons && (
         <PaginationButton
-          className={classNamePaginationButton}
+          className={classNames(
+            classNamePaginationButton,
+            classNameFirstLastButtons
+          )}
           isDisabled={isLastPage}
           onClick={onPaginationBtnClick}
           value={safePageCount}
@@ -117,7 +133,10 @@ function UrlPagination({
 
 UrlPagination.propTypes = {
   className: PropTypes.string,
+  classNameSelected: PropTypes.string,
   classNamePaginationButton: PropTypes.string,
+  classNameFirstLastButtons: PropTypes.string,
+  classNamePreviousNextButtons: PropTypes.string,
   pageCount: PropTypes.number,
   onPaginationBtnClick: PropTypes.func,
   numberOfPagesToShow: PropTypes.number,
@@ -153,6 +172,7 @@ export default UrlPagination;
 
 function PaginationButton({
   className,
+  classNameSelected,
   onClick,
   value,
   isSelected,
@@ -163,6 +183,7 @@ function PaginationButton({
     return classNames({
       [styles.paginationButton]: true,
       [styles.isSelected]: isSelected,
+      [classNameSelected]: isSelected,
       [className]: !!className,
     });
   }

@@ -4,9 +4,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 32px;
+  min-width: 32px;
   height: 32px;
-  margin-left: 6px;
+  margin-left: 12px;
 
   &:first-child {
     margin-left: 0;

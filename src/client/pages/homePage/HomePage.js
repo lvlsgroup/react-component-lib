@@ -194,13 +194,24 @@ class HomePage extends React.Component {
           dontScrollToTop
           pageCount={20}
           slotFirst={'First'}
+          slotPrevious={'Previous'}
+          slotNext={'Next'}
           slotLast={'Last'}
+        />
+        <UrlPagination
+          dontScrollToTop
+          pageCount={20}
+          slotFirst={'First'}
+          slotLast={'Last'}
+          classNameFirstLastButtons={styles.paginationFirstLastProp}
         />
         <UrlPagination
           dontScrollToTop
           pageCount={20}
           showEndOfRangeButtons={false}
           numberOfPagesToShow={3}
+          classNamePaginationButton={styles.paginationButtonProp2}
+          classNamePreviousNextButtons={styles.paginationPreviousNextProp}
         />
       </div>
     );

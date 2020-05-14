@@ -1,0 +1,24 @@
+
+.paginationButton {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  margin-left: 6px;
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &:disabled {
+    cursor: default;
+  }
+}
+
+.isSelected {
+  background-color: black;
+  color: white;
+}
+

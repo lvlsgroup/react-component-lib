@@ -170,6 +170,7 @@ class HomePage extends React.Component {
         />
         <UrlInputDemo />
         <UrlPagination
+          dontScrollToTop
           pageCount={20}
           numberOfPagesToShow={11}
           iconNextPageButton={<PaginationArrowIcon />}

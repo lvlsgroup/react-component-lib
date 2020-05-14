@@ -1,59 +1,184 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useHistory, useLocation } from 'react-router-dom';
+import classNames from 'classnames/bind';
+import styles from '@rc-lib-client/components/pagination/urlPagination/urlPagination.scss';
 import {
   getSearchParams,
   getSearchQueryValue,
 } from '@rc-lib-client/shared/utils/urlUtils/urlUtils';
-import SimplePagination from '@rc-lib-client/components/pagination/simplePagination/SimplePagination';
+import { getFirstIndexInRange } from '@rc-lib-client/components/pagination/urlPagination/utils';
+import Flex from '@rc-lib-client/components/flex/Flex';
 
 function UrlPagination({
   className,
+  classNamePaginationButton,
   pageCount,
-  numberOfPagesToShow = 7,
-  scrollIntoViewRef,
-  iconNextPageButton,
-  iconLastPageButton,
+  numberOfPagesToShow = 5,
+  showEndOfRangeButtons = true,
+  dontScrollToTop,
+  slotFirst = '❮❮',
+  slotPrevious = '❮',
+  slotNext = '❯',
+  slotLast = '❯❯',
 }) {
   let history = useHistory();
   const location = useLocation();
 
-  const numberOfPagesToShowForcedToOddNumber =
-    numberOfPagesToShow % 2 ? numberOfPagesToShow : numberOfPagesToShow + 1;
+  const parsedCurrentPage = getSearchQueryValue(location.search, 'page') || 1;
+  const currentPage = parseInt(parsedCurrentPage);
+  const safePageCount = pageCount ? pageCount : 1;
+  const isLastPage = currentPage === safePageCount;
+  const isFirstPage = currentPage === 1;
 
-  function onPaginationBtnClick(index) {
-    const searchTest = getSearchParams(location, {
-      addParamsObj: { page: index },
-    });
+  const numberOfPagesOnEachSideOfCurrentPage =
+    numberOfPagesToShow > 1 ? (numberOfPagesToShow - 1) / 2 : 0;
 
-    history.push({
-      search: searchTest,
-      scrollIntoViewRef: scrollIntoViewRef,
-    });
+  const safeRangeOfPages =
+    safePageCount < numberOfPagesToShow ? safePageCount : numberOfPagesToShow;
+
+  const firstIndexInRange = getFirstIndexInRange(
+    currentPage,
+    numberOfPagesOnEachSideOfCurrentPage,
+    safeRangeOfPages,
+    safePageCount
+  );
+
+  function onPaginationBtnClick(value) {
+    if (value >= 1 && value <= safePageCount) {
+      const searchTest = getSearchParams(location, {
+        addParamsObj: { page: value },
+      });
+
+      history.push({
+        search: searchTest,
+        state: { dontScrollToTop: dontScrollToTop },
+      });
+    }
   }
-  const currentPage = getSearchQueryValue(location.search, 'page');
 
   return (
-    <div className={`${className ? ` ${className}` : ''}`}>
-      <SimplePagination
-        pageCount={pageCount}
-        currentPage={parseInt(currentPage || 1)}
-        onPaginationBtnClick={onPaginationBtnClick}
-        numberOfPagesToShow={numberOfPagesToShowForcedToOddNumber}
-        iconLastPageButton={iconLastPageButton}
-        iconNextPageButton={iconNextPageButton}
-      />
-    </div>
+    <Flex justifyCenter className={classNames(className)}>
+      {showEndOfRangeButtons && (
+        <PaginationButton
+          className={classNamePaginationButton}
+          isDisabled={isFirstPage}
+          onClick={onPaginationBtnClick}
+          value={1}
+        >
+          {slotFirst}
+        </PaginationButton>
+      )}
+      <PaginationButton
+        className={classNamePaginationButton}
+        isDisabled={isFirstPage}
+        onClick={onPaginationBtnClick}
+        value={currentPage - 1}
+      >
+        {slotPrevious}
+      </PaginationButton>
+      {Array(safeRangeOfPages)
+        .fill()
+        .map((_, index) => {
+          const signedIndex = index + firstIndexInRange;
+          return (
+            <PaginationButton
+              key={`page:${signedIndex}`}
+              className={classNamePaginationButton}
+              value={signedIndex}
+              onClick={onPaginationBtnClick}
+              isSelected={currentPage === signedIndex}
+            >
+              {signedIndex}
+            </PaginationButton>
+          );
+        })}
+      <PaginationButton
+        className={classNamePaginationButton}
+        isDisabled={isLastPage}
+        onClick={onPaginationBtnClick}
+        value={currentPage + 1}
+      >
+        {slotNext}
+      </PaginationButton>
+      {showEndOfRangeButtons && (
+        <PaginationButton
+          className={classNamePaginationButton}
+          isDisabled={isLastPage}
+          onClick={onPaginationBtnClick}
+          value={safePageCount}
+        >
+          {slotLast}
+        </PaginationButton>
+      )}
+    </Flex>
   );
 }
 
 UrlPagination.propTypes = {
   className: PropTypes.string,
+  classNamePaginationButton: PropTypes.string,
   pageCount: PropTypes.number,
-  location: PropTypes.object,
   onPaginationBtnClick: PropTypes.func,
   numberOfPagesToShow: PropTypes.number,
-  scrollIntoViewRef: PropTypes,
+  showEndOfRangeButtons: PropTypes.bool,
+  dontScrollToTop: PropTypes.bool,
+  slotFirst: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.array,
+    PropTypes.object,
+    PropTypes.func,
+  ]),
+  slotPrevious: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.array,
+    PropTypes.object,
+    PropTypes.func,
+  ]),
+  slotNext: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.array,
+    PropTypes.object,
+    PropTypes.func,
+  ]),
+  slotLast: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.array,
+    PropTypes.object,
+    PropTypes.func,
+  ]),
 };
 
 export default UrlPagination;
+
+function PaginationButton({
+  className,
+  onClick,
+  value,
+  isSelected,
+  isDisabled,
+  children,
+}) {
+  function getClassNames() {
+    return classNames({
+      [styles.paginationButton]: true,
+      [styles.isSelected]: isSelected,
+      [className]: !!className,
+    });
+  }
+
+  function handleBtnClick(event) {
+    onClick(event.target.value);
+  }
+
+  return (
+    <button
+      className={getClassNames()}
+      onClick={handleBtnClick}
+      disabled={isDisabled}
+      value={value}
+    >
+      {children}
+    </button>
+  );
+}

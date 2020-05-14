@@ -169,6 +169,7 @@ class HomePage extends React.Component {
           value={'some-id'}
         />
         <UrlInputDemo />
+        <h2>Pagination demos</h2>
         <UrlPagination
           classNamePaginationButton={styles.paginationButtonProp}
           dontScrollToTop
@@ -188,6 +189,18 @@ class HomePage extends React.Component {
               <IconArrowNext className={styles.iconPreviousProp} />
             </>
           }
+        />
+        <UrlPagination
+          dontScrollToTop
+          pageCount={20}
+          slotFirst={'First'}
+          slotLast={'Last'}
+        />
+        <UrlPagination
+          dontScrollToTop
+          pageCount={20}
+          showEndOfRangeButtons={false}
+          numberOfPagesToShow={3}
         />
       </div>
     );

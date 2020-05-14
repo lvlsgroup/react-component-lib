@@ -211,11 +211,6 @@ export default HomePage;
 
 const IconArrowNext = ({ className }) => (
   <svg className={classNames(className)} height="14" width="8">
-    <path
-      d={'M 2 2 L 6 7 L 2 12'}
-      stroke={'black'}
-      strokeWidth="2"
-      fill={'none'}
-    />
+    <path d={'M 2 2 L 6 7 L 2 12'} stroke={'black'} />
   </svg>
 );

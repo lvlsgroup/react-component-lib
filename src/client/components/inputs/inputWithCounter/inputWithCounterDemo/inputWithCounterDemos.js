@@ -34,6 +34,22 @@ function InputWithCounterMaxRange3Demo() {
   );
 }
 
+function InputWithCounterDisabled() {
+  const [currentValue, setCurrentValue] = useState();
+
+  return (
+    <div>
+      <h5>Plain</h5>
+      <p>Whole component disabled</p>
+      <InputWithCounter
+        onChange={setCurrentValue}
+        currentValue={currentValue}
+        isDisabled={true}
+      />
+    </div>
+  );
+}
+
 function InputWithCounterAllerDemo() {
   const [currentValue, setCurrentValue] = useState();
 
@@ -57,5 +73,6 @@ function InputWithCounterAllerDemo() {
 export {
   InputWithCounterDemo,
   InputWithCounterMaxRange3Demo,
+  InputWithCounterDisabled,
   InputWithCounterAllerDemo,
 };

@@ -170,14 +170,22 @@ class HomePage extends React.Component {
         />
         <UrlInputDemo />
         <UrlPagination
+          classNamePaginationButton={styles.paginationButtonProp}
           dontScrollToTop
           pageCount={20}
           numberOfPagesToShow={11}
-          iconNextPageButton={<PaginationArrowIcon />}
-          iconLastPageButton={
+          slotNext={<IconArrowNext />}
+          slotLast={
             <>
-              <PaginationArrowIcon />
-              <PaginationArrowIcon />
+              <IconArrowNext />
+              <IconArrowNext />
+            </>
+          }
+          slotPrevious={<IconArrowNext className={styles.iconPreviousProp} />}
+          slotFirst={
+            <>
+              <IconArrowNext className={styles.iconPreviousProp} />
+              <IconArrowNext className={styles.iconPreviousProp} />
             </>
           }
         />
@@ -188,12 +196,12 @@ class HomePage extends React.Component {
 
 export default HomePage;
 
-const PaginationArrowIcon = ({ className }) => (
-  <svg className={classNames(className)} height="18" width="10">
+const IconArrowNext = ({ className }) => (
+  <svg className={classNames(className)} height="14" width="8">
     <path
-      d={'M 2 2 L 8 9 L 2 16'}
+      d={'M 2 2 L 6 7 L 2 12'}
       stroke={'black'}
-      strokeWidth="3"
+      strokeWidth="2"
       fill={'none'}
     />
   </svg>

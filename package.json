@@ -53,6 +53,7 @@
     "react-dropzone": "10.1.10",
     "react-helmet-async": "^1.0.4",
     "react-id-swiper": "2.4.0",
+    "react-router": "^5.2.0",
     "react-router-config": "5.1.1",
     "react-router-dom": "5.1.2",
     "react-select": "3.0.8",

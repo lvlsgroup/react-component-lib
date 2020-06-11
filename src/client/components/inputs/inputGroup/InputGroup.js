@@ -33,15 +33,17 @@ const InputGroup = React.memo(
           leftLabel && styles.leftLabel
         )}
       >
-        <label
-          className={classNames(
-            styles.formLabel,
-            formLabelClassName,
-            leftLabel && styles.leftLabel
-          )}
-        >
-          {labelText}
-        </label>
+        {labelText && (
+          <label
+            className={classNames(
+              styles.formLabel,
+              formLabelClassName,
+              leftLabel && styles.leftLabel
+            )}
+          >
+            {labelText}
+          </label>
+        )}
         <Input
           placeholder={placeholder}
           className={classNames(

@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import Input from '@rc-lib-client/components/inputs/input/Input';
+import Input, {
+  ONLY as ONLY_INPUT,
+} from '@rc-lib-client/components/inputs/input/Input';
 import styles from './styles.scss';
 
 const InputGroup = React.memo(
@@ -24,6 +26,7 @@ const InputGroup = React.memo(
     errorLabel,
     placeholder,
     leftLabel,
+    regexAllowOnly,
   }) => {
     return (
       <div
@@ -60,6 +63,7 @@ const InputGroup = React.memo(
           value={value}
           defaultValue={defaultValue}
           tabIndex={tabIndex}
+          regexAllowOnly={regexAllowOnly}
         />
         {errorLabel && (
           <span
@@ -94,6 +98,9 @@ InputGroup.propTypes = {
   errorLabel: PropTypes.string,
   placeholder: PropTypes.string,
   leftLabel: PropTypes.bool,
+  regexAllowOnly: PropTypes.instanceOf(RegExp),
 };
 
 export default InputGroup;
+
+export const ONLY = ONLY_INPUT;

@@ -18,6 +18,7 @@ const Input = React.memo(
     placeholder,
     defaultValue,
     onClick,
+    inputRef,
     inputSize,
     regexAllowOnly,
   }) => {
@@ -41,6 +42,7 @@ const Input = React.memo(
         readOnly={readOnly}
         autoComplete={autoComplete}
         type={type}
+        ref={inputRef}
         name={name}
         onChange={onChange && handleChange}
         onBlur={onBlur}
@@ -69,6 +71,10 @@ Input.propTypes = {
   type: PropTypes.string,
   tabIndex: PropTypes.string,
   onChange: PropTypes.func,
+  inputRef: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({ current: PropTypes.any }),
+  ]),
   onBlur: PropTypes.func,
   onClick: PropTypes.func,
   regexAllowOnly: PropTypes.instanceOf(RegExp),

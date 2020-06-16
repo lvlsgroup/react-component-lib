@@ -25,6 +25,8 @@ jobs:
           command: npm run buildscript
 
   deploy-prod:
+    docker:
+      - image: google/cloud-sdk
 
     steps:
       - checkout

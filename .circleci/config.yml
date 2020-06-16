@@ -30,6 +30,7 @@ jobs:
 
     steps:
       - checkout
+      - setup_remote_docker
       - run:
           name: Publish component lib
           command: npm run deploy
@@ -51,7 +52,6 @@ workflows:
             branches:
               only:
                 - master
-                - test-auto-deploy
       - deploy-prod:
           requires:
             - test
@@ -59,4 +59,3 @@ workflows:
             branches:
               only:
                 - master
-                - test-auto-deploy

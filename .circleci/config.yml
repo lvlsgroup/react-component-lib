@@ -32,6 +32,9 @@ jobs:
       - checkout
       - setup_remote_docker
       - run:
+          name: Install dependencies
+          command: npm install
+      - run:
           name: Publish component lib
           command: npm run deploy
 

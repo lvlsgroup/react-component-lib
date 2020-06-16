@@ -44,7 +44,6 @@ workflows:
             branches:
               ignore:
                 - master
-                - test-auto-deploy
   deploy-prod:
     jobs:
       - test:

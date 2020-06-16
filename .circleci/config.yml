@@ -36,7 +36,9 @@ jobs:
           command: npm install
       - run:
           name: Publish component lib
-          command: npm run deploy
+          command: |
+            npm set //npm.pkg.github.com/:_authToken=${GITHUB_PERSONAL_ACCESS_TOKEN}
+            npm run deploy
 
 workflows:
   version: 2.1

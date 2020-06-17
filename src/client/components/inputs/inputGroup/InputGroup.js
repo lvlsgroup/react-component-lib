@@ -21,6 +21,7 @@ const InputGroup = React.memo(
     isDisabled,
     readOnly,
     type,
+    inputRef,
     tabIndex,
     defaultValue,
     errorLabel,
@@ -53,6 +54,7 @@ const InputGroup = React.memo(
             inputClassName,
             leftLabel && styles.leftLabelInput
           )}
+          inputRef={inputRef}
           disabled={isDisabled}
           readOnly={readOnly}
           autoComplete={autoComplete}
@@ -92,6 +94,10 @@ InputGroup.propTypes = {
   defaultValue: PropTypes.string,
   autoComplete: PropTypes.string,
   type: PropTypes.string,
+  inputRef: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({ current: PropTypes.any }),
+  ]),
   tabIndex: PropTypes.string,
   onChange: PropTypes.func,
   onBlur: PropTypes.func,

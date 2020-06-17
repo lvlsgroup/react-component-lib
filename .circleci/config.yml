@@ -1,0 +1,65 @@
+# Javascript Node CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+#
+version: 2.1
+jobs:
+  test:
+    docker:
+      - image: circleci/node:10
+
+    steps:
+      - checkout
+
+      - restore_cache:
+          key: v1-dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: install dependencies
+          command: npm ci --loglevel error
+      - save_cache:
+          key: v1-dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
+      - run:
+          name: build project
+          command: npm run buildscript
+
+  deploy-prod:
+    docker:
+      - image: circleci/node:10
+
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: Install dependencies
+          command: npm install
+      - run:
+          name: Publish component lib
+          command: |
+            npm set //npm.pkg.github.com/:_authToken=${GITHUB_PERSONAL_ACCESS_TOKEN}
+            npm run deploy
+
+workflows:
+  version: 2.1
+  test:
+    jobs:
+      - test:
+          filters:
+            branches:
+              ignore:
+                - master
+  deploy-prod:
+    jobs:
+      - test:
+          filters:
+            branches:
+              only:
+                - master
+      - deploy-prod:
+          requires:
+            - test
+          filters:
+            branches:
+              only:
+                - master

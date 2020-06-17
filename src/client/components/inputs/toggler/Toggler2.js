@@ -13,7 +13,7 @@ class Toggler2 extends React.PureComponent {
 
   handleChange = (event) => {
     const { name, passBackDataOnChange, onChange } = this.props;
-    onChange(event, passBackDataOnChange || name);
+    onChange && onChange(event, passBackDataOnChange || name);
   };
 
   render() {

@@ -11,6 +11,11 @@ class Toggler2 extends React.PureComponent {
     return size && unit && `${size}${unit}`;
   };
 
+  handleChange = (event) => {
+    const { name, passBackDataOnChange, onChange } = this.props;
+    onChange && onChange(event, passBackDataOnChange || name);
+  };
+
   render() {
     const {
       name,
@@ -19,7 +24,6 @@ class Toggler2 extends React.PureComponent {
       backgroundClassName,
       sliderClassName,
       sliderBallClassName,
-      onChange,
       onBlur,
       isChecked,
       checkedLabel,
@@ -39,7 +43,7 @@ class Toggler2 extends React.PureComponent {
           type="checkbox"
           name={name}
           value={isChecked}
-          onChange={onChange}
+          onChange={this.handleChange}
           onBlur={onBlur}
           checked={isChecked}
         />
@@ -86,6 +90,7 @@ Toggler2.propTypes = {
   onBlur: PropTypes.func,
   isChecked: PropTypes.bool,
   name: PropTypes.string,
+  passBackDataOnChange: PropTypes.any,
   width: PropTypes.string,
   height: PropTypes.string,
   ballSize: PropTypes.string,

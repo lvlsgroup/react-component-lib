@@ -11,6 +11,11 @@ class Toggler2 extends React.PureComponent {
     return size && unit && `${size}${unit}`;
   };
 
+  handleChange = (event) => {
+    const { name, onChange } = this.props;
+    onChange(event, name);
+  };
+
   render() {
     const {
       name,
@@ -19,7 +24,6 @@ class Toggler2 extends React.PureComponent {
       backgroundClassName,
       sliderClassName,
       sliderBallClassName,
-      onChange,
       onBlur,
       isChecked,
       checkedLabel,
@@ -39,7 +43,7 @@ class Toggler2 extends React.PureComponent {
           type="checkbox"
           name={name}
           value={isChecked}
-          onChange={onChange}
+          onChange={this.handleChange}
           onBlur={onBlur}
           checked={isChecked}
         />

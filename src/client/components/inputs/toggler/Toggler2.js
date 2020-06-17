@@ -12,8 +12,8 @@ class Toggler2 extends React.PureComponent {
   };
 
   handleChange = (event) => {
-    const { name, onChange } = this.props;
-    onChange(event, name);
+    const { name, passBackData, onChange } = this.props;
+    onChange(event, passBackData || name);
   };
 
   render() {
@@ -90,6 +90,7 @@ Toggler2.propTypes = {
   onBlur: PropTypes.func,
   isChecked: PropTypes.bool,
   name: PropTypes.string,
+  passBackData: PropTypes.any,
   width: PropTypes.string,
   height: PropTypes.string,
   ballSize: PropTypes.string,

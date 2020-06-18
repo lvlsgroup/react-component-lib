@@ -16,6 +16,7 @@ const InputGroup = React.memo(
     name,
     value,
     onChange,
+    onKeyDown,
     onBlur,
     autoComplete,
     isDisabled,
@@ -61,6 +62,7 @@ const InputGroup = React.memo(
           type={type}
           name={name}
           onChange={onChange}
+          onKeyDown={onKeyDown}
           onBlur={onBlur}
           value={value}
           defaultValue={defaultValue}
@@ -100,6 +102,7 @@ InputGroup.propTypes = {
   ]),
   tabIndex: PropTypes.string,
   onChange: PropTypes.func,
+  onKeyDown: PropTypes.func,
   onBlur: PropTypes.func,
   errorLabel: PropTypes.string,
   placeholder: PropTypes.string,

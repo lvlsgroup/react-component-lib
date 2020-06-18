@@ -9,6 +9,7 @@ const Input = React.memo(
     name,
     value,
     onChange,
+    onKeyDown,
     onBlur,
     autoComplete,
     isDisabled,
@@ -45,6 +46,7 @@ const Input = React.memo(
         ref={inputRef}
         name={name}
         onChange={onChange && handleChange}
+        onKeyDown={onKeyDown && onKeyDown}
         onBlur={onBlur}
         value={value}
         defaultValue={defaultValue}
@@ -71,6 +73,7 @@ Input.propTypes = {
   type: PropTypes.string,
   tabIndex: PropTypes.string,
   onChange: PropTypes.func,
+  onKeyDown: PropTypes.func,
   inputRef: PropTypes.oneOfType([
     PropTypes.func,
     PropTypes.shape({ current: PropTypes.any }),

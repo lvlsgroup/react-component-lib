@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 import InputDatePicker from '@rc-lib-client/components/datePickers/inputDatePicker/InputDatePicker';
 import DropdownSelector from '@rc-lib-client/components/selectors/dropdownSelector/DropdownSelector';
 import AnimatedCarousel from '@rc-lib-client/components/carousels/animatedCarousel/AnimatedCarousel';
@@ -27,6 +28,7 @@ import {
   TogglerWithJsSize,
   TogglerWithText,
 } from '@rc-lib-client/components/inputs/toggler/togglerDemo/TogglerDemo';
+import UrlPagination from '@rc-lib-client/components/pagination/urlPagination/UrlPagination';
 import styles from './homePage.scss';
 
 const options = [
@@ -167,9 +169,59 @@ class HomePage extends React.Component {
           value={'some-id'}
         />
         <UrlInputDemo />
+        <h2>Pagination demos</h2>
+        <UrlPagination
+          classNamePaginationButton={styles.paginationButtonProp}
+          dontScrollToTop
+          pageCount={20}
+          numberOfPagesToShow={11}
+          slotNext={<IconArrowNext />}
+          slotLast={
+            <>
+              <IconArrowNext />
+              <IconArrowNext />
+            </>
+          }
+          slotPrevious={<IconArrowNext className={styles.iconPreviousProp} />}
+          slotFirst={
+            <>
+              <IconArrowNext className={styles.iconPreviousProp} />
+              <IconArrowNext className={styles.iconPreviousProp} />
+            </>
+          }
+        />
+        <UrlPagination
+          dontScrollToTop
+          pageCount={20}
+          slotFirst={'First'}
+          slotPrevious={'Previous'}
+          slotNext={'Next'}
+          slotLast={'Last'}
+        />
+        <UrlPagination
+          dontScrollToTop
+          pageCount={20}
+          slotFirst={'First'}
+          slotLast={'Last'}
+          classNameFirstLastButtons={styles.paginationFirstLastProp}
+        />
+        <UrlPagination
+          dontScrollToTop
+          pageCount={20}
+          showEndOfRangeButtons={false}
+          numberOfPagesToShow={3}
+          classNamePaginationButton={styles.paginationButtonProp2}
+          classNamePreviousNextButtons={styles.paginationPreviousNextProp}
+        />
       </div>
     );
   }
 }
 
 export default HomePage;
+
+const IconArrowNext = ({ className }) => (
+  <svg className={classNames(className)} height="14" width="8">
+    <path d={'M 2 2 L 6 7 L 2 12'} stroke={'black'} />
+  </svg>
+);

@@ -44,3 +44,46 @@
     }
   }
 }
+
+.paginationButtonProp {
+  border-radius: 50%;
+
+  &:not(:disabled){
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+  }
+}
+
+.paginationButtonProp2 {
+  border-radius: 50%;
+  background-color: white;
+  color: black;
+
+  &:not(:disabled){
+    &:hover {
+
+      background-color: rgb(105, 161, 190);
+    }
+  }
+}
+
+.paginationButtonSelectedProp {
+  color: #1c537e;
+  background-color: rgb(138, 208, 243);
+}
+
+.paginationFirstLastProp {
+  color: white;
+  border: 1px solid white;
+  padding: 5px;
+}
+
+.paginationPreviousNextProp {
+  border: 1px solid white;
+  background-color: transparent;
+}
+
+.iconPreviousProp {
+  transform: rotate(180deg);
+}

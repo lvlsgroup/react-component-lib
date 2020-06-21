@@ -39,8 +39,9 @@ class DropzoneBox extends React.Component {
     const imgCanvas = this.cropper.getCroppedCanvas();
 
     if (typeof imgCanvas !== 'undefined') {
+      const { droppedFile } = this.state;
       this.toggleImageCropper();
-      this.props.onCroppedImgCanvas(imgCanvas);
+      this.props.onCroppedImgCanvas(imgCanvas, droppedFile);
     }
   };
 

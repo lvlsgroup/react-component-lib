@@ -5,6 +5,7 @@ import Dropzone from 'react-dropzone';
 import styles from './dropzoneWrapper.scss';
 
 function DropzoneWrapper({
+  dropzoneRef,
   expandWithHeight,
   centralizeChildren,
   children,
@@ -12,7 +13,7 @@ function DropzoneWrapper({
   multiple,
 }) {
   return (
-    <Dropzone multiple={multiple} onDrop={onFileDrop}>
+    <Dropzone ref={dropzoneRef} multiple={multiple} onDrop={onFileDrop}>
       {({ getRootProps, getInputProps }) => {
         return (
           <section
@@ -37,6 +38,10 @@ function DropzoneWrapper({
 }
 
 DropzoneWrapper.propTypes = {
+  dropzoneRef: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({ current: PropTypes.any }),
+  ]),
   expandWithHeight: PropTypes.bool,
   centralizeChildren: PropTypes.bool,
   onFileDrop: PropTypes.func,

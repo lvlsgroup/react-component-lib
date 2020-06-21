@@ -69,7 +69,13 @@ class DropzoneBox extends React.Component {
   };
 
   render() {
-    const { className, imgClassName, imgCropperOptions, imgSrc } = this.props;
+    const {
+      className,
+      dropzoneRef,
+      imgClassName,
+      imgCropperOptions,
+      imgSrc,
+    } = this.props;
     const { droppedFile } = this.state;
 
     return (
@@ -86,6 +92,7 @@ class DropzoneBox extends React.Component {
           />
         )}
         <DropzoneWrapper
+          dropzoneRef={dropzoneRef}
           centralizeChildren={true}
           expandWithHeight={true}
           onFileDrop={this.onFileDrop}
@@ -102,6 +109,10 @@ class DropzoneBox extends React.Component {
 
 DropzoneBox.propTypes = {
   className: PropTypes.string,
+  dropzoneRef: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({ current: PropTypes.any }),
+  ]),
   imgClassName: PropTypes.string,
   onFileDrop: PropTypes.func,
   onCroppedImgCanvas: PropTypes.func,

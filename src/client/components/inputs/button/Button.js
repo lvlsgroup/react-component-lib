@@ -20,7 +20,7 @@ function Button({
 
   return (
     <button
-      className={classNames(styles.iconButton, className)}
+      className={classNames(styles.button, className)}
       type={type}
       disabled={disabled}
       onClick={onClick}

@@ -1,0 +1,53 @@
+@mixin box-sizing($type: border-box) {
+  box-sizing: $type;
+  -moz-box-sizing: $type;
+  -webkit-box-sizing: $type;
+}
+
+@mixin onlyMobile() {
+  @media (max-width: $tablet) {
+    @content
+  }
+}
+
+@mixin bpMobileLandscape() {
+  @media (min-width: $mobile-landscape) {
+    @content
+  }
+}
+
+@mixin bpTablet() {
+  @media (min-width: $tablet) {
+    @content
+  }
+}
+
+@mixin bpDesktop() {
+  @media (min-width: $desktop) {
+    @content
+  }
+}
+
+@mixin bpWidescreenSmall() {
+  @media (min-width: $widescreen-small) {
+    @content
+  }
+}
+
+@mixin bpWidescreen() {
+  @media (min-width: $widescreen) {
+    @content
+  }
+}
+
+@mixin bpWidescreen300() {
+  @media (min-width: $widescreen300) {
+    @content
+  }
+}
+
+@mixin onlyMobile() {
+  @media (max-width: $tablet) {
+    @content
+  }
+}

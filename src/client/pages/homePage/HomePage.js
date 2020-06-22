@@ -23,12 +23,12 @@ import UrlInputDemo from '@rc-lib-client/components/urlinputs/urlInput/urlInputD
 import Input from '@rc-lib-client/components/inputs/input/Input';
 import {
   TogglerAcampDemo,
-  TogglerCheckedDemo,
   TogglerDemo,
   TogglerWithJsSize,
   TogglerWithText,
 } from '@rc-lib-client/components/inputs/toggler/togglerDemo/TogglerDemo';
 import UrlPagination from '@rc-lib-client/components/pagination/urlPagination/UrlPagination';
+import Icon from '@rc-lib-client/components/icons/icon/Icon';
 import styles from './homePage.scss';
 
 const options = [
@@ -63,7 +63,10 @@ class HomePage extends React.Component {
   render() {
     return (
       <div className={styles.homeRoute}>
-        <h1 className={styles.title}>Home page</h1>
+        <Flex>
+          <h1 className={styles.title}>Home page</h1>
+          <Icon iconClassName={styleHelper.iconasterisk} />
+        </Flex>
         <div>
           <h5>TogglerDemo</h5>
           <TogglerDemo name="isBookable" />

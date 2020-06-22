@@ -18,11 +18,14 @@ class DropzoneBox extends React.Component {
   }
 
   shouldComponentUpdate(nextProps, nextState, nextContext) {
-    return this.state.droppedFile !== nextState.droppedFile;
+    return (
+      this.state.droppedFile !== nextState.droppedFile ||
+      this.props.imgSrc !== nextProps.imgSrc
+    );
   }
 
   onFileDrop = (file) => {
-    const { onCroppedImgCanvas } = this.props;
+    const { onCroppedImgCanvas, passBackData } = this.props;
 
     if (onCroppedImgCanvas) {
       this.setState(() => {
@@ -31,7 +34,7 @@ class DropzoneBox extends React.Component {
         };
       });
     } else {
-      this.props.onFileDrop(file[0]);
+      this.props.onFileDrop(file[0], { passBackData });
     }
   };
 
@@ -39,8 +42,10 @@ class DropzoneBox extends React.Component {
     const imgCanvas = this.cropper.getCroppedCanvas();
 
     if (typeof imgCanvas !== 'undefined') {
+      const { droppedFile } = this.state;
+      const { passBackData, onCroppedImgCanvas } = this.props;
       this.toggleImageCropper();
-      this.props.onCroppedImgCanvas(imgCanvas);
+      onCroppedImgCanvas(imgCanvas, { droppedFile, passBackData });
     }
   };
 
@@ -68,7 +73,13 @@ class DropzoneBox extends React.Component {
   };
 
   render() {
-    const { className, imgClassName, imgCropperOptions, imgSrc } = this.props;
+    const {
+      className,
+      dropzoneRef,
+      imgClassName,
+      imgCropperOptions,
+      imgSrc,
+    } = this.props;
     const { droppedFile } = this.state;
 
     return (
@@ -85,6 +96,7 @@ class DropzoneBox extends React.Component {
           />
         )}
         <DropzoneWrapper
+          dropzoneRef={dropzoneRef}
           centralizeChildren={true}
           expandWithHeight={true}
           onFileDrop={this.onFileDrop}
@@ -101,10 +113,15 @@ class DropzoneBox extends React.Component {
 
 DropzoneBox.propTypes = {
   className: PropTypes.string,
+  dropzoneRef: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({ current: PropTypes.any }),
+  ]),
   imgClassName: PropTypes.string,
   onFileDrop: PropTypes.func,
   onCroppedImgCanvas: PropTypes.func,
   imgSrc: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  passBackData: PropTypes.any,
   imgCropperOptions: PropTypes.shape({
     classNameModal: PropTypes.string,
     classNameCropContainer: PropTypes.string,

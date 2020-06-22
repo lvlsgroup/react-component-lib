@@ -1,0 +1,33 @@
+@mixin _responsiveAndFluidItem($topSpacing, $leftSpacing, $mob, $mobLand, $tab, $des, $wide) {
+  flex-basis: calc(#{$mob} - #{$leftSpacing});
+  margin: $topSpacing 0 0 $leftSpacing;
+
+  @include bpMobileLandscape() {
+    flex-basis: calc(#{$mobLand} - #{$leftSpacing});
+  }
+
+  @include bpTablet() {
+    flex-basis: calc(#{$tab} - #{$leftSpacing});
+  }
+
+  @include bpDesktop() {
+    flex-basis: calc(#{$des} - #{$leftSpacing});
+  }
+
+  @include bpWidescreen300() {
+    flex-basis: calc(#{$wide} - #{$leftSpacing});
+  }
+}
+
+@mixin responsiveFluidGrid($topSpacing, $leftSpacing, $mob, $mobLand, $tab, $des, $wide) {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+  word-break: break-word;
+  flex-wrap: wrap;
+  margin: calc(0px - #{$topSpacing}) 0 0 calc(0px - #{$leftSpacing});
+
+  > * {
+    @include _responsiveAndFluidItem($topSpacing, $leftSpacing, $mob, $mobLand, $tab, $des, $wide);
+  }
+}

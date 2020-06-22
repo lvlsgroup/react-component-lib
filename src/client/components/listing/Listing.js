@@ -16,6 +16,7 @@ class Listing extends PureComponent {
       ListItemComponent,
       listItemProps,
       listItemObjectKey,
+      SlotLast,
     } = this.props;
 
     const objName = listItemObjectKey;
@@ -32,6 +33,7 @@ class Listing extends PureComponent {
               <ListItemComponent key={listItem.id || index} {...listProps} />
             );
           })}
+          {SlotLast}
         </div>
       </div>
     );
@@ -41,6 +43,7 @@ class Listing extends PureComponent {
 Listing.propTypes = {
   className: PropTypes.string,
   colClassName: PropTypes.string,
+  SlotLast: PropTypes.any,
   listItemObjectKey: PropTypes.string, // If you dont want to ...spread the listing item fields, instead you want to pass them encapsulated in an object to ListItemComponent
   list: PropTypes.array,
   ListItemComponent: PropTypes.any,

@@ -1,13 +1,12 @@
-* {
+*, *:before, *:after {
   @include box-sizing(border-box);
-}
-*:before,
-*:after {
-  @include box-sizing(border-box);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 html {
   font-family: $body-font;
+  font-size: $font-size-base;
   -ms-text-size-adjust: 100%; /* 2 */
   -webkit-text-size-adjust: 100%; /* 2 */
 }
@@ -17,59 +16,20 @@ p,blockquote,pre,
 dl,dd,
 form,
 table,th,td,caption,
-hr, figure {
+ul, ol,
+hr, figure,
+button {
   margin:0;
   padding:0;
 }
 
 button, a {
   cursor: pointer;
-  border: 0;
-  padding: 0;
-  background-color: transparent;
-}
-
-a {
+  border: none;
+  background: none;
   text-decoration: none;
 }
 
-h1, h2, h3, h4, h5 {
-  margin: 0 0 0.6rem;
-}
-
-h4, h5 {
-  margin: 0;
-}
-
-// Normalizing bottom margins for <p> elements
-p {
-  margin: 0 0 0.4rem;
-}
-
-html {
-  font-size: $font-size-base;
-}
-
-h1 {
-  font-size: $font-size-heading-xl;
-}
-
-h2 {
-  font-size: $font-size-heading-lg;
-}
-
-h3 {
-  font-size: $font-size-heading-md;
-}
-
-h4 {
-  font-size: $font-size-heading-sm;
-}
-
-h5 {
-  font-size: $font-size-heading-xs;
-}
-
-p, div, span {
-  font-size: $font-size-base;
+ul {
+  list-style-type: none;
 }

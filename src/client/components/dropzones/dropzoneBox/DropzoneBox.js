@@ -18,11 +18,14 @@ class DropzoneBox extends React.Component {
   }
 
   shouldComponentUpdate(nextProps, nextState, nextContext) {
-    return this.state.droppedFile !== nextState.droppedFile;
+    return (
+      this.state.droppedFile !== nextState.droppedFile ||
+      this.props.imgSrc !== nextProps.imgSrc
+    );
   }
 
   onFileDrop = (file) => {
-    const { onCroppedImgCanvas } = this.props;
+    const { onCroppedImgCanvas, passBackData } = this.props;
 
     if (onCroppedImgCanvas) {
       this.setState(() => {
@@ -31,7 +34,7 @@ class DropzoneBox extends React.Component {
         };
       });
     } else {
-      this.props.onFileDrop(file[0]);
+      this.props.onFileDrop(file[0], { passBackData });
     }
   };
 
@@ -40,8 +43,9 @@ class DropzoneBox extends React.Component {
 
     if (typeof imgCanvas !== 'undefined') {
       const { droppedFile } = this.state;
+      const { passBackData, onCroppedImgCanvas } = this.props;
       this.toggleImageCropper();
-      this.props.onCroppedImgCanvas(imgCanvas, droppedFile);
+      onCroppedImgCanvas(imgCanvas, { droppedFile, passBackData });
     }
   };
 
@@ -117,6 +121,7 @@ DropzoneBox.propTypes = {
   onFileDrop: PropTypes.func,
   onCroppedImgCanvas: PropTypes.func,
   imgSrc: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  passBackData: PropTypes.any,
   imgCropperOptions: PropTypes.shape({
     classNameModal: PropTypes.string,
     classNameCropContainer: PropTypes.string,

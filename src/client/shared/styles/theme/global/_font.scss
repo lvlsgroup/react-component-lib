@@ -1,5 +1,5 @@
 $body-font: 'Lato', Arial, sans-serif;
-$font-size-base: 100%; // 16px
+$font-size-base: 100%; // Dont overwrite the user’s browser setting by using an absolute unit like px
 
 $weight-light: 300;
 $weight-normal: 500;
@@ -27,7 +27,3 @@ $font-size-label-header-md: 1.125rem; // 18px
 // Buttons
 $font-size-button-md: 0.75rem; // 12px
 $font-size-button-lg: 0.875rem; // 14px
-
-@function fontSize($size) {
-  @return ($size/16) + rem;
-}

@@ -1,0 +1,3 @@
+@function fontSize($size) {
+  @return ($size/$font-size-base) + rem;
+}

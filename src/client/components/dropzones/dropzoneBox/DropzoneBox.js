@@ -39,7 +39,8 @@ class DropzoneBox extends React.Component {
   };
 
   onCropImage = () => {
-    const imgCanvas = this.cropper.getCroppedCanvas();
+    const options = this.props.imgCropperOptions?.croppedCanvasOptions;
+    const imgCanvas = this.cropper.getCroppedCanvas(options);
 
     if (typeof imgCanvas !== 'undefined') {
       const { droppedFile } = this.state;
@@ -130,7 +131,18 @@ DropzoneBox.propTypes = {
     checkImageOrigin: PropTypes.bool,
     aspectRatio: PropTypes.number,
     guides: PropTypes.bool,
-    viewMode: PropTypes.number,
+    viewMode: PropTypes.oneOf([0, 1, 2, 3]),
+    croppedCanvasOptions: PropTypes.shape({
+      width: PropTypes.number,
+      height: PropTypes.number,
+      minWidth: PropTypes.number,
+      minHeight: PropTypes.number,
+      maxWidth: PropTypes.number,
+      maxHeight: PropTypes.number,
+      fillColor: PropTypes.string,
+      imageSmoothingEnabled: PropTypes.bool,
+      imageSmoothingQuality: PropTypes.oneOf(['low', 'medium', 'high']),
+    }),
   }),
 };
 

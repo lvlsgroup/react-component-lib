@@ -39,7 +39,7 @@ ImageCropper.propTypes = {
   aspectRatio: PropTypes.number,
   guides: PropTypes.bool,
   checkImageOrigin: PropTypes.bool,
-  viewMode: PropTypes.number,
+  viewMode: PropTypes.oneOf([0, 1, 2, 3]),
   zoomable: PropTypes.bool,
 };
 

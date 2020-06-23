@@ -18,6 +18,7 @@ class Toggler2 extends React.PureComponent {
 
   render() {
     const {
+      inputRef,
       name,
       className,
       inputClassName,
@@ -39,6 +40,7 @@ class Toggler2 extends React.PureComponent {
         className={classNames(styles.toggler, className)}
       >
         <input
+          ref={inputRef}
           className={classNames(styles.inputToggler, inputClassName)}
           type="checkbox"
           name={name}
@@ -79,6 +81,7 @@ class Toggler2 extends React.PureComponent {
 }
 
 Toggler2.propTypes = {
+  inputRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
   inputClassName: PropTypes.string,
   backgroundClassName: PropTypes.string,
   sliderClassName: PropTypes.string,

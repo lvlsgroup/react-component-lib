@@ -26,7 +26,9 @@ export function getCompressedCanvasBlob(
     canvas.toBlob(
       function(blob) {
         const blobSize = blob.size;
-        if (blobSize > compressUnderXBytes) {
+        const quality = qualityArgument - compressBy;
+
+        if (blobSize > compressUnderXBytes && quality > 0) {
           const quality = qualityArgument - compressBy;
           resolve(
             getCompressedCanvasBlob(
@@ -41,6 +43,7 @@ export function getCompressedCanvasBlob(
         } else {
           resolve({
             blob: blob,
+            compressedBy: compressBy,
             wasCompressed: compressBy > compressIncrementer,
           });
         }

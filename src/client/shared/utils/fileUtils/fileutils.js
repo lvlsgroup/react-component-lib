@@ -16,7 +16,7 @@ export function getCanvasBlob(canvas, mimeType, qualityArgument) {
 
 export function getCompressedCanvasBlob(
   canvas,
-  compressUnderXBytes,
+  compressTargetInBytes,
   mimeType,
   qualityArgument = 1,
   compressBy = 0.08,
@@ -28,12 +28,12 @@ export function getCompressedCanvasBlob(
         const blobSize = blob.size;
         const quality = qualityArgument - compressBy;
 
-        if (blobSize > compressUnderXBytes && quality > 0) {
+        if (blobSize > compressTargetInBytes && quality > 0) {
           const quality = qualityArgument - compressBy;
           resolve(
             getCompressedCanvasBlob(
               canvas,
-              compressUnderXBytes,
+              compressTargetInBytes,
               'image/jpeg',
               quality,
               compressBy + compressIncrementer,

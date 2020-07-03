@@ -25,6 +25,8 @@ class Toggler2 extends React.PureComponent {
       backgroundClassName,
       sliderClassName,
       sliderBallClassName,
+      checkedLabelClassName,
+      unCheckedLabelClassName,
       onBlur,
       isChecked,
       checkedLabel,
@@ -53,11 +55,13 @@ class Toggler2 extends React.PureComponent {
           className={classNames(styles.togglerBackground, backgroundClassName)}
         />
         <div
-          style={{ width: `calc(100% - ${ballSize})` }}
+          style={{ width: ballSize && `calc(100% - ${ballSize})` }}
           className={classNames(styles.slider, sliderClassName)}
         >
           {checkedLabel && (
-            <span className={classNames(styles.checkedLabel)}>
+            <span
+              className={classNames(styles.checkedLabel, checkedLabelClassName)}
+            >
               {checkedLabel}
             </span>
           )}
@@ -70,7 +74,12 @@ class Toggler2 extends React.PureComponent {
             className={classNames(styles.sliderBall, sliderBallClassName)}
           />
           {unCheckedLabel && (
-            <span className={classNames(styles.unCheckedLabel)}>
+            <span
+              className={classNames(
+                styles.unCheckedLabel,
+                unCheckedLabelClassName
+              )}
+            >
               {unCheckedLabel}
             </span>
           )}
@@ -81,14 +90,16 @@ class Toggler2 extends React.PureComponent {
 }
 
 Toggler2.propTypes = {
+  className: PropTypes.string,
   inputRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
   inputClassName: PropTypes.string,
   backgroundClassName: PropTypes.string,
   sliderClassName: PropTypes.string,
   sliderBallClassName: PropTypes.string,
+  checkedLabelClassName: PropTypes.string,
+  unCheckedLabelClassName: PropTypes.string,
   unCheckedLabel: PropTypes.string,
   checkedLabel: PropTypes.string,
-  className: PropTypes.string,
   onChange: PropTypes.func,
   onBlur: PropTypes.func,
   isChecked: PropTypes.bool,

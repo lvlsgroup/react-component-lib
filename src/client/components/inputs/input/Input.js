@@ -87,4 +87,6 @@ export default Input;
 
 export const ONLY = {
   DIGITS: /^\d+$/,
+  DIGITS_ONE_COMMA_OR_DOT: /^[\d]+([.,])?[\d]*$/,
+  DIGITS_COMMA_OR_DOT: /^[\d]+(([.][\d]+)|([,][\d]+))*[,.]?$/,
 };

@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
 class Image extends PureComponent {
@@ -6,7 +7,7 @@ class Image extends PureComponent {
     const { className, src, alt, height, width, ...rest } = this.props;
     return (
       <img
-        className={className || ''}
+        className={classNames(className)}
         src={src}
         height={height}
         width={width}

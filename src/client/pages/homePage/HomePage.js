@@ -98,10 +98,68 @@ class HomePage extends React.Component {
           <Flex flexNr={1}>HELLO</Flex>
           <Flex flexNr={1}>HELLO</Flex>
         </Flex>
-        <Flex resColSystem="col12s1640">
-          <input type="text" />
-          <input type="text" />
+        <div>
+          <Flex>
+            <Button
+              label={`Button`}
+              className={styles.button}
+              startIcon={
+                <ToggleArrowSvg
+                  color={'blue'}
+                  onToggle={this.state.isToggled}
+                />
+              }
+              onClick={() => console.log('hello')}
+              endIcon={styleHelper.iconCoffee}
+            />
+            <DropdownSelector
+              selected={[{ value: 'vanilla', label: 'Vanilla' }]}
+              instanceId={'someId2'}
+              options={options}
+              onChange={(e) => {
+                console.log('hello', e);
+              }}
+            />
+          </Flex>
+          <Flex resClassNameContainer={styles.mgt16} resColSystem="col12s1640">
+            <input type="text" />
+            <input type="text" />
+            <input type="text" />
+          </Flex>
+        </div>
+        <Flex resClassNameContainer={styles.mgt16} resColSystem="col12s1640">
+          <div style={{ backgroundColor: 'lightBlue' }}>1</div>
+          <div style={{ backgroundColor: 'lightBlue' }}>1</div>
+          <div style={{ backgroundColor: 'lightBlue' }}>1</div>
         </Flex>
+        <div>
+          <h5>col12_1616</h5>
+          <Flex resClassNameContainer={styles.mgt16} resColSystem="col12_s1616">
+            <div style={{ backgroundColor: 'lightYellow' }}>1</div>
+            <div style={{ backgroundColor: 'lightYellow' }}>1</div>
+            <div style={{ backgroundColor: 'lightYellow' }}>1</div>
+          </Flex>
+        </div>
+        <div>
+          <h5>col222s1616</h5>
+          <Flex resClassNameContainer={styles.mgt16} resColSystem="col222s1616">
+            <div style={{ backgroundColor: 'lightGreen' }}>1</div>
+            <div style={{ backgroundColor: 'lightGreen' }}>1</div>
+            <div style={{ backgroundColor: 'lightGreen' }}>1</div>
+          </Flex>
+        </div>
+        <div>
+          <h5>FLEX</h5>
+          <Flex>
+            <div style={{ backgroundColor: 'lightGreen' }}>1</div>
+            <div
+              className={styles.secondCol}
+              style={{ backgroundColor: 'lightGreen' }}
+            >
+              1
+            </div>
+          </Flex>
+        </div>
         <Line />
         <Grid resColSystem="res1234" colGap="10px" rowGap="10px">
           <input type="text" />

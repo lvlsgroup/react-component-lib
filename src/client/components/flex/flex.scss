@@ -1,3 +1,7 @@
+.flexContainer {
+  overflow: hidden;
+}
+
 .flexCol {
   display: flex;
   flex-direction: column;
@@ -41,14 +45,10 @@
     margin: $wrap-topSpacing 0 0 $wrap-leftSpacing;
 
     @include bpTablet() {
-      margin: $wrap-topSpacing 0 0 $wrap-leftSpacing;
-
       flex-basis: calc(50% -  #{$wrap-leftSpacing});
     }
 
     @include bpDesktop() {
-      margin: 0 0 0 $wrap-leftSpacing;
-
       flex-basis: 100%;
     }
   }
@@ -76,4 +76,24 @@
 
 .col12s1414 {
   @include _col12(14px, 14px);
+}
+
+.col222s1616 {
+  @include bpDesktop() {
+    flex-wrap: nowrap;
+  }
+
+  @include responsiveFluidGrid(16px, 16px, 50%, 50%, 50%, 100%, 100%);
+}
+
+.col12_s88 {
+  @include responsiveFluidGrid(8px, 8px, 100%, 50%, 50%, 50%, 50%);
+}
+
+.col12_s1616 {
+  @include responsiveFluidGrid(16px, 16px, 100%, 50%, 50%, 50%, 50%);
+}
+
+.col12_s2424 {
+  @include responsiveFluidGrid(24px, 24px, 100%, 50%, 50%, 50%, 50%);
 }

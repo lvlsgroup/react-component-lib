@@ -28,8 +28,20 @@ class ReactLink extends PureComponent {
 
 ReactLink.propTypes = {
   className: PropTypes.string,
-  to: PropTypes.string,
-  state: PropTypes.object,
+  innerRef: PropTypes.string,
+  title: PropTypes.string,
+  replace: PropTypes.bool,
+  component: PropTypes.elementType,
+  to: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.shape({
+      pathname: PropTypes.string,
+      search: PropTypes.string,
+      hash: PropTypes.string,
+      state: PropTypes.object,
+    }),
+    PropTypes.func,
+  ]),
 };
 
 export default ReactLink;

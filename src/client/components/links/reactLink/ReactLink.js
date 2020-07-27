@@ -28,7 +28,7 @@ class ReactLink extends PureComponent {
 
 ReactLink.propTypes = {
   className: PropTypes.string,
-  innerRef: PropTypes.string,
+  innerRef: PropTypes.func,
   title: PropTypes.string,
   replace: PropTypes.bool,
   component: PropTypes.elementType,

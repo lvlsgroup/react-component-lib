@@ -188,7 +188,7 @@ class HomePage extends React.Component {
             return <div key={newsItem.id}>{newsItem.text}</div>;
           })}
         </AnimatedCarousel>
-        <InputDatePicker selected={new Date()} />
+        <InputDatePicker selected={new Date()} SlotBottom={<h1>HELLO</h1>} />
         <DropdownSelector
           selected={[{ value: 'vanilla', label: 'Vanilla' }]}
           instanceId={'someId'}

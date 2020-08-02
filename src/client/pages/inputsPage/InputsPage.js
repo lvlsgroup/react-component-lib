@@ -12,6 +12,9 @@ import {
   InputWithCounterDisabled,
   InputWithCounterMaxRange3Demo,
 } from '@rc-lib-client/components/inputs/inputWithCounter/inputWithCounterDemo/inputWithCounterDemos';
+import InputDatePicker from '@rc-lib-client/components/datePickers/inputDatePicker/InputDatePicker';
+import { isToday } from '@rc-lib-client/shared/utils/dateUtils/DateUtils';
+import { InputDatePickerDemo } from '@rc-lib-client/components/datePickers/inputDatePicker/togglerDemo/InputDatePickerDemo';
 import styles from './inputsPage.scss';
 
 class InputsPage extends React.Component {
@@ -47,6 +50,24 @@ class InputsPage extends React.Component {
             <InputWithCounterMaxRange3Demo />
             <InputWithCounterAllerDemo />
             <InputWithCounterDisabled />
+          </Flex>
+        </section>
+        <section>
+          <h3 className={styles.sectionTitle}>Input Datepickers</h3>
+          <Flex spaceBetween>
+            <InputDatePicker
+              selected={new Date()}
+              SlotBottom={<h1>HELLO</h1>}
+              dayClassName={(date) =>
+                isToday(date) ? undefined : styles.inputDatePickerDay
+              }
+            />
+            <InputDatePicker
+              selected={new Date()}
+              noBorderPopper
+              hideTopTriangleClipPath
+            />
+            <InputDatePickerDemo />
           </Flex>
         </section>
       </div>

@@ -26,7 +26,7 @@ export function routeWithSubRoutes(route, index) {
 
 export function preloadRoutes(routes, excludedRoutes) {
   routes.forEach((route) => {
-    if (!excludedRoutes.includes(route.componentPath)) {
+    if (!excludedRoutes || !excludedRoutes?.includes(route.componentPath)) {
       route.Component.preload();
     }
   });

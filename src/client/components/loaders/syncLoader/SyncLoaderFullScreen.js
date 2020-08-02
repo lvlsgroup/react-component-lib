@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from './syncLoader.scss';
 
-function SyncLoader({ className }) {
+function SyncLoaderFullScreen({ className }) {
   return (
     <div className={classNames(styles.loaderFullScreen)}>
       <div
@@ -19,9 +19,9 @@ function SyncLoader({ className }) {
   );
 }
 
-SyncLoader.propTypes = {
+SyncLoaderFullScreen.propTypes = {
   className: PropTypes.string,
   fullScreen: PropTypes.bool,
 };
 
-export default SyncLoader;
+export default SyncLoaderFullScreen;

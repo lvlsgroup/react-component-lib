@@ -1,10 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import styles from './syncLoader.scss';
 
-function SyncLoader({ className }) {
+function SyncLoader({ className, fullScreen }) {
   return (
-    <div className={styles.loader}>
+    <div
+      className={classNames(
+        fullScreen ? styles.loaderFullScreen : styles.syncLoader
+      )}
+    >
       <div
         className={`${styles.loaderContent}${className ? ` ${className}` : ''}`}
       >
@@ -20,6 +25,7 @@ function SyncLoader({ className }) {
 
 SyncLoader.propTypes = {
   className: PropTypes.string,
+  fullScreen: PropTypes.bool,
 };
 
 export default SyncLoader;

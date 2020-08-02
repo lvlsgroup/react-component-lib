@@ -1,0 +1,45 @@
+.popperClassNameProp {
+  :global {
+    .react-datepicker__header {
+      background-color: white;
+    }
+
+    .react-datepicker__day-names {
+      font-weight: bold;
+      margin-top: 6px;
+    }
+  }
+}
+
+.onlyFirstLetterDayName {
+  :global {
+    .react-datepicker__day-name {
+      visibility: hidden;
+
+      &:first-letter {
+        visibility: visible;
+      }
+    }
+  }
+}
+
+.noBorderPopper {
+  :global {
+    .react-datepicker__header {
+      border: none;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+    .react-datepicker {
+      border: none;
+    }
+  }
+}
+
+.hideTopTriangleClipPath {
+  :global {
+    .react-datepicker__triangle {
+      display: none;
+    }
+  }
+}

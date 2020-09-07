@@ -14,7 +14,7 @@ function InputDatePicker({
   selected,
   onChange,
   dateFormat,
-  placeholder,
+  placeholderText,
   popperModifiers,
   disabled,
   selectsStart,
@@ -57,7 +57,7 @@ function InputDatePicker({
       selected={selected}
       onChange={onChange}
       dateFormat={dateFormat}
-      placeholder={placeholder}
+      placeholderText={placeholderText}
       disabled={disabled}
       selectsStart={selectsStart}
       selectsEnd={selectsEnd}
@@ -83,7 +83,7 @@ InputDatePicker.propTypes = {
   selected: PropTypes.instanceOf(Date),
   onChange: PropTypes.func,
   dateFormat: PropTypes.string,
-  placeholder: PropTypes.string,
+  placeholderText: PropTypes.string,
   popperModifiers: PropTypes.object,
   disabled: PropTypes.bool,
   selectsStart: PropTypes.bool,

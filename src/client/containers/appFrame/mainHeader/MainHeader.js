@@ -16,6 +16,9 @@ class MainHeader extends PureComponent {
             <ReactLink className={styles.menuLink} to={`/inputs-page`}>
               Inputs Page
             </ReactLink>
+            <ReactLink className={styles.menuLink} to={`/modals-page`}>
+              Modals Page
+            </ReactLink>
           </Flex>
         </div>
       </header>

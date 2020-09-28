@@ -1,25 +1,40 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
+import { useHistory, useLocation } from 'react-router-dom';
+import { toggleSearchParam } from '@rc-lib-client/shared/utils/urlUtils/urlUtils';
 import {
   ModalFixedCentered,
   OverLay,
   Trigger,
 } from '@rc-lib-client/components/modals/modalFixedCentered/modalUtils';
 
-// ModalQuickUrl give better UX. Keep this for support of our old sites and if you cannot have params in the URL.
-function ModalQuick({
+/* Use this instead of ModalQuick if you want the modal to close on back button or
+  if you want to link to a specific page and have the modal open.
+  Gives a bit better UX, especially on Android phones since its possible to close a modal when pressing back btn */
+function ModalQuickUrl({
   overlayClassName,
   stopBackgroundScroll = true,
+  urlSearchParamKey = 'modal_open',
+  urlSearchParamValue = 'true',
   modalClassName,
   TriggerElement,
   triggerPropKey,
   shouldTriggerReceiveState,
   ModalContent,
 }) {
-  const [isModalOpen, setIsOpen] = useState(false);
+  console.log('Render ModalQuickUrl');
+  const history = urlSearchParamKey && useHistory();
+  const location = urlSearchParamKey && useLocation();
+
+  const searchParamKeyValue = `${urlSearchParamKey}=${urlSearchParamValue}`;
+  const isModalOpen = location.search.includes(searchParamKeyValue);
 
   function toggleModal() {
-    setIsOpen(!isModalOpen);
+    if (isModalOpen) {
+      history.goBack();
+    } else {
+      toggleSearchParam(searchParamKeyValue, location, history.push);
+    }
   }
 
   return (
@@ -49,11 +64,13 @@ function ModalQuick({
   );
 }
 
-ModalQuick.defaultProps = {
+ModalQuickUrl.defaultProps = {
   triggerPropKey: 'onClick',
 };
 
-ModalQuick.propTypes = {
+ModalQuickUrl.propTypes = {
+  urlSearchParamKey: PropTypes.string,
+  urlSearchParamValue: PropTypes.string,
   overlayClassName: PropTypes.string,
   stopBackgroundScroll: PropTypes.bool,
   modalClassName: PropTypes.string,
@@ -63,4 +80,4 @@ ModalQuick.propTypes = {
   ModalContent: PropTypes.any,
 };
 
-export default React.memo(ModalQuick);
+export default React.memo(ModalQuickUrl);

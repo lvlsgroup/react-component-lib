@@ -1,0 +1,43 @@
+.defaultDialog {
+  width: 632px;
+  background-color: $color-white;
+  padding: 16px 16px 72px 16px;
+
+  @include bpMobileLandscape(){
+    box-shadow: 0 -1px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+
+  .btnCross {
+    margin-left: auto;
+  }
+
+  .title {
+    margin: 24px auto 0 auto;
+    text-align: center;
+    max-width: 415px;
+  }
+
+  .description {
+    margin: 16px auto 0 auto;
+    text-align: center;
+    max-width: 415px;
+  }
+
+  .btnContainer {
+    margin: 56px auto 0 auto;
+    width: 262px;
+
+    .buttonConfirm {
+      flex: 1;
+    }
+
+    .btnCancel {
+      margin-left: 16px;
+      flex: 1;
+
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+}

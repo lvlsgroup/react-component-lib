@@ -14,7 +14,6 @@ const RES_COL_SYSTEM = [
   'col222s1616',
   'col12_s1616',
   'col12_s88',
-  'col12_s1616',
   'col12_s2424',
 ];
 

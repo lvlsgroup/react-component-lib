@@ -88,3 +88,45 @@ export function toggleSearchQuery(
     state: historyState,
   });
 }
+
+/* Same as toggleSearchQuery but more performant, doesnt sort url params. */
+export function toggleSearchParam(searchParam, location, historyAction) {
+  const deliminatorIndex = location.search.indexOf(searchParam) - 1;
+
+  if (deliminatorIndex === -2) {
+    const deliminator = location.search ? '&' : '?';
+    const searchParamToAdd = deliminator + searchParam;
+
+    historyAction({
+      ...location,
+      search: location.search + searchParamToAdd,
+    });
+  } else {
+    const deliminator = location.search.substring(
+      deliminatorIndex,
+      deliminatorIndex + 1
+    );
+    const searchParamToRemove = deliminator + searchParam;
+
+    historyAction({
+      ...location,
+      search: location.search.replace(searchParamToRemove, ''),
+    });
+  }
+}
+
+export function isHashNameInUrl(hashName, location) {
+  return location.hash?.includes(hashName);
+}
+
+export function toggleUrlHash(hashName, location, historyAction) {
+  const isHashInUrl = isHashNameInUrl(hashName, location);
+  const hashString = isHashInUrl
+    ? location.hash.replace(hashName, '')
+    : location.hash + hashName;
+
+  historyAction({
+    ...location,
+    hash: hashString,
+  });
+}

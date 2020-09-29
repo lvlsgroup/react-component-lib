@@ -22,7 +22,6 @@ function ModalQuickUrl({
   shouldTriggerReceiveState,
   ModalContent,
 }) {
-  console.log('Render ModalQuickUrl');
   const history = urlSearchParamKey && useHistory();
   const location = urlSearchParamKey && useLocation();
 
@@ -69,7 +68,7 @@ ModalQuickUrl.defaultProps = {
 };
 
 ModalQuickUrl.propTypes = {
-  urlSearchParamKey: PropTypes.string,
+  urlSearchParamKey: PropTypes.string.isRequired, // This needs to be unique if more than one component uses this component, ie, in a list (use id or index as a name than)
   urlSearchParamValue: PropTypes.string,
   overlayClassName: PropTypes.string,
   stopBackgroundScroll: PropTypes.bool,

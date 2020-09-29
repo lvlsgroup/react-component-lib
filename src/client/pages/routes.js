@@ -11,6 +11,7 @@ const options = {
 export const ROUTES = {
   home: '/',
   inputsPage: '/inputs-page',
+  modalsPage: '/modals-page',
   undefined: '/go-to-undefined',
 };
 
@@ -26,6 +27,12 @@ export default [
     exact: true,
     componentPath: 'pages/inputsPage/InputsPage',
     Component: universal(import('pages/inputsPage/InputsPage'), options),
+  },
+  {
+    path: ROUTES.modalsPage,
+    exact: true,
+    componentPath: 'pages/modalsPage/ModalsPage',
+    Component: universal(import('pages/modalsPage/ModalsPage'), options),
   },
   {
     path: ROUTES.undefined,

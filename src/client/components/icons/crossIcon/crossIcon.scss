@@ -15,6 +15,18 @@
     width: 3px;
   }
 
+  &.mdCross {
+    &:before, &:after {
+      height: 60%;
+    }
+  }
+
+  &.lgCross {
+    &:before, &:after {
+      height: 80%;
+    }
+  }
+
   &:before {
     transform: rotate(45deg);
   }
@@ -41,9 +53,27 @@ button.crossIcon {
   border: none;
   cursor: pointer;
 
-  &:hover {
-    &:before, &:after {
-      height: 60%;
+  &.expandCrossOnHover {
+    &:hover {
+      &:before, &:after {
+        height: 56%;
+      }
+    }
+
+    &.mdCross {
+      &:hover {
+        &:before, &:after {
+          height: 72%;
+        }
+      }
+    }
+
+    &.lgCross {
+      &:hover {
+        &:before, &:after {
+          height: 92%;
+        }
+      }
     }
   }
 }

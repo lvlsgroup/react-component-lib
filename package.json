@@ -5,7 +5,7 @@
   "name": "react-component-lib",
   "author": "lvlsgroup",
   "description": "A component library for react",
-  "version": "0.9.32",
+  "version": "0.9.33",
   "main": "src/server/server.js",
   "license": "MIT",
   "scripts": {

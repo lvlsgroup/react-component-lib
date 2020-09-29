@@ -14,6 +14,7 @@ class Image extends PureComponent {
       sizes,
       ...rest
     } = this.props;
+
     return (
       <img
         className={classNames(className)}

@@ -4,7 +4,17 @@ import PropTypes from 'prop-types';
 
 class Image extends PureComponent {
   render() {
-    const { className, src, alt, height, width, ...rest } = this.props;
+    const {
+      className,
+      src,
+      alt,
+      height,
+      width,
+      srcSet,
+      sizes,
+      ...rest
+    } = this.props;
+
     return (
       <img
         className={classNames(className)}
@@ -12,6 +22,8 @@ class Image extends PureComponent {
         height={height}
         width={width}
         alt={alt}
+        srcSet={srcSet}
+        sizes={sizes}
         {...rest}
       />
     );
@@ -24,6 +36,8 @@ Image.propTypes = {
   alt: PropTypes.string,
   height: PropTypes.string,
   width: PropTypes.string,
+  srcSet: PropTypes.string,
+  sizes: PropTypes.string,
 };
 
 export default Image;

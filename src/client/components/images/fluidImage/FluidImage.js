@@ -8,6 +8,8 @@ function FluidImage({
   classNameContainer,
   classNameImage,
   aspectRatio,
+  srcSet,
+  sizes,
   alt,
 }) {
   const paddingBottomPercentage = `${(1 / aspectRatio) * 100}%`;
@@ -21,6 +23,8 @@ function FluidImage({
         src={src}
         className={classNames(styles.fluidImage, classNameImage)}
         alt={alt}
+        srcSet={srcSet}
+        sizes={sizes}
       />
     </div>
   );
@@ -31,7 +35,9 @@ FluidImage.propTypes = {
   classNameContainer: PropTypes.string,
   classNameImage: PropTypes.string,
   alt: PropTypes.string,
-  aspectRatio: PropTypes.number,
+  aspectRatio: PropTypes.number, // Use this instead of height and width
+  srcSet: PropTypes.string,
+  sizes: PropTypes.string,
 };
 
 export default FluidImage;

@@ -39,7 +39,7 @@
     "react-dropzone": "10.1.10",
     "react-id-swiper": "2.4.0",
     "react-select": "3.0.8",
-    "swiper": "5.2.1",
+    "swiper": "6.5.1",
     "url-parse": "^1.4.7"
   },
   "devDependencies": {

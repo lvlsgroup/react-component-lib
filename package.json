@@ -116,7 +116,7 @@
     "react-router-dom": "5.1.2",
     "react-universal-component": "^4.0.0",
     "serve-favicon": "2.5.0",
-    "shelljs": "0.8.3",
+    "shelljs": "0.8.5",
     "react-helmet-async": "^1.0.4"
   },
   "repository": {
